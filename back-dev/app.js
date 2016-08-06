@@ -7,6 +7,7 @@ var conf = require('./config'),
     User = require('./models/user'),
     Trip = require('./models/trip');
 
+// connect to DB
 mongoose.connect(databaseUrl);
 
 // configure app to use bodyParser()
@@ -57,6 +58,20 @@ router.route('/trip')
   // get all trips
   .get(function(req, res) {
     Trip.find(function(err, trips) {
+      if (err)
+        res.send(err);
+      else
+        res.json(trips);
+    });
+  });
+
+// search API
+router.route('/trip/search/:type/:source/:destination')
+  .get(function(req, res) {
+    Trip.find({deliveryType: req.params.type,
+      source : req.params.source,
+      destination: req.params.destinatin
+    }, function(err, trips) {
       if (err)
         res.send(err);
       else
