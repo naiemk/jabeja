@@ -3,10 +3,12 @@ var express = require('express'),
     conf = require('./config'),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
+    path = require('path');
     User = require('./models/user'),
     Trip = require('./models/trip');
-    path = require('path');
-    databaseUrl = 'localhost:27017/jabeja',
+
+var app = express();
+var databaseUrl = 'localhost:27017/jabeja';
 
 // connect to DB
 mongoose.connect(databaseUrl);

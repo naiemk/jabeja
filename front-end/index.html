@@ -103,7 +103,11 @@
   the FB.login() function when clicked.
 -->
 
-<fb:login-button scope="public_profile,email,user_friends" onlogin="checkLoginState();">
+<fb:login-button
+  data-size='xlarge'
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+  Log in with Facebook
 </fb:login-button>
 
 <div id="status">
