@@ -1,11 +1,12 @@
-var conf = require('./config'),
+var app = express(),
+    conf = require('./config'),
     express = require('express'),
-    app = express(),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
-    databaseUrl = 'localhost:27017/jabeja',
     User = require('./models/user'),
     Trip = require('./models/trip');
+    path = require('path');
+    databaseUrl = 'localhost:27017/jabeja',
 
 // connect to DB
 mongoose.connect(databaseUrl);
@@ -84,10 +85,13 @@ router.route('/trip/search/:type/:source/:destination')
 //   .get(function(req, res) {})
 //   .post(function(req, res) {});
 
-
 // all of our APIs are prefixed with "jabeja/api"
 // Example: http://jabeja.com/jabeja/api/getuser
 app.use('/jabeja/api', router);
+
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname+'/../front-end/index.html'));
+});
 
 app.listen(port);
 console.log("Server is running on port: " + port);
