@@ -26,13 +26,34 @@ router.route('/trip')
     var trip = new Trip();
     trip.name = req.body.name;
     trip.email = req.body.email;
-    trip.save(function(err) {
+    trip.rate = req.body.rate;
+    trip.deliveryType = req.body.deliveryType;
+    trip.source = req.body.source;
+    trip.dest = req.body.dest;
+    trip.finishDate = req.body.finishDate;
+
+    // check if there is a duplicate record already
+    Trip.count({name : trip.name, email : trip.email,
+      deliveryType : trip.deliveryType, source : trip.source,
+      dest : trip.dest, finishDate : trip.finishDate},
+      function(err, c) {
         if (err)
           res.send(err);
-        else
-          res.json({message: 'Success.'});
-    });
+        else {
+          //same record already exists.
+          if (c !== 0) res.json({message: 'Duplicate Record'});
+          else {
+            trip.save(function(err) {
+                if (err)
+                  res.send(err);
+                else
+                  res.json({message: 'Success.'});
+            });
+          }
+        }
+      });
   })
+
   // get all trips
   .get(function(req, res) {
     Trip.find(function(err, trips) {
