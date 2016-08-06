@@ -4,8 +4,8 @@ var Schema = mongoose.Schema;
 var TripSchema = new Schema({
   name: String,
   email : String,
-  rate : number,
-  deliveryType: boolean, //0 => Money, 1 => Document
+  rate : Number,
+  deliveryType: Boolean, //0 => Money, 1 => Document
   source: String,
   dest: String,
   finishDate: Date

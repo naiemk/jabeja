@@ -32,6 +32,15 @@ router.route('/trip')
         else
           res.json({message: 'Success.'});
     });
+  })
+  // get all trips
+  .get(function(req, res) {
+    Trip.find(function(err, trips) {
+      if (err)
+        res.send(err);
+      else
+        res.json(trips);
+    });
   });
 
 // Route API
