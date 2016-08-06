@@ -1,0 +1,28 @@
+{
+  "name": "jabeja",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naiemk/jabeja.git"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "author": "M.Dibay",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0", 
+    "mongojs": "^0.18.2"
+  },
+  "bugs": {
+    "url": "https://github.com/naiemk/jabeja/issues"
+  },
+  "homepage": "https://github.com/naiemk/jabeja#readme"
+}
