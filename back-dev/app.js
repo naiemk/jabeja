@@ -16,6 +16,9 @@ mongoose.connect(databaseUrl);
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static(
+  path.join(__dirname+'/../front-end/ui')
+));
 
 // setup the server port number
 var port = process.env.PORT || conf.devport;
@@ -91,7 +94,7 @@ router.route('/trip/search/:type/:source/:destination')
 app.use('/jabeja/api', router);
 
 app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname+'/../front-end/index.html'));
+  res.sendFile(path.join(__dirname+'/../front-end/ui/index.html'));
 });
 
 app.listen(port);
