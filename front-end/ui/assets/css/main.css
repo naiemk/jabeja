@@ -1287,7 +1287,7 @@ label{
 }
 
 body {
-    background-image: url(/ui/img/slider/asfalt.png)
+    background-image: url(/img/slider/asfalt.png)
     }
 
 .space {
@@ -1295,7 +1295,7 @@ body {
 }
 
 .panel-body {
-    background-image: url(/ui/img/slider/asfalt.png)
+    background-image: url(/img/slider/asfalt.png)
 }
 .wide {
   width: 256px;
