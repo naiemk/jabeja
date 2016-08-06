@@ -1,6 +1,6 @@
-var app = express(),
+var express = require('express'),
+    app = express(),
     conf = require('./config'),
-    express = require('express'),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
     User = require('./models/user'),
@@ -43,13 +43,13 @@ router.route('/trip')
           res.send(err);
         else {
           //same record already exists.
-          if (c !== 0) res.json({message: 'Duplicate Record'});
+          if (c !== 0) res.json({message: 'duplicate'});
           else {
             trip.save(function(err) {
                 if (err)
                   res.send(err);
                 else
-                  res.json({message: 'Success.'});
+                  res.json({message: 'success.'});
             });
           }
         }
@@ -63,6 +63,18 @@ router.route('/trip')
         res.send(err);
       else
         res.json(trips);
+    });
+  })
+
+  // delete a trip
+  .delete(function(req, res) {
+    Trip.remove({name : req.params.name, email : req.params.email,
+      deliveryType : req.params.deliveryType, source : req.params.source,
+      dest : req.params.dest, finishDate : req.params.finishDate},
+    function(err) {
+      if (err)
+        res.send(err);
+      else res.json({message: 'success'});
     });
   });
 
@@ -80,10 +92,32 @@ router.route('/trip/search/:type/:source/:destination')
     });
   });
 
-// Route API
-// router.route('user')
-//   .get(function(req, res) {})
-//   .post(function(req, res) {});
+// User API
+router.route('/user')
+
+  // adding a user
+  .post(function(req, res) {
+    var user = new User();
+    user.name = req.body.name;
+    user.fbId = req.body.fbId;
+    user.email = req.body.email;
+    user.phone = req.body.phone;
+    user.rate = req.body.rate;
+
+    User.count({name : user.name, fbId : user.fbId,
+      email : user.email, phone : user.email,
+      rate : user.rate}, function(err, c) {
+        if (c !== 0) res.json({message: 'already exists.'});
+        else {
+          user.save(function(err) {
+              if (err)
+                res.send(err);
+              else
+                res.json({message: 'success.'});
+          });
+        }
+      });
+  });
 
 // all of our APIs are prefixed with "jabeja/api"
 // Example: http://jabeja.com/jabeja/api/getuser
