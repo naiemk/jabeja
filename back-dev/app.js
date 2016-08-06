@@ -97,5 +97,9 @@ app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname+'/../front-end/ui/index.html'));
 });
 
+app.get('/login', function(req, res) {
+  res.sendFile(path.join(__dirname+'/../front-end/ui/login.html'));
+});
+
 app.listen(port);
 console.log("Server is running on port: " + port);
