@@ -60,7 +60,7 @@
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
-      getFriendList(response.authResponse.userID);
+      redirectToIndex(response.authResponse.userID);
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -95,6 +95,10 @@
       }
     });
   }
+
+  function redirectToIndex(userID) {
+    window.location = '#user_id:'+userID;
+  };
 </script>
 
 <!--
