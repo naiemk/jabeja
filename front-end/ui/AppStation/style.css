@@ -21,7 +21,7 @@ Tags: light, white, App landing page,landing page,single page,Bootstrap,responsi
   #CLIENTS
   #CONTACT
   #FOOTER
-  #RESPONSIVE CSS 
+  #RESPONSIVE CSS
 */
 
 
@@ -30,20 +30,20 @@ Tags: light, white, App landing page,landing page,single page,Bootstrap,responsi
 /*--------------------*/
 
 body{
-  overflow-x: hidden !important; 
-  
+  overflow-x: hidden !important;
+
 }
 h1,h2,h3,h4,h5,h6{
   font-family: 'Roboto', sans-serif;
   color: #FFD200;
 }
  h1 {
-  color: #FFD200;  
+  color: #FFD200;
   font-size: 47px;
   margin-bottom: 15px;
   margin-top: 0;
   font-weight: lighter;
-  
+
 }
 a:hover,a:focus{
   text-decoration: none;
@@ -104,13 +104,13 @@ img{border: none;}
 }
 .scrollToTop i{
   transform: rotate(-45deg);
-} 
+}
 .scrollToTop:hover, .scrollToTop:focus{
   background-color: #ffffff;
   color: #ffd200 !important;
   text-decoration: none;
   outline: none;
-  border:1px solid #ffd200; 
+  border:1px solid #ffd200;
 }
 
 /*--------------------*/
@@ -139,12 +139,12 @@ img{border: none;}
 }
 .logo {
   color: #ffffff !important;
-  display: block; 
+  display: block;
   font-size: 30px !important;
   margin-bottom: 15px;
   margin-top: 15px;
   padding: 14px 10px;
-  text-align: center;  
+  text-align: center;
 }
 .logo > span {
   color: #FFD200;
@@ -154,7 +154,7 @@ img{border: none;}
   text-decoration: none;
 }
 .navbar-default {
- background-color:none; 
+ background-color:none;
  border-color: none;
 }
 .menu_area{
@@ -177,7 +177,7 @@ img{border: none;}
   margin-right: 5px;
   padding-bottom: 15px;
   padding-top: 12px;
-  text-transform: uppercase; 
+  text-transform: uppercase;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   -ms-transition: all 0.5s;
@@ -204,13 +204,13 @@ img{border: none;}
 }
 .header_content h1 {
   color: #fff;
-  font-size: 50px; 
+  font-size: 50px;
   margin-top: 106px;
   margin-bottom: 6px;
 }
 .header_content p {
   color: #FFFFFF;
-  font-size: 40px; 
+  font-size: 40px;
 }
 .header_btnarea {
   display: inline;
@@ -223,7 +223,7 @@ img{border: none;}
 .learnmore_btn {
   border: 1px solid #FFFFFF;
   color: #FFFFFF;
-  display: inline-block;  
+  display: inline-block;
   font-size: 18px;
   margin: 0 25px;
   padding: 12px 0;
@@ -240,12 +240,12 @@ img{border: none;}
 .download_btn{
   border: 1px solid #FFFFFF;
   color: #FFFFFF;
-  display: inline-block; 
+  display: inline-block;
   font-size: 18px;
   padding: 12px 0;
   text-align: center;
   width: 164px;
-  margin-right: 3px; 
+  margin-right: 3px;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   -ms-transition: all 0.5s;
@@ -269,7 +269,7 @@ img{border: none;}
   width: 58%;
   margin-top: 15%;
 }
-.slide_descright h1 { 
+.slide_descright h1 {
   font-size: 35px;
   text-transform: uppercase;
 }
@@ -297,7 +297,7 @@ img{border: none;}
   text-align: center;
 }
 .features_ara h1 {
-  color: #FFD200; 
+  color: #FFD200;
   font-size: 47px;
   margin-bottom: 15px;
 }
@@ -318,7 +318,7 @@ img{border: none;}
   display: inline;
   float: left;
   padding: 15px 15px;
-  width: 100%;  
+  width: 100%;
   margin-left:0px;
 }
 .desktop_icon{
@@ -384,15 +384,15 @@ img{border: none;}
 }
 .featprodcs_content h1{
   text-align: left;
-  color: #FFD200;  
+  color: #FFD200;
   font-size: 47px;
   margin-bottom: 30px;
-  margin-top: 0px;  
+  margin-top: 0px;
 }
 .featprodcs_content p{
   text-align: left;
   color: #606060;
-  font-size: 17px;  
+  font-size: 17px;
 }
 .img-responsive {
   display: inline-block;
@@ -410,11 +410,11 @@ img{border: none;}
 .media_content{padding-left: 6px;}
 .media_content h4{
   color: #FFD200;
-  font-size: 20px;  
+  font-size: 20px;
 }
 .media_content p{
   color: #606060;
-  font-size: 17px;  
+  font-size: 17px;
 }
 .direction_icon {
   background: none repeat scroll 0 0 #FFFFFF;
@@ -476,12 +476,12 @@ img{border: none;}
   text-align: center;
 }
 .app_content h1 {
-  color: #FFD200;  
+  color: #FFD200;
   font-size: 47px;
   margin-bottom: 15px;
 }
 .app_content p{
-  color: #606060; 
+  color: #606060;
   font-size: 18px;
   line-height: 28px;
 }
@@ -516,7 +516,7 @@ img{border: none;}
  border-bottom: 1px solid #DCDCDC;
 }
 .chapterNav li a{
-  color: #606060;  
+  color: #606060;
   font-size: 18px;
   line-height: 28px;
 }
@@ -544,9 +544,9 @@ img{border: none;}
 }
 .appdownload p{
   color: #fff;
-  font-size: 30px;  
+  font-size: 30px;
 }
-.appdownload p > span { 
+.appdownload p > span {
   margin-right: 5px;
 }
 .appdown_btn{
@@ -569,7 +569,7 @@ img{border: none;}
 }
 
 #priceList>p{
-  color: #606060; 
+  color: #606060;
   margin-bottom: 12px;
   font-size: 18px;
   padding: 0 10%;
@@ -617,7 +617,7 @@ img{border: none;}
   margin-top: 15px;
   padding-top: 5px;
   text-align: center;
-  width: 92px; 
+  width: 92px;
   visibility: visible;
 }
 .single_pricelist_box {
@@ -638,7 +638,7 @@ img{border: none;}
   height: 100%;
   padding-bottom: 90px;
   padding-top: 90px;
-  width: 100%;  
+  width: 100%;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   -ms-transition: all 0.5s;
@@ -652,11 +652,11 @@ img{border: none;}
   width: 100%;
 }
 .single_pricelist_content h1{
-  color: #FFD200;  
+  color: #FFD200;
   font-size: 25px;
 }
 .single_pricelist_content p {
-  color: #606060; 
+  color: #606060;
   font-size: 15px;
   padding: 0 40px;
   text-align: left;
@@ -702,7 +702,7 @@ img{border: none;}
   width: 100%;
 }
 .video_area> p {
-  color: #606060;  
+  color: #606060;
   font-size: 20px;
   margin-top: 25px;
 }
@@ -733,7 +733,7 @@ img{border: none;}
   text-align: center;
 }
 .testimonila_area > p {
-  color: #606060; 
+  color: #606060;
   font-size: 20px;
   margin-top: 25px;
 }
@@ -772,7 +772,7 @@ img{border: none;}
 }
 .slider_content span {
   color: #CCCCCC;
-  display: block;  
+  display: block;
   font-size: 20px;
 }
 .carousel-indicators {
@@ -831,16 +831,16 @@ img{border: none;}
 .newsletter_left h2{
   margin-top: 0px;
   color: #fff;
-  font-size: 45px;  
+  font-size: 45px;
 }
 .newsletter_left h2 > span {
-  color: #FFD200;  
+  color: #FFD200;
   margin-left: 8px;
 }
 .newsletter_left p{
   margin-top: 0px;
   color: #fff;
-  font-size:18px; 
+  font-size:18px;
 }
 .newsletter_right{
   float: left;
@@ -850,7 +850,7 @@ img{border: none;}
 .newsletter_right form {
   background: none repeat scroll 0 0 #FFFFFF;
   margin: 0;
-  width: 530px;  
+  width: 530px;
 }
 .newsletter_right form input[type="email"] {
   border: medium none;
@@ -982,7 +982,7 @@ img{border: none;}
 }
 .contact_area p {
   color: #606060;
-  font-size: 20px;  
+  font-size: 20px;
 }
 .contact_left{
   float: left;
@@ -991,7 +991,7 @@ img{border: none;}
   text-align: left;
   margin-top: 58px;
 }
-.contact_left h1 {    
+.contact_left h1 {
   font-size: 30px;
   margin-top: 0;
   margin-bottom: 0px;
@@ -1010,7 +1010,7 @@ img{border: none;}
   width: 20px;
 }
 .contact_media_body h4{
-  color: #606060;  
+  color: #606060;
   font-size: 15px;
 }
 .contact_social{
@@ -1064,12 +1064,12 @@ img{border: none;}
 .contact_right{
   float: left;
   display: inline;
-  width: 100%; 
+  width: 100%;
   margin-top: 58px;
 }
 .footer_form input {
   border-radius: 0px;
-  color: #909090;  
+  color: #909090;
 }
 .footer_form input[type="text"] {
   font-size: 15px;
@@ -1083,7 +1083,7 @@ img{border: none;}
   height: 50px;
   margin-bottom: 30px;
   padding-left: 15px;
-  padding-right: 15px;  
+  padding-right: 15px;
 }
 
 .footer_form textarea{
@@ -1106,7 +1106,7 @@ img{border: none;}
   margin-top: 18px;
   outline: medium none;
   text-align: center;
-  width: 120px;  
+  width: 120px;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   -ms-transition: all 0.5s;
@@ -1152,7 +1152,7 @@ img{border: none;}
 }
 .footer_area p{
   color: #909090;
-  font-size: 15px; 
+  font-size: 15px;
 }
 .footer_area p>a{
   color: #ffd200;
@@ -1208,11 +1208,11 @@ img{border: none;}
   .slide_descright p {font-size: 12px;}
   .learnmore_btn {margin: 0 25px 20px;width: 140px; font-size: 15px;}
   .download_btn {font-size: 15px;width: 140px;}
-  .navbar-nav.navbar-right:last-child {margin-right: 1%;}  
+  .navbar-nav.navbar-right:last-child {margin-right: 1%;}
   .header_btnarea { margin-top: 40px;}
   .skdslider .slide-desc > h1 {font-size: 35px;  margin-bottom: 0px;  margin-top: 106px;}
   .skdslider .slide-desc > p {color: #FFFFFF;font-family: 'Roboto-Thin';font-size: 19px;line-height: 18px;margin-top:5px;padding: 8px;}
-  .skdslider {height: 500px;}   
+  .skdslider {height: 500px;}
 }
 
 @media(max-width:767px){

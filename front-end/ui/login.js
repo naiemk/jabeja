@@ -2,17 +2,40 @@
 (function() {
     angular.module("jabeja").component('loginBox', {
             template : `
-            <center>
-                    <a href="#featuresSection" class="learnmore_btn">Login</a>
+            <div ng-hide="ctrl.loggedIn">
               <center>
+                    <a href="/login" class="learnmore_btn">Login with Facebook</a>
+              <center>
+            </div>
+            <div ng-show="ctrl.loggedIn">
+              <center>
+                    <a class="learnmore_btn">Welcome {{ctrl.name}}</a>
+              <center>
+            </div>
             `,
-            controller : function LoginBoxController() {
+            controller : function LoginBoxController($http, $timeout) {
                 var ctrl = this;
-                var menus = this.menuItems;
-                ctrl.items = [];
+                var parts = (window.location.hash || "").split(/user_id:/);
+                if (parts.length == 2) {
+                  var userId = parts.length[1];
+                  $http({ method: 'GET', url: '/user', params: {userId: userId} }).then(
+                      function success(result) {
+                          $timeout(function() {
+                            ctrl.name = result.data.name;
+                          });
+                      },
+                      function error(err) {
+                          errorCallback(err);
+                      }
+                  );
+                  ctrl.loggedIn = true;
+                } else {
+                  ctrl.loggedIn = false;
+                };
+
                 return this;
             },
-            controllerAs : 'action',
+            controllerAs : 'ctrl',
             bindings: {
             }
         });

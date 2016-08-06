@@ -98,7 +98,7 @@ router.route('/trip/search/:type/:source/:destination')
   });
 
 // User API
-router.route('/user')
+router.route('/user0') // I also added user, commenting this out for now
 
   // adding a user
   .post(function(req, res) {
@@ -123,6 +123,12 @@ router.route('/user')
         }
       });
   });
+=======
+
+// Route API
+// router.route('user')
+//   .get(function(req, res) {})
+//   .post(function(req, res) {});
 
 // all of our APIs are prefixed with "jabeja/api"
 // Example: http://jabeja.com/jabeja/api/getuser
@@ -134,6 +140,29 @@ app.get('/', function(req, res) {
 
 app.get('/login', function(req, res) {
   res.sendFile(path.join(__dirname+'/../front-end/ui/login.html'));
+});
+
+app.get('/updateUser', function(req, res) {
+  var user = new User();
+  user.id = req.query.id;
+  user.name = req.query.name;
+  user.fbId = req.query.userId;
+
+  user.save(function err(err) {
+    if (err)
+      res.send(err);
+    else
+      res.json({message: 'Success.'});
+  })
+});
+
+app.get('/user', function(req, res) {
+  var userId = req.query.userId;
+  User.findOne( { userId: req.query.id }, function(err, user) {
+    if (!err&& user.name) {
+      res.json({name: user.name});
+    }
+  });
 });
 
 app.listen(port);

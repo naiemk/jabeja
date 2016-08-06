@@ -3,6 +3,7 @@
 <head>
 <title>Facebook Login JavaScript Example</title>
 <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 </head>
 <body>
 <script>
@@ -60,7 +61,19 @@
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
-      redirectToIndex(response.authResponse.userID);
+      FB.api('/' + response.authResponse.userID, function(dat) {
+        console.log(dat);
+        dat.userId = response.authResponse.userID;
+        $.ajax({
+          dataType: "json",
+          url: "/updateUser" ,
+          data: dat,
+          Success: function() {
+            console.log("Saved user info");
+          }
+        });
+        redirectToIndex(response.authResponse.userID);
+      });
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -97,7 +110,7 @@
   }
 
   function redirectToIndex(userID) {
-    window.location = '#user_id:'+userID;
+    window.location = '/#/user_id:' + userID;
   };
 </script>
 

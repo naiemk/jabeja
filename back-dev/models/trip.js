@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var TripSchema = new Schema({
+  id: String,
   name: String,
   email : String,
   rate : Number,
