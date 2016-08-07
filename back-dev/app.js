@@ -123,7 +123,6 @@ router.route('/user0') // I also added user, commenting this out for now
         }
       });
   });
-=======
 
 // Route API
 // router.route('user')
@@ -142,27 +141,43 @@ app.get('/login', function(req, res) {
   res.sendFile(path.join(__dirname+'/../front-end/ui/login.html'));
 });
 
-app.get('/updateUser', function(req, res) {
-  var user = new User();
-  user.id = req.query.id;
-  user.name = req.query.name;
-  user.fbId = req.query.userId;
+app.findUser = function(userId, callBack) {
+  console.log("GETTING", userId)
+  console.log('cb', callBack);
+  User.findOne( { id: userId }, function(err, user) {
+    console.log(err, user)
+    if (!err) {
+      callBack(user);
+    };
+  });
+}
 
-  user.save(function err(err) {
-    if (err)
-      res.send(err);
-    else
-      res.json({message: 'Success.'});
-  })
+app.get('/updateUser', function(req, res) {
+  app.findUser(req.query.id, function(userBack) {
+    var user = userBack || new User();
+    user.id = req.query.id;
+    user.img = req.query.img;
+    user.fbId = req.query.userId;
+    user.name = req.query.name;
+    user.save(function err(err) {
+      if (err) {
+        console.log("Error saving user", user, err);
+        res.send(err);
+      } else {
+        console.log("User saved", user);
+        res.json({message: 'Success.'});
+      }
+    });
+  });
 });
 
 app.get('/user', function(req, res) {
   var userId = req.query.userId;
-  User.findOne( { userId: req.query.id }, function(err, user) {
-    if (!err&& user.name) {
-      res.json({name: user.name});
+  app.findUser(userId, function(user) {
+    if (user && user.name) {
+      res.json({name: user.name, img: user.img});
     }
-  });
+  })
 });
 
 app.listen(port);

@@ -7,7 +7,8 @@ var UserSchema = new Schema({
   fbId: String,
   email : String,
   phone : String,
-  rate : Number
+  rate : Number,
+  img : String
 });
 
 module.exports = mongoose.model("User", UserSchema)
