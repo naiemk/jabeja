@@ -19,8 +19,7 @@
                 var parts = (window.location.hash || "").split(/user_id:/);
                 if (parts.length == 2) {
                   var userId = parts[1];
-                  console.log(userId)
-                  $http({ method: 'GET', url: '/user', params: {userId: userId} }).then(
+                  $http({ method: 'GET', url: '/jabeja/api/user', params: {id: userId} }).then(
                       function success(result) {
                           $timeout(function() {
                             console.log(result.data);
@@ -31,7 +30,7 @@
                           });
                       },
                       function error(err) {
-                          errorCallback(err);
+                          console.log(err);
                       }
                   );
                 } else {

@@ -65,19 +65,25 @@
       FB.api('/' + userId, function(dat) {
         console.log('Got user data', dat);
         FB.api('/' + userId + '/picture', function (pic) {
-          console.log('Got user picture', dat);
-          dat.userId = userId;
-          dat.img = pic.data.url;
+          var user = {
+            fbId: dat.id,
+            name : dat.name,
+            email : "",
+            phone : "",
+            rate : 5,
+            img : pic.data.url
+          };
           $.ajax({
             dataType: "json",
-            url: "/updateUser" ,
-            data: dat,
+            url: "/jabeja/api/user" ,
+            method: "post",
+            data: user,
             success: function(msg) {
               console.log(msg, "Saved user info");
               redirectToIndex(userId);
             }
           });
-        });
+        })
       });
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
