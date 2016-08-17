@@ -30,6 +30,7 @@ var router = express.Router();
 // Trip API
 router.route('/trip')
   .post(function(req, res) {
+    console.log("TRIP IS", req.body);
     var trip = new Trip();
     trip.userId = req.body.userId;
     trip.userImg = req.body.userImg;

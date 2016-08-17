@@ -26,7 +26,7 @@
                             ctrl.userImg = result.data.img;
                             ctrl.name = result.data.name;
                             ctrl.loggedIn = true;
-                            loginService.loggedIn(userId, ctrl.name);
+                            loginService.loggedIn(userId, ctrl.name, result.data);
                           });
                       },
                       function error(err) {

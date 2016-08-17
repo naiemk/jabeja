@@ -27,17 +27,16 @@
           </div>
       </div>
       <fancy-dropDown items="ctrl.to"></fancy-dropDown>
-
-      <div class="row space">
-          <div class="col col-sm-12">
-          <center>
-              <a href="#" class="learnmore_btn">Search</a>
-              </center>
-          </div>
-      </div>
     </div>
   </div>
 </div>
+
+<search-results
+  from="ctrl.from.selected"
+  to="ctrl.to.selected"
+  what="ctrl.what.selected"
+  ></search-results>
+
             `,
             controller : function LoginBoxController() {
                 var ctrl = this;
