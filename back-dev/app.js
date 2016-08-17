@@ -5,10 +5,9 @@ var express = require('express'),
     mongoose = require('mongoose'),
     path = require('path');
     User = require('./models/user'),
-    Trip = require('./models/trip');
-
-var app = express();
-var databaseUrl = conf.databaseUrl;
+    Trip = require('./models/trip'),
+    app = express(),
+    databaseUrl = conf.databaseUrl;
 
 // connect to DB
 mongoose.connect(databaseUrl);
@@ -27,8 +26,30 @@ var port = process.env.PORT || conf.devport;
 // we are using Express router for routing between APIs
 var router = express.Router();
 
-// Trip API
+// all of our APIs are prefixed with "jabeja/api"
+// Example: http://jabeja.com/jabeja/api/
+app.use('/jabeja/api', router);
+
 router.route('/trip')
+
+  /**
+  * @api {post} /jabeja/api/trip Post a trip information
+  * @apiName addTrip
+  * @apiGroup Trip
+  *
+  * @apiParam {String} userId User unique ID by Facebook.
+  * @apiParam {String} userImg User image URL by Facebook.
+  * @apiParam {String} name User name by Facebook.
+  * @apiParam {String} email User's email.
+  * @apiParam {Number} rate User's rate.
+  * @apiParam {String} deliveryType Type of delivery, documnet, money, both.
+  * @apiParam {String} source Trip's source.
+  * @apiParam {String} dest Trip's destination.
+  * @apiParam {String} finishDate Trip's date.
+  * @apiSuccess {json} message success.
+  * @apiSuccess {json} message duplicate.
+  * @apiFailure {json} message wrong parameter - (delivery type)
+  */
   .post(function(req, res) {
     console.log("TRIP IS", req.body);
     var trip = new Trip();
@@ -59,7 +80,7 @@ router.route('/trip')
           res.send(err);
         else {
           //same record already exists.
-          if (c !== 0) res.json({message: 'duplicate'});
+          if (c !== 0) res.json({message: 'duplicate', userId: trip.userId});
           else {
             trip.save(function(err) {
                 if (err)
@@ -72,7 +93,13 @@ router.route('/trip')
       });
   })
 
-  // get all trips
+  /**
+  * @api {get} /jabeja/api/trip Get all trips.
+  * @apiName getTrips
+  * @apiGroup Trip
+  *
+  * @apiSuccess {json} trips object contains array of trips.
+  */
   .get(function(req, res) {
     Trip.find(function(err, trips) {
       if (err)
@@ -82,7 +109,22 @@ router.route('/trip')
     });
   })
 
-  // delete a trip
+  /**
+  * @api {delete} /jabeja/api/trip Delete a trip.
+  * @apiName deleteTrip
+  * @apiGroup Trip
+  *
+  * @apiParam {String} userId User unique ID by Facebook.
+  * @apiParam {String} userImg User image URL by Facebook.
+  * @apiParam {String} name User name by Facebook.
+  * @apiParam {String} email User's email.
+  * @apiParam {Number} rate User's rate.
+  * @apiParam {String} deliveryType Type of delivery, documnet, money, both.
+  * @apiParam {String} source Trip's source.
+  * @apiParam {String} dest Trip's destination.
+  * @apiParam {String} finishDate Trip's date.
+  * @apiSuccess {json} message success.
+  */
   .delete(function(req, res) {
     Trip.remove({userId: req.params.userId, userImg: req.params.userImg,
       name : req.params.name, email : req.params.email,
@@ -95,7 +137,16 @@ router.route('/trip')
     });
   });
 
-// search API
+/**
+* @api {delete} /jabeja/api/search/:type/:source/:destination Searcb trips.
+* @apiName searchTrips
+* @apiGroup Search
+*
+* @apiParam {String} type Type of delivery, documnet, money, both.
+* @apiParam {String} source Trip's source.
+* @apiParam {String} destination Trip's destination.
+* @apiSuccess {json} trips object contains array of trips.
+*/
 router.route('/trip/search/:type/:source/:destination')
   .get(function(req, res) {
     Trip.find({deliveryType: req.params.type,
@@ -112,7 +163,21 @@ router.route('/trip/search/:type/:source/:destination')
 // User API
 router.route('/user') // I also added user, commenting this out for now
 
-  // adding a user
+  /**
+  * @api {post} /jabeja/api/user Add a user.
+  * @apiName addUser
+  * @apiGroup User
+  *
+  * @apiParam {String} userId User unique ID by Facebook.
+  * @apiParam {String} img User image URL by Facebook.
+  * @apiParam {String} name User name by Facebook.
+  * @apiParam {String} email User's email.
+  * @apiParam {Number} phone User's phone.
+  * @apiParam {Number} rate User's rate.
+  *
+  * @apiSuccess {json} message success.
+  * @apiFailure {json} message already exists.
+  */
   .post(function(req, res) {
     var user = new User();
     user.userId = req.body.fbId;
@@ -135,26 +200,27 @@ router.route('/user') // I also added user, commenting this out for now
         }
       });
   })
-  // getting a user
+
+  /**
+  * @api {get} /jabeja/api/user Get a user.
+  * @apiName getUser
+  * @apiGroup User
+  *
+  * @apiParam {String} id User unique ID by Facebook.
+  *
+  * @apiSuccess {json} message Object contains name and img.
+  * @apiFailure {json} message user doesn't exists.
+  */
   .get(function(req, res) {
     var id = req.query.id;
     User.findOne({userId: id}, function(err, user) {
       console.log(id, user)
-      if (err) console.log("User doesn't exist.");
+      if (err) console.log("user doesn't exist.");
       else {
         res.json({name: user.name, img: user.img});
       }
     });
   });
-
-// Route API
-// router.route('user')
-//   .get(function(req, res) {})
-//   .post(function(req, res) {});
-
-// all of our APIs are prefixed with "jabeja/api"
-// Example: http://jabeja.com/jabeja/api/
-app.use('/jabeja/api', router);
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname+'/../front-end/ui/index.html'));

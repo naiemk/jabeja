@@ -14,7 +14,8 @@
   "keywords": [
     "node",
     "heroku",
-    "express"
+    "express",
+    "apidoc"
   ],
   "author": "M.Dibay",
   "license": "ISC",
