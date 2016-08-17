@@ -1,0 +1,21 @@
+//
+//  Commons.pch
+//  JabeJa
+//
+//  Created by Mohammad Ali Yektaie on 8/17/16.
+//  Copyright © 2016 Mohammad Ali Yektaie. All rights reserved.
+//
+
+#ifndef Commons_pch
+#define Commons_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "Utils.h"
+#import "Settings.h"
+#import "Theme.h"
+#import "LanguageStrings.h"
+#import "BaseViewController.h"
+
+#endif /* Commons_pch */

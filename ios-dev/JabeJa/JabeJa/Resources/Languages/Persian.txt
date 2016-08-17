@@ -1,0 +1,27 @@
+// ============================================================
+//    General Settings
+// ============================================================
+Direction:rtl
+DefaultFont:IRANSans
+DefaultBoldFont:IRANSans-Bold
+Ok:تایید
+Cancel:انصراف
+UsePersianDigits:true
+Yes:بله
+Login:ورود
+No:خیر
+Error:خطا
+Language:Persian
+Close:بستن
+ChangeNavigationControllerTitleFont:true
+
+// ============================================================
+//    Home Page
+// ============================================================
+HomePage/Title:جابه‌جا
+
+// ============================================================
+//    Sign In Page
+// ============================================================
+SignInPage/Title:ورود
+SignInPage/TermsOfUse:با ورود به نرم افزار، شما  <blue>شرایط استفاده<blue> را می‌پذیرید.

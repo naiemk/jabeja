@@ -1,0 +1,654 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		28228A3C1D64E188003EE7A7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28228A3B1D64E188003EE7A7 /* QuartzCore.framework */; };
+		28228A3F1D64E1E7003EE7A7 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28228A3D1D64E1E7003EE7A7 /* FBSDKCoreKit.framework */; };
+		28228A401D64E1E7003EE7A7 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28228A3E1D64E1E7003EE7A7 /* FBSDKShareKit.framework */; };
+		28E3038E1D64A7D60009FF10 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E3038D1D64A7D60009FF10 /* main.m */; };
+		28E303911D64A7D60009FF10 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E303901D64A7D60009FF10 /* AppDelegate.m */; };
+		28E303971D64A7D60009FF10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E303951D64A7D60009FF10 /* Main.storyboard */; };
+		28E303991D64A7D60009FF10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28E303981D64A7D60009FF10 /* Assets.xcassets */; };
+		28E3039C1D64A7D60009FF10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E3039A1D64A7D60009FF10 /* LaunchScreen.storyboard */; };
+		28E303A71D64A7D60009FF10 /* JabeJaUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E303A61D64A7D60009FF10 /* JabeJaUITests.m */; };
+		28E303B51D64A8D60009FF10 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E303B41D64A8D60009FF10 /* HomeViewController.m */; };
+		28E303B91D64A9570009FF10 /* English.txt in Resources */ = {isa = PBXBuildFile; fileRef = 28E303B81D64A9570009FF10 /* English.txt */; };
+		28E303BB1D64A9670009FF10 /* Persian.txt in Resources */ = {isa = PBXBuildFile; fileRef = 28E303BA1D64A9670009FF10 /* Persian.txt */; };
+		28E303C51D64AA000009FF10 /* Guid.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E303BE1D64AA000009FF10 /* Guid.m */; };
+		28E303C61D64AA000009FF10 /* NSString+Contains.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E303C01D64AA000009FF10 /* NSString+Contains.m */; };
+		28E303C71D64AA000009FF10 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E303C21D64AA000009FF10 /* Settings.m */; };
+		28E303C81D64AA000009FF10 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E303C41D64AA000009FF10 /* Utils.m */; };
+		28E303CC1D64AAD00009FF10 /* Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E303CB1D64AAD00009FF10 /* Theme.m */; };
+		28E303D01D64AAFA0009FF10 /* LanguageStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E303CF1D64AAFA0009FF10 /* LanguageStrings.m */; };
+		28E303D51D64AD600009FF10 /* IRANSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28E303D31D64AD600009FF10 /* IRANSans-Bold.ttf */; };
+		28E303D61D64AD600009FF10 /* IRANSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28E303D41D64AD600009FF10 /* IRANSans.ttf */; };
+		28E303DB1D64AE6E0009FF10 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E303DA1D64AE6E0009FF10 /* BaseViewController.m */; };
+		28E303DE1D64B3B60009FF10 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E303DD1D64B3B60009FF10 /* SignInViewController.m */; };
+		28E303E21D64B41B0009FF10 /* PresentViewSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E303E11D64B41B0009FF10 /* PresentViewSegue.m */; };
+		28E303E61D64B5AE0009FF10 /* AuthUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E303E51D64B5AE0009FF10 /* AuthUtils.m */; };
+		28E303EB1D64BB6B0009FF10 /* UILabel+Font.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E303EA1D64BB6B0009FF10 /* UILabel+Font.m */; };
+		28E303EE1D64C3E00009FF10 /* UINavigationItem+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E303ED1D64C3E00009FF10 /* UINavigationItem+Language.m */; };
+		28E303F11D64C69E0009FF10 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E303F01D64C69E0009FF10 /* FBSDKLoginKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		28E303A31D64A7D60009FF10 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 28E303811D64A7D60009FF10 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 28E303881D64A7D60009FF10;
+			remoteInfo = JabeJa;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		28228A3B1D64E188003EE7A7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		28228A3D1D64E1E7003EE7A7 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../../Users/yektaie/Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		28228A3E1D64E1E7003EE7A7 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../../../Users/yektaie/Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		28E303891D64A7D60009FF10 /* JabeJa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JabeJa.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		28E3038D1D64A7D60009FF10 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		28E3038F1D64A7D60009FF10 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		28E303901D64A7D60009FF10 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		28E303961D64A7D60009FF10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		28E303981D64A7D60009FF10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		28E3039B1D64A7D60009FF10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		28E3039D1D64A7D60009FF10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28E303A21D64A7D60009FF10 /* JabeJaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JabeJaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		28E303A61D64A7D60009FF10 /* JabeJaUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JabeJaUITests.m; sourceTree = "<group>"; };
+		28E303A81D64A7D60009FF10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28E303B31D64A8D60009FF10 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = Source/Views/Home/HomeViewController.h; sourceTree = "<group>"; };
+		28E303B41D64A8D60009FF10 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = Source/Views/Home/HomeViewController.m; sourceTree = "<group>"; };
+		28E303B81D64A9570009FF10 /* English.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = English.txt; path = Resources/Languages/English.txt; sourceTree = "<group>"; };
+		28E303BA1D64A9670009FF10 /* Persian.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Persian.txt; path = Resources/Languages/Persian.txt; sourceTree = "<group>"; };
+		28E303BD1D64AA000009FF10 /* Guid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Guid.h; path = Source/Models/Utils/Guid.h; sourceTree = "<group>"; };
+		28E303BE1D64AA000009FF10 /* Guid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Guid.m; path = Source/Models/Utils/Guid.m; sourceTree = "<group>"; };
+		28E303BF1D64AA000009FF10 /* NSString+Contains.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Contains.h"; path = "Source/Models/Utils/NSString+Contains.h"; sourceTree = "<group>"; };
+		28E303C01D64AA000009FF10 /* NSString+Contains.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Contains.m"; path = "Source/Models/Utils/NSString+Contains.m"; sourceTree = "<group>"; };
+		28E303C11D64AA000009FF10 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Settings.h; path = Source/Models/Utils/Settings.h; sourceTree = "<group>"; };
+		28E303C21D64AA000009FF10 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Settings.m; path = Source/Models/Utils/Settings.m; sourceTree = "<group>"; };
+		28E303C31D64AA000009FF10 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = Source/Models/Utils/Utils.h; sourceTree = "<group>"; };
+		28E303C41D64AA000009FF10 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = Source/Models/Utils/Utils.m; sourceTree = "<group>"; };
+		28E303CA1D64AAD00009FF10 /* Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Theme.h; path = Source/Models/Theme/Theme.h; sourceTree = "<group>"; };
+		28E303CB1D64AAD00009FF10 /* Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Theme.m; path = Source/Models/Theme/Theme.m; sourceTree = "<group>"; };
+		28E303CE1D64AAFA0009FF10 /* LanguageStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LanguageStrings.h; path = Source/Models/Language/LanguageStrings.h; sourceTree = "<group>"; };
+		28E303CF1D64AAFA0009FF10 /* LanguageStrings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LanguageStrings.m; path = Source/Models/Language/LanguageStrings.m; sourceTree = "<group>"; };
+		28E303D11D64ABA50009FF10 /* Commons.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Commons.pch; sourceTree = "<group>"; };
+		28E303D31D64AD600009FF10 /* IRANSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "IRANSans-Bold.ttf"; path = "Resources/Fonts/IRANSans-Bold.ttf"; sourceTree = "<group>"; };
+		28E303D41D64AD600009FF10 /* IRANSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = IRANSans.ttf; path = Resources/Fonts/IRANSans.ttf; sourceTree = "<group>"; };
+		28E303D91D64AE6E0009FF10 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = Source/Views/Bases/BaseViewController.h; sourceTree = "<group>"; };
+		28E303DA1D64AE6E0009FF10 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewController.m; path = Source/Views/Bases/BaseViewController.m; sourceTree = "<group>"; };
+		28E303DC1D64B3B60009FF10 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignInViewController.h; path = Source/Views/SignIn/SignInViewController.h; sourceTree = "<group>"; };
+		28E303DD1D64B3B60009FF10 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignInViewController.m; path = Source/Views/SignIn/SignInViewController.m; sourceTree = "<group>"; };
+		28E303E01D64B41B0009FF10 /* PresentViewSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PresentViewSegue.h; path = Source/Views/Bases/Segues/PresentViewSegue.h; sourceTree = "<group>"; };
+		28E303E11D64B41B0009FF10 /* PresentViewSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PresentViewSegue.m; path = Source/Views/Bases/Segues/PresentViewSegue.m; sourceTree = "<group>"; };
+		28E303E41D64B5AE0009FF10 /* AuthUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthUtils.h; path = Source/Models/Auth/AuthUtils.h; sourceTree = "<group>"; };
+		28E303E51D64B5AE0009FF10 /* AuthUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthUtils.m; path = Source/Models/Auth/AuthUtils.m; sourceTree = "<group>"; };
+		28E303E71D64B99C0009FF10 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = Source/Constants.h; sourceTree = "<group>"; };
+		28E303E91D64BB6B0009FF10 /* UILabel+Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+Font.h"; path = "Source/Views/Bases/Extensions/UILabel+Font.h"; sourceTree = "<group>"; };
+		28E303EA1D64BB6B0009FF10 /* UILabel+Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+Font.m"; path = "Source/Views/Bases/Extensions/UILabel+Font.m"; sourceTree = "<group>"; };
+		28E303EC1D64C3E00009FF10 /* UINavigationItem+Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationItem+Language.h"; path = "Source/Views/Bases/Extensions/UINavigationItem+Language.h"; sourceTree = "<group>"; };
+		28E303ED1D64C3E00009FF10 /* UINavigationItem+Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationItem+Language.m"; path = "Source/Views/Bases/Extensions/UINavigationItem+Language.m"; sourceTree = "<group>"; };
+		28E303F01D64C69E0009FF10 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../../Users/yektaie/Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		28E303861D64A7D60009FF10 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28228A401D64E1E7003EE7A7 /* FBSDKShareKit.framework in Frameworks */,
+				28228A3C1D64E188003EE7A7 /* QuartzCore.framework in Frameworks */,
+				28228A3F1D64E1E7003EE7A7 /* FBSDKCoreKit.framework in Frameworks */,
+				28E303F11D64C69E0009FF10 /* FBSDKLoginKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28E3039F1D64A7D60009FF10 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		28E303801D64A7D60009FF10 = {
+			isa = PBXGroup;
+			children = (
+				28E303EF1D64C6690009FF10 /* Frameworks */,
+				28E3038B1D64A7D60009FF10 /* JabeJa */,
+				28E303A51D64A7D60009FF10 /* JabeJaUITests */,
+				28E3038A1D64A7D60009FF10 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		28E3038A1D64A7D60009FF10 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				28E303891D64A7D60009FF10 /* JabeJa.app */,
+				28E303A21D64A7D60009FF10 /* JabeJaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		28E3038B1D64A7D60009FF10 /* JabeJa */ = {
+			isa = PBXGroup;
+			children = (
+				28E303B61D64A91F0009FF10 /* Resources */,
+				28E303B11D64A8960009FF10 /* Models */,
+				28E303B21D64A89F0009FF10 /* Views */,
+				28E3038F1D64A7D60009FF10 /* AppDelegate.h */,
+				28E303901D64A7D60009FF10 /* AppDelegate.m */,
+				28E303951D64A7D60009FF10 /* Main.storyboard */,
+				28E303981D64A7D60009FF10 /* Assets.xcassets */,
+				28E3039A1D64A7D60009FF10 /* LaunchScreen.storyboard */,
+				28E3039D1D64A7D60009FF10 /* Info.plist */,
+				28E3038C1D64A7D60009FF10 /* Supporting Files */,
+				28E303D11D64ABA50009FF10 /* Commons.pch */,
+			);
+			path = JabeJa;
+			sourceTree = "<group>";
+		};
+		28E3038C1D64A7D60009FF10 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				28E3038D1D64A7D60009FF10 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		28E303A51D64A7D60009FF10 /* JabeJaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				28E303A61D64A7D60009FF10 /* JabeJaUITests.m */,
+				28E303A81D64A7D60009FF10 /* Info.plist */,
+			);
+			path = JabeJaUITests;
+			sourceTree = "<group>";
+		};
+		28E303B11D64A8960009FF10 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				28E303E31D64B5960009FF10 /* Auth */,
+				28E303CD1D64AAE90009FF10 /* Language */,
+				28E303C91D64AAC10009FF10 /* Theme */,
+				28E303BC1D64A9F10009FF10 /* Utils */,
+				28E303E71D64B99C0009FF10 /* Constants.h */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		28E303B21D64A89F0009FF10 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				28E303D81D64AE4B0009FF10 /* Bases */,
+				28E303D71D64AE310009FF10 /* SignIn */,
+				28E303B31D64A8D60009FF10 /* HomeViewController.h */,
+				28E303B41D64A8D60009FF10 /* HomeViewController.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		28E303B61D64A91F0009FF10 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				28E303D21D64AD2C0009FF10 /* Fonts */,
+				28E303B71D64A9270009FF10 /* Language */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		28E303B71D64A9270009FF10 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				28E303B81D64A9570009FF10 /* English.txt */,
+				28E303BA1D64A9670009FF10 /* Persian.txt */,
+			);
+			name = Language;
+			sourceTree = "<group>";
+		};
+		28E303BC1D64A9F10009FF10 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				28E303BD1D64AA000009FF10 /* Guid.h */,
+				28E303BE1D64AA000009FF10 /* Guid.m */,
+				28E303BF1D64AA000009FF10 /* NSString+Contains.h */,
+				28E303C01D64AA000009FF10 /* NSString+Contains.m */,
+				28E303C11D64AA000009FF10 /* Settings.h */,
+				28E303C21D64AA000009FF10 /* Settings.m */,
+				28E303C31D64AA000009FF10 /* Utils.h */,
+				28E303C41D64AA000009FF10 /* Utils.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		28E303C91D64AAC10009FF10 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				28E303CA1D64AAD00009FF10 /* Theme.h */,
+				28E303CB1D64AAD00009FF10 /* Theme.m */,
+			);
+			name = Theme;
+			sourceTree = "<group>";
+		};
+		28E303CD1D64AAE90009FF10 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+				28E303CE1D64AAFA0009FF10 /* LanguageStrings.h */,
+				28E303CF1D64AAFA0009FF10 /* LanguageStrings.m */,
+			);
+			name = Language;
+			sourceTree = "<group>";
+		};
+		28E303D21D64AD2C0009FF10 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				28E303D31D64AD600009FF10 /* IRANSans-Bold.ttf */,
+				28E303D41D64AD600009FF10 /* IRANSans.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		28E303D71D64AE310009FF10 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				28E303DC1D64B3B60009FF10 /* SignInViewController.h */,
+				28E303DD1D64B3B60009FF10 /* SignInViewController.m */,
+			);
+			name = SignIn;
+			sourceTree = "<group>";
+		};
+		28E303D81D64AE4B0009FF10 /* Bases */ = {
+			isa = PBXGroup;
+			children = (
+				28E303E81D64BB100009FF10 /* Extensions */,
+				28E303DF1D64B3ED0009FF10 /* Segues */,
+				28E303D91D64AE6E0009FF10 /* BaseViewController.h */,
+				28E303DA1D64AE6E0009FF10 /* BaseViewController.m */,
+			);
+			name = Bases;
+			sourceTree = "<group>";
+		};
+		28E303DF1D64B3ED0009FF10 /* Segues */ = {
+			isa = PBXGroup;
+			children = (
+				28E303E01D64B41B0009FF10 /* PresentViewSegue.h */,
+				28E303E11D64B41B0009FF10 /* PresentViewSegue.m */,
+			);
+			name = Segues;
+			sourceTree = "<group>";
+		};
+		28E303E31D64B5960009FF10 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				28E303E41D64B5AE0009FF10 /* AuthUtils.h */,
+				28E303E51D64B5AE0009FF10 /* AuthUtils.m */,
+			);
+			name = Auth;
+			sourceTree = "<group>";
+		};
+		28E303E81D64BB100009FF10 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				28E303E91D64BB6B0009FF10 /* UILabel+Font.h */,
+				28E303EA1D64BB6B0009FF10 /* UILabel+Font.m */,
+				28E303EC1D64C3E00009FF10 /* UINavigationItem+Language.h */,
+				28E303ED1D64C3E00009FF10 /* UINavigationItem+Language.m */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		28E303EF1D64C6690009FF10 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28228A3D1D64E1E7003EE7A7 /* FBSDKCoreKit.framework */,
+				28228A3E1D64E1E7003EE7A7 /* FBSDKShareKit.framework */,
+				28228A3B1D64E188003EE7A7 /* QuartzCore.framework */,
+				28E303F01D64C69E0009FF10 /* FBSDKLoginKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		28E303881D64A7D60009FF10 /* JabeJa */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28E303AB1D64A7D60009FF10 /* Build configuration list for PBXNativeTarget "JabeJa" */;
+			buildPhases = (
+				28E303851D64A7D60009FF10 /* Sources */,
+				28E303861D64A7D60009FF10 /* Frameworks */,
+				28E303871D64A7D60009FF10 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JabeJa;
+			productName = JabeJa;
+			productReference = 28E303891D64A7D60009FF10 /* JabeJa.app */;
+			productType = "com.apple.product-type.application";
+		};
+		28E303A11D64A7D60009FF10 /* JabeJaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28E303AE1D64A7D60009FF10 /* Build configuration list for PBXNativeTarget "JabeJaUITests" */;
+			buildPhases = (
+				28E3039E1D64A7D60009FF10 /* Sources */,
+				28E3039F1D64A7D60009FF10 /* Frameworks */,
+				28E303A01D64A7D60009FF10 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				28E303A41D64A7D60009FF10 /* PBXTargetDependency */,
+			);
+			name = JabeJaUITests;
+			productName = JabeJaUITests;
+			productReference = 28E303A21D64A7D60009FF10 /* JabeJaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		28E303811D64A7D60009FF10 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Mohammad Ali Yektaie";
+				TargetAttributes = {
+					28E303881D64A7D60009FF10 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 2VT7W25E3S;
+					};
+					28E303A11D64A7D60009FF10 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 28E303881D64A7D60009FF10;
+					};
+				};
+			};
+			buildConfigurationList = 28E303841D64A7D60009FF10 /* Build configuration list for PBXProject "JabeJa" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 28E303801D64A7D60009FF10;
+			productRefGroup = 28E3038A1D64A7D60009FF10 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				28E303881D64A7D60009FF10 /* JabeJa */,
+				28E303A11D64A7D60009FF10 /* JabeJaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		28E303871D64A7D60009FF10 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28E303D61D64AD600009FF10 /* IRANSans.ttf in Resources */,
+				28E3039C1D64A7D60009FF10 /* LaunchScreen.storyboard in Resources */,
+				28E303991D64A7D60009FF10 /* Assets.xcassets in Resources */,
+				28E303D51D64AD600009FF10 /* IRANSans-Bold.ttf in Resources */,
+				28E303BB1D64A9670009FF10 /* Persian.txt in Resources */,
+				28E303971D64A7D60009FF10 /* Main.storyboard in Resources */,
+				28E303B91D64A9570009FF10 /* English.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28E303A01D64A7D60009FF10 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		28E303851D64A7D60009FF10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28E303911D64A7D60009FF10 /* AppDelegate.m in Sources */,
+				28E303EB1D64BB6B0009FF10 /* UILabel+Font.m in Sources */,
+				28E303DB1D64AE6E0009FF10 /* BaseViewController.m in Sources */,
+				28E3038E1D64A7D60009FF10 /* main.m in Sources */,
+				28E303EE1D64C3E00009FF10 /* UINavigationItem+Language.m in Sources */,
+				28E303E61D64B5AE0009FF10 /* AuthUtils.m in Sources */,
+				28E303C71D64AA000009FF10 /* Settings.m in Sources */,
+				28E303DE1D64B3B60009FF10 /* SignInViewController.m in Sources */,
+				28E303C51D64AA000009FF10 /* Guid.m in Sources */,
+				28E303D01D64AAFA0009FF10 /* LanguageStrings.m in Sources */,
+				28E303B51D64A8D60009FF10 /* HomeViewController.m in Sources */,
+				28E303CC1D64AAD00009FF10 /* Theme.m in Sources */,
+				28E303C81D64AA000009FF10 /* Utils.m in Sources */,
+				28E303E21D64B41B0009FF10 /* PresentViewSegue.m in Sources */,
+				28E303C61D64AA000009FF10 /* NSString+Contains.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28E3039E1D64A7D60009FF10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28E303A71D64A7D60009FF10 /* JabeJaUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		28E303A41D64A7D60009FF10 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 28E303881D64A7D60009FF10 /* JabeJa */;
+			targetProxy = 28E303A31D64A7D60009FF10 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		28E303951D64A7D60009FF10 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28E303961D64A7D60009FF10 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		28E3039A1D64A7D60009FF10 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28E3039B1D64A7D60009FF10 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		28E303A91D64A7D60009FF10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		28E303AA1D64A7D60009FF10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		28E303AC1D64A7D60009FF10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = /Users/yektaie/Documents/FacebookSDK;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/Commons.pch";
+				INFOPLIST_FILE = JabeJa/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yekisoft.jabeja;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		28E303AD1D64A7D60009FF10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = /Users/yektaie/Documents/FacebookSDK;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/Commons.pch";
+				INFOPLIST_FILE = JabeJa/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yekisoft.jabeja;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		28E303AF1D64A7D60009FF10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = JabeJaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yekisoft.JabeJaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = JabeJa;
+			};
+			name = Debug;
+		};
+		28E303B01D64A7D60009FF10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = JabeJaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yekisoft.JabeJaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = JabeJa;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		28E303841D64A7D60009FF10 /* Build configuration list for PBXProject "JabeJa" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28E303A91D64A7D60009FF10 /* Debug */,
+				28E303AA1D64A7D60009FF10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28E303AB1D64A7D60009FF10 /* Build configuration list for PBXNativeTarget "JabeJa" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28E303AC1D64A7D60009FF10 /* Debug */,
+				28E303AD1D64A7D60009FF10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28E303AE1D64A7D60009FF10 /* Build configuration list for PBXNativeTarget "JabeJaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28E303AF1D64A7D60009FF10 /* Debug */,
+				28E303B01D64A7D60009FF10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 28E303811D64A7D60009FF10 /* Project object */;
+}

@@ -1,0 +1,27 @@
+// ============================================================
+//    General Settings
+// ============================================================
+Direction:ltr
+DefaultFont:Avenir-Medium
+DefaultBoldFont:Avenir-Black
+Ok:Ok
+Cancel:Cancel
+UsePersianDigits:false
+Yes:Yes
+Login:Login
+No:No
+Error:Error
+Language:English
+Close:Close
+ChangeNavigationControllerTitleFont:false
+
+// ============================================================
+//    Home Page
+// ============================================================
+HomePage/Title:JabeJa
+
+// ============================================================
+//    Sign In Page
+// ============================================================
+SignInPage/Title:Sign In
+SignInPage/TermsOfUse:By signing in, you agree to our <blue>term of use<blue>.
