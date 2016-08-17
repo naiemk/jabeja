@@ -32,6 +32,7 @@ router.route('/trip')
   .post(function(req, res) {
     var trip = new Trip();
     trip.userId = req.body.userId;
+    trip.userImg = req.body.userImg;
     trip.name = req.body.name;
     trip.email = req.body.email;
     trip.rate = req.body.rate;
@@ -40,8 +41,16 @@ router.route('/trip')
     trip.dest = req.body.dest;
     trip.finishDate = req.body.finishDate;
 
+    var deliveryType = trip.deliveryType.toLowerCase();
+    if (deliveryType != "money" &&
+        deliveryType != "document" &&
+        deliveryType != "both") {
+      res.json({message : 'wrong parameter - (delivery type)'});
+    }
+
     // check if there is a duplicate record already
-    Trip.count({userId: trip.userId, name : trip.name, email : trip.email,
+    Trip.count({userId: trip.userId, userImg: trip.userImg,
+      name : trip.name, email : trip.email,
       deliveryType : trip.deliveryType, source : trip.source,
       dest : trip.dest, finishDate : trip.finishDate},
       function(err, c) {
@@ -74,7 +83,8 @@ router.route('/trip')
 
   // delete a trip
   .delete(function(req, res) {
-    Trip.remove({userId: req.params.userId, name : req.params.name, email : req.params.email,
+    Trip.remove({userId: req.params.userId, userImg: req.params.userImg,
+      name : req.params.name, email : req.params.email,
       deliveryType : req.params.deliveryType, source : req.params.source,
       dest : req.params.dest, finishDate : req.params.finishDate},
     function(err) {

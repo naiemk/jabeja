@@ -3,10 +3,11 @@ var Schema = mongoose.Schema;
 
 var TripSchema = new Schema({
   userId: String,
+  userImg: String,
   name: String,
   email : String,
   rate : Number,
-  deliveryType: Boolean, //0 => Money, 1 => Document
+  deliveryType: String, //money , document, both
   source: String,
   dest: String,
   finishDate: Date
