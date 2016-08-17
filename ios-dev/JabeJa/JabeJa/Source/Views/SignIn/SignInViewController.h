@@ -7,10 +7,13 @@
 //
 
 #import "BaseViewController.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+
 
 @interface SignInViewController : BaseViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *termOfUseLabel;
-@property (weak, nonatomic) IBOutlet UIView *facebookLoginContainer;
+@property (weak, nonatomic) IBOutlet FBSDKLoginButton *facebookLoginButton;
 
 @end

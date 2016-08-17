@@ -7,8 +7,6 @@
 //
 
 #import "SignInViewController.h"
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface SignInViewController ()
 
@@ -20,6 +18,11 @@
     [super viewDidLoad];
 
     [self loadTermOfUse];
+    [self setupFacebookLoginButton];
+}
+
+- (void)setupFacebookLoginButton {
+    self.facebookLoginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
 }
 
 - (void)loadTermOfUse {

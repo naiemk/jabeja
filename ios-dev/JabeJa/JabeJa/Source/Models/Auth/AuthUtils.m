@@ -7,6 +7,8 @@
 //
 
 #import "AuthUtils.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @implementation AuthUtils
 
@@ -35,7 +37,13 @@ static AuthUtils* _instance;
 }
 
 - (BOOL)isFacebook {
-    return [Settings getFacebookAccessToken] != nil;
+    BOOL hasToken = [Settings getFacebookAccessToken] != nil;
+
+    if (hasToken) {
+        hasToken = [FBSDKAccessToken currentAccessToken] != nil;
+    }
+
+    return hasToken;
 }
 
 - (BOOL)isGooglePlus {

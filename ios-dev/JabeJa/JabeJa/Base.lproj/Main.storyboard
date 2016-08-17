@@ -83,7 +83,7 @@
                     <navigationItem key="navigationItem" title="SignInPage/Title" id="Am4-TD-6vL"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="facebookLoginContainer" destination="4ZN-6l-Da7" id="MoX-ze-EUA"/>
+                        <outlet property="facebookLoginButton" destination="4ZN-6l-Da7" id="9fd-JE-M2U"/>
                         <outlet property="termOfUseLabel" destination="Lq0-T1-jjT" id="5s3-I4-xVT"/>
                     </connections>
                 </viewController>
