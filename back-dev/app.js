@@ -8,7 +8,7 @@ var express = require('express'),
     Trip = require('./models/trip');
 
 var app = express();
-var databaseUrl = 'localhost:27017/jabeja';
+var databaseUrl = conf.databaseUrl;
 
 // connect to DB
 mongoose.connect(databaseUrl);
@@ -31,6 +31,7 @@ var router = express.Router();
 router.route('/trip')
   .post(function(req, res) {
     var trip = new Trip();
+    trip.userId = req.body.userId;
     trip.name = req.body.name;
     trip.email = req.body.email;
     trip.rate = req.body.rate;
@@ -40,7 +41,7 @@ router.route('/trip')
     trip.finishDate = req.body.finishDate;
 
     // check if there is a duplicate record already
-    Trip.count({name : trip.name, email : trip.email,
+    Trip.count({userId: trip.userId, name : trip.name, email : trip.email,
       deliveryType : trip.deliveryType, source : trip.source,
       dest : trip.dest, finishDate : trip.finishDate},
       function(err, c) {
@@ -73,7 +74,7 @@ router.route('/trip')
 
   // delete a trip
   .delete(function(req, res) {
-    Trip.remove({name : req.params.name, email : req.params.email,
+    Trip.remove({userId: req.params.userId, name : req.params.name, email : req.params.email,
       deliveryType : req.params.deliveryType, source : req.params.source,
       dest : req.params.dest, finishDate : req.params.finishDate},
     function(err) {
@@ -98,20 +99,20 @@ router.route('/trip/search/:type/:source/:destination')
   });
 
 // User API
-router.route('/user0') // I also added user, commenting this out for now
+router.route('/user') // I also added user, commenting this out for now
 
   // adding a user
   .post(function(req, res) {
     var user = new User();
+    user.id = req.body.fbId;
     user.name = req.body.name;
-    user.fbId = req.body.fbId;
     user.email = req.body.email;
     user.phone = req.body.phone;
     user.rate = req.body.rate;
-
-    User.count({name : user.name, fbId : user.fbId,
+    user.img = req.body.img;
+    User.count({name : user.name, id : user.id,
       email : user.email, phone : user.email,
-      rate : user.rate}, function(err, c) {
+      rate : user.rate, img: user.img}, function(err, c) {
         if (c !== 0) res.json({message: 'already exists.'});
         else {
           user.save(function(err) {
@@ -122,7 +123,16 @@ router.route('/user0') // I also added user, commenting this out for now
           });
         }
       });
-  });
+  })
+  // getting a user
+  .get(function(req, res) {
+    var userId = req.query.userId;
+    app.findUser(userId, function(user) {
+      if (user && user.name) {
+        res.json({name: user.name, img: user.img});
+      }
+    })
+  })
 
 // Route API
 // router.route('user')
@@ -130,7 +140,7 @@ router.route('/user0') // I also added user, commenting this out for now
 //   .post(function(req, res) {});
 
 // all of our APIs are prefixed with "jabeja/api"
-// Example: http://jabeja.com/jabeja/api/getuser
+// Example: http://jabeja.com/jabeja/api/
 app.use('/jabeja/api', router);
 
 app.get('/', function(req, res) {
@@ -144,41 +154,13 @@ app.get('/login', function(req, res) {
 app.findUser = function(userId, callBack) {
   console.log("GETTING", userId)
   console.log('cb', callBack);
-  User.findOne( { id: userId }, function(err, user) {
+  User.findOne({ id: userId }, function(err, user) {
     console.log(err, user)
     if (!err) {
       callBack(user);
     };
   });
-}
-
-app.get('/updateUser', function(req, res) {
-  app.findUser(req.query.id, function(userBack) {
-    var user = userBack || new User();
-    user.id = req.query.id;
-    user.img = req.query.img;
-    user.fbId = req.query.userId;
-    user.name = req.query.name;
-    user.save(function err(err) {
-      if (err) {
-        console.log("Error saving user", user, err);
-        res.send(err);
-      } else {
-        console.log("User saved", user);
-        res.json({message: 'Success.'});
-      }
-    });
-  });
-});
-
-app.get('/user', function(req, res) {
-  var userId = req.query.userId;
-  app.findUser(userId, function(user) {
-    if (user && user.name) {
-      res.json({name: user.name, img: user.img});
-    }
-  })
-});
+};
 
 app.listen(port);
 console.log("Server is running on port: " + port);
