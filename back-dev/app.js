@@ -104,13 +104,13 @@ router.route('/user') // I also added user, commenting this out for now
   // adding a user
   .post(function(req, res) {
     var user = new User();
-    user.id = req.body.fbId;
+    user.userId = req.body.fbId;
     user.name = req.body.name;
     user.email = req.body.email;
     user.phone = req.body.phone;
     user.rate = req.body.rate;
     user.img = req.body.img;
-    User.count({name : user.name, id : user.id,
+    User.count({name : user.name, userId : user.userId,
       email : user.email, phone : user.email,
       rate : user.rate, img: user.img}, function(err, c) {
         if (c !== 0) res.json({message: 'already exists.'});
@@ -126,13 +126,14 @@ router.route('/user') // I also added user, commenting this out for now
   })
   // getting a user
   .get(function(req, res) {
-    var userId = req.query.userId;
-    app.findUser(userId, function(user) {
-      if (user && user.name) {
+    var id = req.query.id;
+    User.findOne({userId: id}, function(err, user) {
+      if (err) console.log("User doesn't exist.");
+      else {
         res.json({name: user.name, img: user.img});
       }
-    })
-  })
+    });
+  });
 
 // Route API
 // router.route('user')
@@ -152,8 +153,6 @@ app.get('/login', function(req, res) {
 });
 
 app.findUser = function(userId, callBack) {
-  console.log("GETTING", userId)
-  console.log('cb', callBack);
   User.findOne({ id: userId }, function(err, user) {
     console.log(err, user)
     if (!err) {
