@@ -7,4 +7,4 @@ Run Local Server ==> node app.js
 3. `/jabeja/api/trip/:name/:email/:source/:dest/:finishDate` DELETE
 4. `/jabeja/api/trip/search/:type/:source/:destination` GET
 5. `/jabeja/api/user` GET
-6. `/jabeja/api/user` GET
+6. `/jabeja/api/user` POST
