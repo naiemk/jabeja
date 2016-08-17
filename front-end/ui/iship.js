@@ -148,7 +148,7 @@
                       source : ctrl.from.selected,
                       dest : ctrl.to.selected,
                       finishDate : ctrl.getFinishMonth(),
-                      img : ctrl.userImg
+                      userImg : ctrl.userImg
                     };
 
                     console.log(trip);
@@ -180,12 +180,14 @@
 
                 // Update user email if logged in.
                 loginService.onChange(function() {
+                  console.log("LOGGED IN!")
                   $timeout(function(){
                     ctrl.isLoggedIn = loginService.getUserId() || false;
                     var user = loginService.getUser();
-                    if (user && user.email) {
+                    if (user) {
                       ctrl.email = user.email;
                       ctrl.userImg = user.img;
+                      console.log("USER IMG IS ", ctrl.userImg)
                     }
                   });
                 });

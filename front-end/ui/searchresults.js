@@ -53,7 +53,7 @@
                           $timeout(function() {
                             ctrl.results = result.data.map(function(item) {
                               var searchItem = {
-                                img : item.img || "https://randomuser.me/api/portraits/thumb/women/80.jpg",
+                                img : item.userImg || "https://randomuser.me/api/portraits/thumb/women/80.jpg",
                                 text : item.name,
                                 subText: ctrl.toDate(item.finishDate),
                                 contact: item.email

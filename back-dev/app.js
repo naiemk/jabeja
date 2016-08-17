@@ -139,6 +139,7 @@ router.route('/user') // I also added user, commenting this out for now
   .get(function(req, res) {
     var id = req.query.id;
     User.findOne({userId: id}, function(err, user) {
+      console.log(id, user)
       if (err) console.log("User doesn't exist.");
       else {
         res.json({name: user.name, img: user.img});
