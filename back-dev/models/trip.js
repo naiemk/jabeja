@@ -3,14 +3,14 @@ var Schema = mongoose.Schema;
 
 var TripSchema = new Schema({
   userId: String,
-  userImg: String,
-  name: String,
+  userFullName: String,
   email : String,
-  rate : Number,
+  phone: String,
   deliveryType: String, //money , document, both
   source: String,
   dest: String,
-  finishDate: Date
+  travelDate: Date,
+  comment: String
 });
 
 module.exports = mongoose.model('Trip', TripSchema)
