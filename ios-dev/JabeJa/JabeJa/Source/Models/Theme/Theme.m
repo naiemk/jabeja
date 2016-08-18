@@ -13,19 +13,7 @@
 
 @implementation Theme
 
-@synthesize defaultPageGradientTopColor = _defaultPageGradientTopColor;
-@synthesize defaultPageGradientBottomColor = _defaultPageGradientBottomColor;
-@synthesize defaultSidebarGradientTopColor = _defaultSidebarGradientTopColor;
-@synthesize defaultSidebarGradientBottomColor = _defaultSidebarGradientBottomColor;
-@synthesize lightPageGradientTopColor = _lightPageGradientTopColor;
-@synthesize lightPageGradientBottomColor = _lightPageGradientBottomColor;
 @synthesize navigationBarTintColor = _navigationBarTintColor;
-@synthesize sidebarItemTextColor = _sidebarItemTextColor;
-@synthesize defaultTextColor = _defaultTextColor;
-@synthesize lightTextColor = _lightTextColor;
-@synthesize defaultFlashCardTextColor = _defaultFlashCardTextColor;
-@synthesize sidebarMyAccountBackgroundColor = _sidebarMyAccountBackgroundColor;
-
 
 static Theme* _sharedInstance = nil;
 
@@ -44,19 +32,7 @@ static Theme* _sharedInstance = nil;
         NSString* path = [Settings getThemeFileName];
         NSArray* lines = [Utils readTextFileLinesFromResource:path];
 
-        _defaultPageGradientTopColor = [self getColor:lines name: @"DefaultPageGradientTopColor"];
-        _defaultPageGradientBottomColor = [self getColor:lines name: @"DefaultPageGradientBottomColor"];
-        _lightPageGradientTopColor = [self getColor:lines name: @"LightPageGradientTopColor"];
-        _lightPageGradientBottomColor = [self getColor:lines name: @"LightPageGradientBottomColor"];
         _navigationBarTintColor = [self getColor:lines name: @"NavigationBarTintColor"];
-        _defaultSidebarGradientTopColor = [self getColor:lines name: @"DefaultSidebarGradientTopColor"];
-        _defaultSidebarGradientBottomColor = [self getColor:lines name: @"DefaultSidebarGradientBottomColor"];
-        _sidebarItemTextColor = [self getColor:lines name: @"SidebarItemTextColor"];
-        _defaultTextColor = [self getColor:lines name: @"DefaultTextColor"];
-        _lightTextColor = [self getColor:lines name: @"LightTextColor"];
-        _defaultFlashCardTextColor = [self getColor:lines name: @"DefaultFlashCardTextColor"];
-        _sidebarMyAccountBackgroundColor = [self getColor:lines name: @"SidebarMyAccountBackgroundColor"];
-        _editTextColor = [Utils colorFromRed:255 Green:255 Blue:255];
     }
 
     return self;

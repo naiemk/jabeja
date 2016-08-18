@@ -189,4 +189,6 @@ static double fontSizeCoefficient;
 + (BOOL)isIPhone5 {
     return IS_IPHONE_5;
 }
+
+
 @end

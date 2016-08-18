@@ -1,15 +1,15 @@
 //
-//  UINavigationItem+Language.m
+//  UIBarButtonItem+Language.m
 //  JabeJa
 //
 //  Created by Mohammad Ali Yektaie on 8/17/16.
 //  Copyright © 2016 Mohammad Ali Yektaie. All rights reserved.
 //
 
-#import "UINavigationItem+Language.h"
+#import "UIBarButtonItem+Language.h"
 #import "ExtUtils.h"
 
-@implementation UINavigationItem (Language)
+@implementation UIBarButtonItem (Language)
 
 - (void)awakeFromNib {
     [super awakeFromNib];

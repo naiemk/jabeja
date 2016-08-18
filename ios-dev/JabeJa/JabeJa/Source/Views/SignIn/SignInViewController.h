@@ -9,11 +9,13 @@
 #import "BaseViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "AuthUtils.h"
 
 
-@interface SignInViewController : BaseViewController
+@interface SignInViewController : BaseViewController <FBSDKLoginButtonDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *termOfUseLabel;
 @property (weak, nonatomic) IBOutlet FBSDKLoginButton *facebookLoginButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *waitAnimation;
 
 @end

@@ -50,20 +50,6 @@
     return result;
 }
 
-+ (void)setFacebookAccessToken: (NSString*)value {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:value forKey:@"FACEBOOK_AUTH_ACCESS_TOKEN"];
-
-    [defaults synchronize];
-}
-
-+ (NSString*)getFacebookAccessToken {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString* result = (NSString*)[defaults objectForKey:@"FACEBOOK_AUTH_ACCESS_TOKEN"];
-
-    return result;
-}
-
 + (void)setGooglePlusAccessToken: (NSString*)value {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:value forKey:@"GOOGLE_PLUS_AUTH_ACCESS_TOKEN"];
@@ -78,5 +64,60 @@
     return result;
 }
 
++ (void)setUserFirstName: (NSString*)value {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:value forKey:@"FIRST_NAME"];
+
+    [defaults synchronize];
+}
+
++ (NSString*)getUserFirstName {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString* result = (NSString*)[defaults objectForKey:@"FIRST_NAME"];
+
+    return result;
+}
+
++ (void)setUserLastName: (NSString*)value {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:value forKey:@"LAST_NAME"];
+
+    [defaults synchronize];
+}
+
++ (NSString*)getUserLastName {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString* result = (NSString*)[defaults objectForKey:@"LAST_NAME"];
+
+    return result;
+}
+
++ (void)setUserMiddleName: (NSString*)value {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:value forKey:@"MIDDLE_NAME"];
+
+    [defaults synchronize];
+}
+
++ (NSString*)getUserMiddleName {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString* result = (NSString*)[defaults objectForKey:@"MIDDLE_NAME"];
+
+    return result;
+}
+
++ (void)setUserEmail: (NSString*)value {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:value forKey:@"EMAIL"];
+
+    [defaults synchronize];
+}
+
++ (NSString*)getUserEmail {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString* result = (NSString*)[defaults objectForKey:@"EMAIL"];
+
+    return result;
+}
 
 @end

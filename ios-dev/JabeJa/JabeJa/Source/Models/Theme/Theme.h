@@ -15,18 +15,6 @@
 
 - (void) invalidate;
 
-@property (strong, nonatomic) UIColor* defaultPageGradientTopColor;
-@property (strong, nonatomic) UIColor* defaultPageGradientBottomColor;
-@property (strong, nonatomic) UIColor* defaultSidebarGradientTopColor;
-@property (strong, nonatomic) UIColor* defaultSidebarGradientBottomColor;
-@property (strong, nonatomic) UIColor* lightPageGradientTopColor;
-@property (strong, nonatomic) UIColor* lightPageGradientBottomColor;
 @property (strong, nonatomic) UIColor* navigationBarTintColor;
-@property (strong, nonatomic) UIColor* sidebarItemTextColor;
-@property (strong, nonatomic) UIColor* defaultTextColor;
-@property (strong, nonatomic) UIColor* lightTextColor;
-@property (strong, nonatomic) UIColor* defaultFlashCardTextColor;
-@property (strong, nonatomic) UIColor* sidebarMyAccountBackgroundColor;
-@property (strong, nonatomic) UIColor* editTextColor;
 
 @end

@@ -19,9 +19,18 @@ ChangeNavigationControllerTitleFont:false
 //    Home Page
 // ============================================================
 HomePage/Title:JabeJa
+HomePage/Settings:Settings
 
 // ============================================================
 //    Sign In Page
 // ============================================================
 SignInPage/Title:Sign In
 SignInPage/TermsOfUse:By signing in, you agree to our <blue>term of use<blue>.
+
+// ============================================================
+//    Settings Page
+// ============================================================
+SettingsPage/Title:Settings
+Settings/MyAccount:My Account
+Settings/Language:Language
+Settings/SignOut:Sign Out

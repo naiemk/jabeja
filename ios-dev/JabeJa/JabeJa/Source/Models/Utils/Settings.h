@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #define DEFAULT_LANGUAGE @"English"
-#define DEFAULT_THEME @"Green"
+#define DEFAULT_THEME @"Default"
 
 @interface Settings : NSObject
 
@@ -18,9 +18,16 @@
 + (void)setThemeFileName: (NSString*)value;
 + (NSString*)getThemeFileName;
 
-+ (void)setFacebookAccessToken: (NSString*)value;
-+ (NSString*)getFacebookAccessToken;
 + (void)setGooglePlusAccessToken: (NSString*)value;
 + (NSString*)getGooglePlusAccessToken;
+
++ (void)setUserFirstName: (NSString*)value;
++ (NSString*)getUserFirstName;
++ (void)setUserLastName: (NSString*)value;
++ (NSString*)getUserLastName;
++ (void)setUserMiddleName: (NSString*)value;
++ (NSString*)getUserMiddleName;
++ (void)setUserEmail: (NSString*)value;
++ (NSString*)getUserEmail;
 
 @end

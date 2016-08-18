@@ -10,6 +10,9 @@
 		28228A3C1D64E188003EE7A7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28228A3B1D64E188003EE7A7 /* QuartzCore.framework */; };
 		28228A3F1D64E1E7003EE7A7 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28228A3D1D64E1E7003EE7A7 /* FBSDKCoreKit.framework */; };
 		28228A401D64E1E7003EE7A7 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28228A3E1D64E1E7003EE7A7 /* FBSDKShareKit.framework */; };
+		28861CF61D6531B3008DD54F /* UIBarButtonItem+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 28861CF51D6531B3008DD54F /* UIBarButtonItem+Language.m */; };
+		28861CFB1D6532BD008DD54F /* Default.txt in Resources */ = {isa = PBXBuildFile; fileRef = 28861CFA1D6532BD008DD54F /* Default.txt */; };
+		28861D001D653D90008DD54F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28861CFF1D653D90008DD54F /* SettingsViewController.m */; };
 		28E3038E1D64A7D60009FF10 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E3038D1D64A7D60009FF10 /* main.m */; };
 		28E303911D64A7D60009FF10 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E303901D64A7D60009FF10 /* AppDelegate.m */; };
 		28E303971D64A7D60009FF10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E303951D64A7D60009FF10 /* Main.storyboard */; };
@@ -50,6 +53,12 @@
 		28228A3B1D64E188003EE7A7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		28228A3D1D64E1E7003EE7A7 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../../Users/yektaie/Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		28228A3E1D64E1E7003EE7A7 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../../../Users/yektaie/Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		28861CF41D6531B3008DD54F /* UIBarButtonItem+Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+Language.h"; path = "Source/Views/Bases/Extensions/UIBarButtonItem+Language.h"; sourceTree = "<group>"; };
+		28861CF51D6531B3008DD54F /* UIBarButtonItem+Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+Language.m"; path = "Source/Views/Bases/Extensions/UIBarButtonItem+Language.m"; sourceTree = "<group>"; };
+		28861CFA1D6532BD008DD54F /* Default.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Default.txt; path = Resources/Theme/Default.txt; sourceTree = "<group>"; };
+		28861CFC1D65366A008DD54F /* ExtUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ExtUtils.h; path = Source/Views/Bases/Extensions/ExtUtils.h; sourceTree = "<group>"; };
+		28861CFE1D653D90008DD54F /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = Source/Views/Settings/SettingsViewController.h; sourceTree = "<group>"; };
+		28861CFF1D653D90008DD54F /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = Source/Views/Settings/SettingsViewController.m; sourceTree = "<group>"; };
 		28E303891D64A7D60009FF10 /* JabeJa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JabeJa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E3038D1D64A7D60009FF10 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		28E3038F1D64A7D60009FF10 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -118,6 +127,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28861CF71D653288008DD54F /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				28861CFA1D6532BD008DD54F /* Default.txt */,
+			);
+			name = Theme;
+			sourceTree = "<group>";
+		};
+		28861CFD1D653D4C008DD54F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				28861CFE1D653D90008DD54F /* SettingsViewController.h */,
+				28861CFF1D653D90008DD54F /* SettingsViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		28E303801D64A7D60009FF10 = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +213,7 @@
 		28E303B21D64A89F0009FF10 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				28861CFD1D653D4C008DD54F /* Settings */,
 				28E303D81D64AE4B0009FF10 /* Bases */,
 				28E303D71D64AE310009FF10 /* SignIn */,
 				28E303B31D64A8D60009FF10 /* HomeViewController.h */,
@@ -198,6 +225,7 @@
 		28E303B61D64A91F0009FF10 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				28861CF71D653288008DD54F /* Theme */,
 				28E303D21D64AD2C0009FF10 /* Fonts */,
 				28E303B71D64A9270009FF10 /* Language */,
 			);
@@ -300,6 +328,9 @@
 				28E303EA1D64BB6B0009FF10 /* UILabel+Font.m */,
 				28E303EC1D64C3E00009FF10 /* UINavigationItem+Language.h */,
 				28E303ED1D64C3E00009FF10 /* UINavigationItem+Language.m */,
+				28861CF41D6531B3008DD54F /* UIBarButtonItem+Language.h */,
+				28861CF51D6531B3008DD54F /* UIBarButtonItem+Language.m */,
+				28861CFC1D65366A008DD54F /* ExtUtils.h */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -402,6 +433,7 @@
 				28E303D51D64AD600009FF10 /* IRANSans-Bold.ttf in Resources */,
 				28E303BB1D64A9670009FF10 /* Persian.txt in Resources */,
 				28E303971D64A7D60009FF10 /* Main.storyboard in Resources */,
+				28861CFB1D6532BD008DD54F /* Default.txt in Resources */,
 				28E303B91D64A9570009FF10 /* English.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,12 +454,14 @@
 			files = (
 				28E303911D64A7D60009FF10 /* AppDelegate.m in Sources */,
 				28E303EB1D64BB6B0009FF10 /* UILabel+Font.m in Sources */,
+				28861CF61D6531B3008DD54F /* UIBarButtonItem+Language.m in Sources */,
 				28E303DB1D64AE6E0009FF10 /* BaseViewController.m in Sources */,
 				28E3038E1D64A7D60009FF10 /* main.m in Sources */,
 				28E303EE1D64C3E00009FF10 /* UINavigationItem+Language.m in Sources */,
 				28E303E61D64B5AE0009FF10 /* AuthUtils.m in Sources */,
 				28E303C71D64AA000009FF10 /* Settings.m in Sources */,
 				28E303DE1D64B3B60009FF10 /* SignInViewController.m in Sources */,
+				28861D001D653D90008DD54F /* SettingsViewController.m in Sources */,
 				28E303C51D64AA000009FF10 /* Guid.m in Sources */,
 				28E303D01D64AAFA0009FF10 /* LanguageStrings.m in Sources */,
 				28E303B51D64A8D60009FF10 /* HomeViewController.m in Sources */,
