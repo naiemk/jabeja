@@ -20,6 +20,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    [self setupButtonView:self.cmdTraveling];
+    [self setupButtonView:self.cmdSearchTravelers];
+}
+
+- (void)setupButtonView:(UIButton*)button {
+    button.layer.cornerRadius = 7;
+    button.layer.borderWidth = 1.0 / [[UIScreen mainScreen] scale];
+    button.layer.borderColor = button.tintColor.CGColor;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

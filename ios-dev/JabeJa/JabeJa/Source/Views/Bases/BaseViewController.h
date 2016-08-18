@@ -10,6 +10,7 @@
 
 #import "UILabel+Font.h"
 #import "UINavigationItem+Language.h"
+#import "UIButton+Language.h"
 #import "UIBarButtonItem+Language.h"
 
 @interface BaseViewController : UIViewController

@@ -22,6 +22,12 @@ NavigationControllerTitleFontSize:18
 HomePage/Title:JabeJa
 HomePage/Settings:Settings
 
+TravelPage/From:From:
+TravelPage/To:Destination:
+TravelPage/Date:Travel Date:
+TravelPage/Traveling:Traveling
+TravelPage/SearchTravelers:Search Travelers
+
 // ============================================================
 //    Sign In Page
 // ============================================================

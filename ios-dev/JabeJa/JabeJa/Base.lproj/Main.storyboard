@@ -18,14 +18,99 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cancel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4a8-WO-UsF">
-                                <rect key="frame" x="79" y="108" width="198" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TravelPage/From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GY0-Hp-b86">
+                                <rect key="frame" x="20" y="81" width="560" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="ybF-Vu-34A"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hNc-3n-c1F">
+                                <rect key="frame" x="20" y="105" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TravelPage/To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UrI-ku-WG5">
+                                <rect key="frame" x="20" y="151" width="560" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="egt-Zt-O2s"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fia-SG-LoH">
+                                <rect key="frame" x="20" y="175" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TravelPage/Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3N-ht-9It">
+                                <rect key="frame" x="20" y="221" width="560" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="19" id="ncV-x6-w7t"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="m5C-vJ-jYw">
+                                <rect key="frame" x="20" y="248" width="560" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="8QS-qw-bWx"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="493239847.84067398">
+                                    <!--2016-08-18 19:04:07 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7y-b9-IMa">
+                                <rect key="frame" x="190" y="548" width="220" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="0sb-OI-IjS"/>
+                                    <constraint firstAttribute="height" constant="32" id="ZqP-bL-MTY"/>
+                                </constraints>
+                                <state key="normal" title="TravelPage/SearchTravelers"/>
+                            </button>
+                            <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="in5-4w-XnF">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="feg-i2-xwb">
+                                <rect key="frame" x="190" y="503" width="220" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="7L3-q2-WcS"/>
+                                    <constraint firstAttribute="height" constant="32" id="Lee-AD-l67"/>
+                                </constraints>
+                                <state key="normal" title="TravelPage/Traveling"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="feg-i2-xwb" firstAttribute="leading" secondItem="G7y-b9-IMa" secondAttribute="trailing" constant="-220" id="A3n-L0-rb8"/>
+                            <constraint firstItem="G7y-b9-IMa" firstAttribute="leading" secondItem="in5-4w-XnF" secondAttribute="trailing" constant="-120" id="DgX-FG-eKU"/>
+                            <constraint firstAttribute="leading" secondItem="GY0-Hp-b86" secondAttribute="leading" constant="-20" id="EsA-ck-kLi"/>
+                            <constraint firstAttribute="trailing" secondItem="GY0-Hp-b86" secondAttribute="trailing" constant="20" id="Gxr-fm-otk"/>
+                            <constraint firstItem="D3N-ht-9It" firstAttribute="leading" secondItem="GY0-Hp-b86" secondAttribute="leading" id="Izq-yE-vMz"/>
+                            <constraint firstItem="fia-SG-LoH" firstAttribute="top" secondItem="UrI-ku-WG5" secondAttribute="bottom" constant="8" id="S1w-DG-nlO"/>
+                            <constraint firstItem="hNc-3n-c1F" firstAttribute="leading" secondItem="GY0-Hp-b86" secondAttribute="leading" id="Ujb-mv-55n"/>
+                            <constraint firstItem="UrI-ku-WG5" firstAttribute="trailing" secondItem="GY0-Hp-b86" secondAttribute="trailing" id="VOj-4f-FdJ"/>
+                            <constraint firstItem="m5C-vJ-jYw" firstAttribute="top" secondItem="D3N-ht-9It" secondAttribute="bottom" constant="8" id="WUK-gd-f9n"/>
+                            <constraint firstItem="UrI-ku-WG5" firstAttribute="leading" secondItem="GY0-Hp-b86" secondAttribute="leading" id="Wjy-be-q5W"/>
+                            <constraint firstItem="m5C-vJ-jYw" firstAttribute="trailing" secondItem="GY0-Hp-b86" secondAttribute="trailing" id="YZz-Zb-UnB"/>
+                            <constraint firstItem="hNc-3n-c1F" firstAttribute="trailing" secondItem="GY0-Hp-b86" secondAttribute="trailing" id="ZwD-hB-laI"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="G7y-b9-IMa" secondAttribute="bottom" constant="20" id="baE-Xr-cZb"/>
+                            <constraint firstItem="in5-4w-XnF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="c1r-Je-dEA"/>
+                            <constraint firstItem="UrI-ku-WG5" firstAttribute="top" secondItem="hNc-3n-c1F" secondAttribute="bottom" constant="16" id="d3R-Qt-2PA"/>
+                            <constraint firstItem="GY0-Hp-b86" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="17" id="d3x-kZ-JlV"/>
+                            <constraint firstItem="D3N-ht-9It" firstAttribute="trailing" secondItem="GY0-Hp-b86" secondAttribute="trailing" id="dcf-2k-F4k"/>
+                            <constraint firstItem="hNc-3n-c1F" firstAttribute="top" secondItem="GY0-Hp-b86" secondAttribute="bottom" constant="8" id="f2w-98-YHf"/>
+                            <constraint firstItem="fia-SG-LoH" firstAttribute="leading" secondItem="GY0-Hp-b86" secondAttribute="leading" id="fkF-ot-a4O"/>
+                            <constraint firstItem="fia-SG-LoH" firstAttribute="trailing" secondItem="GY0-Hp-b86" secondAttribute="trailing" id="iwV-5c-cNm"/>
+                            <constraint firstItem="G7y-b9-IMa" firstAttribute="top" secondItem="feg-i2-xwb" secondAttribute="bottom" constant="13" id="oLF-KN-LXO"/>
+                            <constraint firstItem="m5C-vJ-jYw" firstAttribute="leading" secondItem="GY0-Hp-b86" secondAttribute="leading" id="rAm-E6-ge4"/>
+                            <constraint firstItem="in5-4w-XnF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="vqB-2Z-1fo"/>
+                            <constraint firstItem="D3N-ht-9It" firstAttribute="top" secondItem="fia-SG-LoH" secondAttribute="bottom" constant="16" id="wgV-pA-BEf"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="HomePage/Title" id="gon-Ro-BTP">
                         <barButtonItem key="rightBarButtonItem" title="HomePage/Settings" id="bC5-Fc-Eb7">
@@ -35,6 +120,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cmdSearchTravelers" destination="G7y-b9-IMa" id="eNw-tK-olA"/>
+                        <outlet property="cmdTraveling" destination="feg-i2-xwb" id="FfI-vL-wXo"/>
                         <segue destination="kAo-JC-ePm" kind="custom" identifier="s_ShowLogin" customClass="PresentViewSegue" id="aWc-V0-OgI"/>
                     </connections>
                 </viewController>

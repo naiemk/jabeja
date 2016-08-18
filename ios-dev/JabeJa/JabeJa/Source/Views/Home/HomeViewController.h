@@ -10,4 +10,7 @@
 
 @interface HomeViewController : BaseViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *cmdTraveling;
+@property (weak, nonatomic) IBOutlet UIButton *cmdSearchTravelers;
+
 @end

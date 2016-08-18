@@ -13,6 +13,7 @@
 		28861CF61D6531B3008DD54F /* UIBarButtonItem+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 28861CF51D6531B3008DD54F /* UIBarButtonItem+Language.m */; };
 		28861CFB1D6532BD008DD54F /* Default.txt in Resources */ = {isa = PBXBuildFile; fileRef = 28861CFA1D6532BD008DD54F /* Default.txt */; };
 		28861D001D653D90008DD54F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28861CFF1D653D90008DD54F /* SettingsViewController.m */; };
+		289871731D6642E800F63DF7 /* UIButton+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 289871721D6642E800F63DF7 /* UIButton+Language.m */; };
 		28E3038E1D64A7D60009FF10 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E3038D1D64A7D60009FF10 /* main.m */; };
 		28E303911D64A7D60009FF10 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E303901D64A7D60009FF10 /* AppDelegate.m */; };
 		28E303971D64A7D60009FF10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E303951D64A7D60009FF10 /* Main.storyboard */; };
@@ -59,6 +60,8 @@
 		28861CFC1D65366A008DD54F /* ExtUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ExtUtils.h; path = Source/Views/Bases/Extensions/ExtUtils.h; sourceTree = "<group>"; };
 		28861CFE1D653D90008DD54F /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = Source/Views/Settings/SettingsViewController.h; sourceTree = "<group>"; };
 		28861CFF1D653D90008DD54F /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = Source/Views/Settings/SettingsViewController.m; sourceTree = "<group>"; };
+		289871711D6642E800F63DF7 /* UIButton+Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+Language.h"; path = "Source/Views/Bases/Extensions/UIButton+Language.h"; sourceTree = "<group>"; };
+		289871721D6642E800F63DF7 /* UIButton+Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+Language.m"; path = "Source/Views/Bases/Extensions/UIButton+Language.m"; sourceTree = "<group>"; };
 		28E303891D64A7D60009FF10 /* JabeJa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JabeJa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E3038D1D64A7D60009FF10 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		28E3038F1D64A7D60009FF10 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -331,6 +334,8 @@
 				28861CF41D6531B3008DD54F /* UIBarButtonItem+Language.h */,
 				28861CF51D6531B3008DD54F /* UIBarButtonItem+Language.m */,
 				28861CFC1D65366A008DD54F /* ExtUtils.h */,
+				289871711D6642E800F63DF7 /* UIButton+Language.h */,
+				289871721D6642E800F63DF7 /* UIButton+Language.m */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -455,6 +460,7 @@
 				28E303911D64A7D60009FF10 /* AppDelegate.m in Sources */,
 				28E303EB1D64BB6B0009FF10 /* UILabel+Font.m in Sources */,
 				28861CF61D6531B3008DD54F /* UIBarButtonItem+Language.m in Sources */,
+				289871731D6642E800F63DF7 /* UIButton+Language.m in Sources */,
 				28E303DB1D64AE6E0009FF10 /* BaseViewController.m in Sources */,
 				28E3038E1D64A7D60009FF10 /* main.m in Sources */,
 				28E303EE1D64C3E00009FF10 /* UINavigationItem+Language.m in Sources */,
