@@ -13,7 +13,8 @@ No:No
 Error:Error
 Language:English
 Close:Close
-ChangeNavigationControllerTitleFont:false
+ChangeNavigationControllerTitleFont:true
+NavigationControllerTitleFontSize:18
 
 // ============================================================
 //    Home Page

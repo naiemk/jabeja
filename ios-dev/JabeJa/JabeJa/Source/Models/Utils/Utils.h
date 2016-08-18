@@ -34,5 +34,5 @@
 + (UIViewController*)createViewControllerFromStoryboard:(NSString*)identifier;
 
 + (void)setupApp;
-
++ (void)reloadNavigationTitleFonts;
 @end

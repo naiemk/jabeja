@@ -37,6 +37,7 @@
             [LanguageStrings invalidate];
         }
 
+        [Utils reloadNavigationTitleFonts];
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
@@ -45,6 +46,16 @@
     [[AuthUtils instance] signOut];
 
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    self.title = [self getTitleString];
+}
+
+- (NSString*)getTitleString {
+    return L(@"SettingsPage/Title");
 }
 
 @end

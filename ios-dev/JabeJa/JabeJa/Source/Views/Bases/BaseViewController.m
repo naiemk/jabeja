@@ -18,4 +18,28 @@
     [super viewDidLoad];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    if (self.navigationItem.rightBarButtonItem != nil) {
+        UIBarButtonItem* item = self.navigationItem.rightBarButtonItem;
+        [item reload];
+    }
+
+    if (self.navigationItem.leftBarButtonItem != nil) {
+        UIBarButtonItem* item = self.navigationItem.leftBarButtonItem;
+        [item reload];
+    }
+
+    self.title = [self getTitleString];
+
+    int fontSize = [L(@"NavigationControllerTitleFontSize") intValue];
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{ NSFontAttributeName:[Utils createDefaultBoldFont:fontSize]}];
+}
+
+- (NSString*)getTitleString {
+    return @"";
+}
+
 @end

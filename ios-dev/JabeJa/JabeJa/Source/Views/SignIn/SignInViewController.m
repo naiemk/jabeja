@@ -28,6 +28,12 @@
     self.facebookLoginButton.delegate = self;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self loadTermOfUse];
+}
+
 - (void)loadTermOfUse {
     NSString* text = L(@"SignInPage/TermsOfUse");
     NSArray* parts = [text componentsSeparatedByString:@"<blue>"];
@@ -104,5 +110,9 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
+- (NSString*)getTitleString {
+    return L(@"SignInPage/Title");
+}
 
 @end

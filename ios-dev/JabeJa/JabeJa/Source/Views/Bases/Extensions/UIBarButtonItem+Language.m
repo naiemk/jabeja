@@ -35,6 +35,10 @@
     }
 
     self.title = text;
+
+    CGFloat fontSize = [L(@"NavigationControllerTitleFontSize") intValue] * 0.85f;
+    [self setTitleTextAttributes:@{ NSFontAttributeName:[Utils createDefaultFont:fontSize]} forState:UIControlStateNormal];
+
 }
 
 @end

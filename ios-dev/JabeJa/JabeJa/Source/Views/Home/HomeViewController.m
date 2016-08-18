@@ -20,7 +20,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     if (![[AuthUtils instance] isSignedIn]) {
         [self performSegueWithIdentifier:SEGUE_SHOW_LOGIN sender:self];
     }
@@ -30,6 +34,10 @@
     if ([segue.identifier isEqualToString:SEGUE_SHOW_LOGIN]) {
         ((PresentViewSegue*)segue).showFormSheet = [Utils isTablet];
     }
+}
+
+- (NSString*)getTitleString {
+    return L(@"HomePage/Title");
 }
 
 @end
