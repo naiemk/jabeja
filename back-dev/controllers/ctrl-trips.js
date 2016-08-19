@@ -1,6 +1,7 @@
 'use strict';
 
-var trips = require('express').Router(),
+var express = require('express'),
+    trips = express.Router(),
     Model = require('../models/model-trips.js');
 
 /**
@@ -83,7 +84,7 @@ trips.post('/', function(req, res) {
         'userName': req.body['userName'],
         'userEmail': req.body['userEmail'],
         'userPhone': req.body['userPhone'],
-        'deliveryType': req.body['deliveryType'].split("_")
+        'deliveryType': req.body['deliveryType'].split("_"),
         'source': req.body['source'],
         'dest': req.body['dest'],
         'travelDate': new Date(req.body['travelDate']),
@@ -439,4 +440,4 @@ trips.delete('/:email', function(req, res) {
         return res.json(trips);
     });
 });
-module.exports.trips = trips;
+module.exports = trips;

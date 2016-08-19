@@ -1,6 +1,7 @@
 'use strict';
 
-var zones = require('express').Router(),
+var express = require('express'),
+    zones = express.Router(),
     Model = require('../models/model-zones.js');
 
 /**
@@ -91,4 +92,4 @@ zones.post('/', function(req, res) {
     });
 });
 
-module.exports.zones = zones;
+module.export = zones;

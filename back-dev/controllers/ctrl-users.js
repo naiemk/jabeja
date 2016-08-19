@@ -1,6 +1,7 @@
 'use strict';
 
-var users = require('express').Router(),
+var express = require('express'),
+    users = express.Router(),
     Model = require('../models/model-users.js');
 
   /**
@@ -280,4 +281,4 @@ users.delete('/:email', function(req, res) {
     });
 });
 
-module.exports.users = users;
+module.exports = users;
