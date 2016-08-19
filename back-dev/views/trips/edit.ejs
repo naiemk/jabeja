@@ -1,0 +1,62 @@
+<h2>Trip form</h2>
+<p>
+    <% if (trip) { %>
+        New trip
+    <% } else { %>
+        Edit trip
+    <% } %>
+</p>
+<% if (flash) { %>
+    <p>{flash}</p>
+<% } %>
+<div class="content">
+    <div>
+        <form name="trip" method="<% if (trip) { %>put<% } else { %>post<% } %>"
+            action="/trips <% if (trip) { %>/<%= trip._id %><% } %>">
+            <div class="row">
+                <label>UserFbId</label>
+                <input type="text" name="userFbId" value="<%= trip.userFbId %>">
+            </div>
+            <div class="row">
+                <label>UserName</label>
+                <input type="text" name="userName" value="<%= trip.userName %>">
+            </div>
+            <div class="row">
+                <label>UserEmail</label>
+                <input type="text" name="userEmail" value="<%= trip.userEmail %>">
+            </div>
+            <div class="row">
+                <label>UserPhone</label>
+                <input type="text" name="userPhone" value="<%= trip.userPhone %>">
+            </div>
+            <div class="row">
+                <label>DeliveryType</label>
+                <input type="text" name="deliveryType" value="<%= trip.deliveryType %>">
+            </div>
+            <div class="row">
+                <label>Source</label>
+                <input type="text" name="source" value="<%= trip.source %>">
+            </div>
+            <div class="row">
+                <label>Dest</label>
+                <input type="text" name="dest" value="<%= trip.dest %>">
+            </div>
+            <div class="row">
+                <label>TravelDate</label>
+                <input type="text" name="travelDate" value="<%= trip.travelDate %>">
+            </div>
+            <div class="row">
+                <label>Comment</label>
+                <input type="text" name="comment" value="<%= trip.comment %>">
+            </div>
+            <div class="row controls">
+                <input type="submit" value="Save">
+            </div>
+        </form>
+        <% if (trip) {%>
+            <form method="delete" action="/tripss<%= trip._id %>">
+                <input type="submit" value="Delete"/>
+            </form>
+        <% } %>
+    </div>
+</div>

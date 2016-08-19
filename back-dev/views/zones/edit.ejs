@@ -1,0 +1,46 @@
+<h2>Zone form</h2>
+<p>
+    <% if (zone) { %>
+        New zone
+    <% } else { %>
+        Edit zone
+    <% } %>
+</p>
+<% if (flash) { %>
+    <p>{flash}</p>
+<% } %>
+<div class="content">
+    <div>
+        <form name="zone" method="<% if (zone) { %>put<% } else { %>post<% } %>"
+            action="/zones <% if (zone) { %>/<%= zone._id %><% } %>">
+            <div class="row">
+                <label>ZoneId</label>
+                <input type="text" name="zoneId" value="<%= zone.zoneId %>">
+            </div>
+            <div class="row">
+                <label>Title_en</label>
+                <input type="text" name="title_en" value="<%= zone.title_en %>">
+            </div>
+            <div class="row">
+                <label>Title_fa</label>
+                <input type="text" name="title_fa" value="<%= zone.title_fa %>">
+            </div>
+            <div class="row">
+                <label>Location_en</label>
+                <input type="text" name="location_en" value="<%= zone.location_en %>">
+            </div>
+            <div class="row">
+                <label>Location_fa</label>
+                <input type="text" name="location_fa" value="<%= zone.location_fa %>">
+            </div>
+            <div class="row controls">
+                <input type="submit" value="Save">
+            </div>
+        </form>
+        <% if (zone) {%>
+            <form method="delete" action="/zoness<%= zone._id %>">
+                <input type="submit" value="Delete"/>
+            </form>
+        <% } %>
+    </div>
+</div>
