@@ -4,7 +4,7 @@ var trips = require('express').Router(),
     Model = require('../models/model-trips.js');
 
 /**
-* @api {get} /jabeja/api/trip Get all trips.
+* @api {get} /jabeja/api/trip getTrips.
 * @apiName getTrips
 * @apiGroup Trip
 * @apiSuccess {Array} trips  Array of Trip information in json.
@@ -45,7 +45,7 @@ trips.get('/', function(req, res) {
 });
 
 /**
-* @api {post} /jabeja/api/trip/ Update a trip with specified attributes.
+* @api {post} /jabeja/api/trip addTrip.
 * @apiName addTrip
 * @apiGroup Trip
 *
@@ -105,7 +105,7 @@ trips.post('/', function(req, res) {
 });
 
 /**
-* @api {get} /jabeja/api/trip/:email Get all trips for this person.
+* @api {get} /jabeja/api/trip/:email getTravellersTrips.
 * @apiName getTravellersTrips
 * @apiGroup Trip
 *
@@ -156,7 +156,7 @@ trips.get('/:email', function(req, res) {
 });
 
 /**
-* @api {get} /jabeja/api/trip/:type.:source.:dest.:date Search all trips with specified attributes.
+* @api {get} /jabeja/api/trip/:type.:source.:dest.:date searchTrips.
 * @apiName searchTrips.
 * @apiGroup Trip
 *
@@ -219,7 +219,7 @@ trips.get('/:type.:srouce.:dest.:date', function(req, res) {
 });
 
 /**
-* @api {put} /jabeja/api/trip/:date.:email.:dest.:source.:type Update a trip with specified attributes.
+* @api {put} /jabeja/api/trip/:date.:email.:dest.:source.:type updateTrip.
 * @apiName updateTrip
 * @apiGroup Trip
 *
@@ -313,8 +313,8 @@ trips.put('/:date.:email.:dest.:source.:type', function(req, res) {
 });
 
 /**
-* @api {delete} /jabeja/api/trip/:date.:email.:dest.:source.:type Update a trip with specified attributes.
-* @apiName Search trips.
+* @api {delete} /jabeja/api/trip/:date.:email.:dest.:source.:type deleteTrip.
+* @apiName deleteTrip
 * @apiGroup Trip
 *
 * @apiParam {String} type Type of delivery. Type is concatinated string by underline "_" Ex: "document_money"
