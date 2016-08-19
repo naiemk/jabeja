@@ -7,6 +7,7 @@
 //
 
 #import "SignInViewController.h"
+#import "Server.h"
 
 @interface SignInViewController ()
 
@@ -26,6 +27,12 @@
 - (void)setupFacebookLoginButton {
     self.facebookLoginButton.readPermissions = FACEBOOK_REQUIRED_PERMISSIONS;
     self.facebookLoginButton.delegate = self;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self loadTermOfUse];
 }
 
 - (void)loadTermOfUse {
@@ -101,8 +108,23 @@
 }
 
 - (void)sendFacebookRegistrationRequestToServer:(NSString*)userId {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    LoginParameter* param = [[LoginParameter alloc] init];
+
+    param.userEmail = [AuthUtils instance].userEmail;
+    param.userPhone = nil;
+    param.userLastName = [AuthUtils instance].userLastName;
+    param.userFirstName = [AuthUtils instance].userFirstName;
+    param.userMiddleName = [AuthUtils instance].userMiddleName;
+    param.facebookUserID = [FBSDKAccessToken currentAccessToken].userID;
+
+    [[Server instance] login:param callback:^(int resultCode, NSObject *result) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
 }
 
+
+- (NSString*)getTitleString {
+    return L(@"SignInPage/Title");
+}
 
 @end

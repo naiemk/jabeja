@@ -10,4 +10,6 @@
 
 @interface UIBarButtonItem (Language)
 
+- (void)reload;
+
 @end

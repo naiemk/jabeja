@@ -60,17 +60,21 @@ static double fontSizeCoefficient;
     [FBSDKLoginButton class];
     [Utils initializeUtils];
 
-    [[UITabBar appearance] setTintColor:[Theme instance].navigationBarTintColor];
-    if ([[LanguageStrings instance] shouldChangeTabItemTitleFont]) {
-        [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:L(@"TabBarItemTitleFont") size:[[LanguageStrings instance] getTabItemTitleFontSize]], NSFontAttributeName, nil] forState:UIControlStateNormal];
-        [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:L(@"TabBarItemTitleFont")
-                                                                                                                size:[[LanguageStrings instance] getTabItemTitleFontSize]], NSFontAttributeName, nil] forState:UIControlStateSelected];
-    }
+    [Utils reloadNavigationTitleFonts];
+}
 
-    [[UINavigationBar appearance] setTintColor:[Theme instance].navigationBarTintColor];
-    if ([[LanguageStrings instance].name isEqualToString:@"Persian"]) {
-        [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:L(@"DefaultBoldFont") size:16], NSFontAttributeName, nil]];
-    }
++ (void)reloadNavigationTitleFonts {
+//    [[UITabBar appearance] setTintColor:[Theme instance].navigationBarTintColor];
+//    if ([[LanguageStrings instance] shouldChangeTabItemTitleFont]) {
+//        [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:L(@"TabBarItemTitleFont") size:[[LanguageStrings instance] getTabItemTitleFontSize]], NSFontAttributeName, nil] forState:UIControlStateNormal];
+//        [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:L(@"TabBarItemTitleFont")
+//                                                                                                                size:[[LanguageStrings instance] getTabItemTitleFontSize]], NSFontAttributeName, nil] forState:UIControlStateSelected];
+//    }
+//
+//    [[UINavigationBar appearance] setTintColor:[Theme instance].navigationBarTintColor];
+//    if ([[LanguageStrings instance].name isEqualToString:@"Persian"]) {
+//        [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:L(@"DefaultBoldFont") size:16], NSFontAttributeName, nil]];
+//    }
 }
 
 + (NSString*) formatNumber:(int) number
