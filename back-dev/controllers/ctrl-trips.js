@@ -383,4 +383,60 @@ trips.delete('/:date.:email.:dest.:source.:type', function(req, res) {
     });
 });
 
+/**
+* @api {delete} /jabeja/api/trip/:email deleteTrips.
+* @apiName deleteTrips
+* @apiGroup Trip
+*
+* @apiParam {String} email Traveller's email.
+*
+* @apiSuccess {String} userFbId  Traveller's facebok id.
+* @apiSuccess {String} userName  Traveller's full name.
+* @apiSuccess {String} userEmail  Traveller's email.
+* @apiSuccess {String} userPhone  Traveller's phone.
+* @apiSuccess {String} deliveryType  Traveller's delivery type.
+* @apiSuccess {String} source  Traveller's source location.
+* @apiSuccess {String} dest  Traveller's destination location.
+* @apiSuccess {Date} travelDate  Travel date.
+* @apiSuccess {String} comment  Traveller's comment.
+* @apiFailure {Number} 400  No such trip.
+* @apiFailure {Number} 500  Error getting trips.
+*
+* @apiSuccessExample Success-Response:
+*     HTTP/1.1 200 OK
+*     [{
+*       "userFbId" : "12123123123123123",
+*       "userName" : "Foo Foobar",
+*       "userEmail" : "foo@facebook.com",
+*       "userPhone" : "+14259749694",
+*       "deliveryType" : ["document", "money"],
+*       "source" : "Seattle",
+*       "dest" : "Dallas",
+*       "travelDate" : "Wed Aug 17 2016",
+*       "comment" : "blah blah blah!"
+*     }]
+*
+* @apiFailureExample Failure-Response:
+*     HTTP/1.1 500 Error
+*     {
+*      "message" : "Error getting trips."
+*     }
+*
+*/
+trips.delete('/:email', function(req, res) {
+  var email = req.params.email;
+      Model.find({email: email}, function(err, trip){
+        if(err) {
+            return res.json(500, {
+                message: 'Error getting trip.'
+            });
+        }
+        if(!trip) {
+            return res.json(404, {
+                message: 'No such trip'
+            });
+        }
+        return res.json(trips);
+    });
+});
 module.exports.trips = trips;

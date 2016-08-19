@@ -1,1 +1,1 @@
-define({  "name": "jabeja-v2",  "version": "0.0.0",  "description": "",  "sampleUrl": false,  "apidoc": "0.2.0",  "generator": {    "name": "apidoc",    "time": "2016-08-19T19:31:34.419Z",    "url": "http://apidocjs.com",    "version": "0.16.1"  }});
+define({  "name": "jabeja-v2",  "version": "0.0.0",  "description": "",  "sampleUrl": false,  "apidoc": "0.2.0",  "generator": {    "name": "apidoc",    "time": "2016-08-19T21:49:31.821Z",    "url": "http://apidocjs.com",    "version": "0.16.1"  }});
