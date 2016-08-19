@@ -6,7 +6,7 @@
 //  Copyright © 2016 Mohammad Ali Yektaie. All rights reserved.
 //
 
-#import "UILabel+Font.h"
+#import "UILabel+Language.h"
 #import "ExtUtils.h"
 
 @implementation UILabel (Font)

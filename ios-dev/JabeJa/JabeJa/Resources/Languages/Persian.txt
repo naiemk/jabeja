@@ -27,7 +27,10 @@ TravelPage/To:مقصد:
 TravelPage/Date:تاریخ سفر:
 TravelPage/Traveling:مسافرت می‌کنم
 TravelPage/SearchTravelers:جستجو مسافر
-
+TravelPage/FromPlaceholder:برای انتخاب اینجا بزنید
+TravelPage/ToPlaceholder:برای انتخاب اینجا بزنید
+TravelPage/Document:مدارک
+TravelPage/Box:بسته
 
 // ============================================================
 //    Sign In Page
@@ -42,3 +45,9 @@ SettingsPage/Title:تنظیمات
 Settings/MyAccount:حساب من
 Settings/Language:زبان
 Settings/SignOut:خروج
+
+// ============================================================
+//    Trip Location Page
+// ============================================================
+TripLocationPage/Waiting:بارگذاری لیست شهر‌ها ...
+TripLocationPage/Title:انتخاب موقعیت

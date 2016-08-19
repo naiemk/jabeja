@@ -7,6 +7,7 @@
 //
 
 #import "SignInViewController.h"
+#import "Server.h"
 
 @interface SignInViewController ()
 
@@ -107,7 +108,18 @@
 }
 
 - (void)sendFacebookRegistrationRequestToServer:(NSString*)userId {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    LoginParameter* param = [[LoginParameter alloc] init];
+
+    param.userEmail = [AuthUtils instance].userEmail;
+    param.userPhone = nil;
+    param.userLastName = [AuthUtils instance].userLastName;
+    param.userFirstName = [AuthUtils instance].userFirstName;
+    param.userMiddleName = [AuthUtils instance].userMiddleName;
+    param.facebookUserID = [FBSDKAccessToken currentAccessToken].userID;
+
+    [[Server instance] login:param callback:^(int resultCode, NSObject *result) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
 }
 
 

@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "UILabel+Font.h"
+#import "UILabel+Language.h"
+#import "UITextField+Language.h"
 #import "UINavigationItem+Language.h"
 #import "UIButton+Language.h"
 #import "UIBarButtonItem+Language.h"

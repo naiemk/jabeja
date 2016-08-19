@@ -27,6 +27,10 @@ TravelPage/To:Destination:
 TravelPage/Date:Travel Date:
 TravelPage/Traveling:Traveling
 TravelPage/SearchTravelers:Search Travelers
+TravelPage/FromPlaceholder:Touch To Select
+TravelPage/ToPlaceholder:Touch To Select
+TravelPage/Document:Document
+TravelPage/Box:Box
 
 // ============================================================
 //    Sign In Page
@@ -41,3 +45,9 @@ SettingsPage/Title:Settings
 Settings/MyAccount:My Account
 Settings/Language:Language
 Settings/SignOut:Sign Out
+
+// ============================================================
+//    Trip Location Page
+// ============================================================
+TripLocationPage/Waiting:Loading list of cities ...
+TripLocationPage/Title:Select Location
