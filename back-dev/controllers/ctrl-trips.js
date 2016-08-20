@@ -79,29 +79,54 @@ trips.get('/', function(req, res) {
 *
 */
 trips.post('/', function(req, res) {
+    var phone = req.body['userPhone'] ? req.body['userPhone'] : "",
+        comment = req.body['comment'] ? req.body['comment'] : "",
+        email = req.body['userEmail'],
+        deliveryType = req.body['deliveryType'].split("_"),
+        source = req.body['source'],
+        dest = req.body['dest'],
+        travelDate = new Date(req.body['travelDate']);
+
     var trip = new Model({
         'userFbId': req.body['userFbId'],
         'userName': req.body['userName'],
-        'userEmail': req.body['userEmail'],
-        'userPhone': req.body['userPhone'],
-        'deliveryType': req.body['deliveryType'].split("_"),
-        'source': req.body['source'],
-        'dest': req.body['dest'],
-        'travelDate': new Date(req.body['travelDate']),
-        'comment': req.body['comment']
+        'userEmail': email,
+        'userPhone': phone,
+        'deliveryType': deliveryType,
+        'source': source,
+        'dest': dest,
+        'travelDate': travelDate,
+        'comment': comment
     });
 
-    trip.save(function(err, trip){
-          if(err) {
-              return res.json(500, {
-                  message: 'Error saving item.',
-                  error: err
-              });
-          }
-          return res.json({
-              message: 'saved',
-              email: trip.email
+    //check and see if there is a post already
+    Model.findOne({
+        email: email,
+        deliveryType: deliveryType,
+        source: source,
+        dest: dest,
+        travelDate: travelDate
+      }, function(err, trips){
+        if(err) {
+            return res.json(500, {
+                message: 'Error getting trip.'
+            });
+        }
+        if(!trips) {
+          trip.save(function(err, trip){
+                if(err) {
+                    return res.json(500, {
+                        message: 'Error saving item.',
+                        error: err
+                    });
+                }
+                return res.json({
+                    message: 'saved',
+                    email: trip.email
+                });
           });
+        }
+        return res.json(200, {message: 'trip exists.'});
     });
 });
 

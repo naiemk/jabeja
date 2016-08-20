@@ -9,10 +9,10 @@ var mongoose = require('mongoose'),
 var usersSchema = new Schema({
     email: 'String',
     firstName: 'String',
+    middleName: 'String',
     lastName: 'String',
     phone: 'String',
-    userFbId: 'String',
-    dob: 'Date'
+    userFbId: 'String'
 });
 
 module.exports = mongoose.model('users', usersSchema);

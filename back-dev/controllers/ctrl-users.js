@@ -18,9 +18,9 @@ var express = require('express'),
   *         "email": "foo@bar.com",
   *         "firstName": "foo",
   *         "lastName": "bar",
+  *         "middleName": "mfoo",
   *         "phone": "123123123123",
-  *         "userFbId": "123123123123",
-  *         "dob": Date(Fri Aug 19 2016 15:49:01 GMT-0400 (EDT))
+  *         "userFbId": "123123123123"
   *       }
   *     ]
   *
@@ -49,12 +49,13 @@ users.get('/', function(req, res) {
 *
 * @apiParam {String} email  User's email address.
 * @apiParam {String} firstName  User's first name.
+* @apiParam {String} middleName  User's middle name.
 * @apiParam {String} lastName  User's last name.
 * @apiParam {String} phone  User's phone.
 * @apiParam {String} userFbId  User's facebook id.
-* @apiParam {Date} dob  User's date of birth.
 *
 * @apiSuccess {String} message  saved.
+* @apiSuccess {String} message  user exists.
 * @apiSuccess {String} emial user's emial.
 * @apiFailure {Number} 500  Error saving item.
 *
@@ -63,6 +64,12 @@ users.get('/', function(req, res) {
 *     {
 *        "message" : "saved",
 *        "email" : "foo@bar.com"
+*     }
+
+* @apiSuccessExample Success-Response:
+*     HTTP/1.1 200 OK
+*     {
+*        "message" : "user exists"
 *     }
 *
 * @apiFailureExample Failure-Response:
@@ -74,25 +81,41 @@ users.get('/', function(req, res) {
 *
 */
 users.post('/', function(req, res) {
+    var middleName = req.body['middleName'] ? req.body['middleName'] : "",
+        phone = req.body['phone'] ? req.body['phone'] : "",
+        email =  req.body['email'];
     var user = new Model({
-        'email': req.body['email'],
+        'email': email,
         'firstName': req.body['firstName'],
+        'middleName': middleName,
         'lastName': req.body['lastName'],
-        'phone': req.body['phone'],
-        'userFbId': req.body['userFbId'],
-        'dob': req.body['dob'] ? new Date(req.body['dob']) : null
+        'phone': phone,
+        'userFbId': req.body['userFbId']
     });
-    user.save(function(err, user){
-        if(err) {
-            return res.json(500, {
-                message: 'Error saving item.',
-                error: err
+    Model.findOne({email: email}, function(err, user){
+          if(err) {
+              return res.json(500, {
+                  message: 'Error getting user.'
+              });
+          }
+          // if user doesn't already exist add one
+          if(!user) {
+            user.save(function(err, user){
+                if(err) {
+                    return res.json(500, {
+                        message: 'Error saving item.',
+                        error: err
+                    });
+                }
+                return res.json({
+                    message: 'saved',
+                    email: user.email
+                });
             });
-        }
-        return res.json({
-            message: 'saved',
-            email: user.email
-        });
+          }
+          return res.json(200, {
+              message: 'user exists.'
+          });
     });
 });
 
@@ -105,10 +128,10 @@ users.post('/', function(req, res) {
 *
 * @apiSuccess {String} email  User's email address.
 * @apiSuccess {String} firstName  User's first name.
+* @apiSuccess {String} middleName  User's middle name.
 * @apiSuccess {String} lastName  User's last name.
 * @apiSuccess {String} phone  User's phone.
 * @apiSuccess {String} userFbId  User's facebook id.
-* @apiSuccess {Date} dob  User's date of birth.
 *
 * @apiFailure {Number} 500  Error getting users.
 *
@@ -117,10 +140,10 @@ users.post('/', function(req, res) {
 *     {
 *       "email": "foo@bar.com",
 *       "firstName": "foo",
+*       "middleName": "middlefoo",
 *       "lastName": "bar",
 *       "phone": "123123123123",
 *       "userFbId": "123123123123",
-*       "dob": Date(Fri Aug 19 2016 15:49:01 GMT-0400 (EDT))
 *     }
 *
 * @apiFailureExample Failure-Response:
@@ -131,7 +154,7 @@ users.post('/', function(req, res) {
 *
 */
 users.get('/:email', function(req, res) {
-    var id = req.params.id;
+    var email = req.params.email;
     Model.findOne({email: email}, function(err, user){
           if(err) {
               return res.json(500, {
@@ -154,17 +177,17 @@ users.get('/:email', function(req, res) {
 *
 * @apiParam {String} email  User's email address.
 * @apiParam {String} firstName  User's first name.
+* @apiParam {String} middleName  User's middle name.
 * @apiParam {String} lastName  User's last name.
 * @apiParam {String} phone  User's phone.
 * @apiParam {String} userFbId  User's facebook id.
-* @apiParam {Date} dob  User's date of birth.
 *
 * @apiSuccess {String} email  User's email address.
 * @apiSuccess {String} firstName  User's first name.
+* @apiSuccess {String} middleName  User's middle name.
 * @apiSuccess {String} lastName  User's last name.
 * @apiSuccess {String} phone  User's phone.
 * @apiSuccess {String} userFbId  User's facebook id.
-* @apiSuccess {Date} dob  User's date of birth.
 *
 * @apiFailure {Number} 404  No such user.
 * @apiFailure {Number} 500  Error saving user.
@@ -201,10 +224,10 @@ users.put('/:email', function(req, res) {
         }
         user['email'] = req.body['email'] ? req.body['email'] : user['email'];
         user['firstName'] = req.body['firstName'] ? req.body['firstName'] : user['firstName'];
+        user['middleName'] = req.body['middleName'] ? req.body['middleName'] : user['middleName'];
         user['lastName'] = req.body['lastName'] ? req.body['lastName'] : user['lastName'];
         user['phone'] = req.body['phone'] ? req.body['phone'] : user['phone'];
         user['userFbId'] = req.body['userFbId'] ? req.body['userFbId'] : user['userFbId'];
-        user['dob'] = req.body['dob'] ? new Date(req.body['dob']) : user['dob'];
         user.save(function(err, user){
             if(err) {
                 return res.json(500, {
@@ -228,32 +251,25 @@ users.put('/:email', function(req, res) {
 *
 * @apiParam {String} email User's email.
 *
-* @apiSuccess {String} userFbId  Traveller's facebok id.
-* @apiSuccess {String} userName  Traveller's full name.
-* @apiSuccess {String} userEmail  Traveller's email.
-* @apiSuccess {String} userPhone  Traveller's phone.
-* @apiSuccess {String} deliveryType  Traveller's delivery type.
-* @apiSuccess {String} source  Traveller's source location.
-* @apiSuccess {String} dest  Traveller's destination location.
-* @apiSuccess {Date} travelDate  Travel date.
-* @apiSuccess {String} comment  Traveller's comment.
+* @apiSuccess {String} email  User's email address.
+* @apiSuccess {String} firstName  User's first name.
+* @apiSuccess {String} middleName  User's middle name.
+* @apiSuccess {String} lastName  User's last name.
+* @apiSuccess {String} phone  User's phone.
+* @apiSuccess {String} userFbId  User's facebook id.
 * @apiFailure {Number} 400  No such trip.
 * @apiFailure {Number} 500  Error getting trips.
 *
-
 * @apiSuccessExample Success-Response:
 *     HTTP/1.1 200 OK
-*     [{
-*       "userFbId" : "12123123123123123",
-*       "userName" : "Foo Foobar",
-*       "userEmail" : "foo@facebook.com",
-*       "userPhone" : "+14259749694",
-*       "deliveryType" : ["document", "money"],
-*       "source" : "Seattle",
-*       "dest" : "Dallas",
-*       "travelDate" : "Wed Aug 17 2016",
-*       "comment" : "blah blah blah!"
-*     }]
+*     {
+*       "email": "foo@bar.com",
+*       "firstName": "foo",
+*       "middleName": "middlefoo",
+*       "lastName": "bar",
+*       "phone": "123123123123",
+*       "userFbId": "123123123123",
+*     }
 *
 * @apiFailureExample Failure-Response:
 *     HTTP/1.1 500 Error
