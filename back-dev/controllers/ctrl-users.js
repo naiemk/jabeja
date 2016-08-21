@@ -32,6 +32,7 @@ var express = require('express'),
   *
   */
 users.get('/', function(req, res) {
+    console.log("HERE @ GET")
     Model.find(function(err, users){
         if(err) {
             return res.json(500, {
@@ -81,6 +82,7 @@ users.get('/', function(req, res) {
 *
 */
 users.post('/', function(req, res) {
+
     var middleName = req.body['middleName'] ? req.body['middleName'] : "",
         phone = req.body['phone'] ? req.body['phone'] : "",
         email =  req.body['email'];
@@ -93,29 +95,29 @@ users.post('/', function(req, res) {
         'userFbId': req.body['userFbId']
     });
     Model.findOne({email: email}, function(err, user){
-          if(err) {
-              return res.json(500, {
-                  message: 'Error getting user.'
-              });
-          }
-          // if user doesn't already exist add one
-          if(!user) {
-            user.save(function(err, user){
-                if(err) {
-                    return res.json(500, {
-                        message: 'Error saving item.',
-                        error: err
-                    });
-                }
-                return res.json({
-                    message: 'saved',
-                    email: user.email
-                });
-            });
-          }
-          return res.json(200, {
-              message: 'user exists.'
+      if(err) {
+          return res.json(500, {
+              message: 'Error getting user.'
           });
+      }
+      // if user doesn't already exist add one
+      if(!user) {
+        user.save(function(err, user){
+            if(err) {
+                return res.json(500, {
+                    message: 'Error saving item.',
+                    error: err
+                });
+            }
+            return res.json({
+                message: 'saved',
+                email: user.email
+            });
+        });
+      }
+      return res.json(200, {
+          message: 'user exists.'
+      });
     });
 });
 

@@ -5,15 +5,15 @@ var express = require('express'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser');
 
-var trips = require('./controllers/ctrl-trips');
-var users = require('./controllers/ctrl-users');
-var zones = require('./controllers/ctrl-zones');
+var trip = require('./controllers/ctrl-trips');
+var user = require('./controllers/ctrl-users');
+var zone = require('./controllers/ctrl-zones');
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -23,9 +23,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/jabeja/api/trip', trips);
-// app.use('/jabeja/api/user', users);
-// app.use('/jabeja/api/zone', zones);
+app.use('/jabeja/api/trip', trip);
+app.use('/jabeja/api/user', user);
+app.use('/jabeja/api/zone', zone);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -2,7 +2,7 @@
 
 var express = require('express'),
     zones = express.Router(),
-    Model = require('../models/model-zones.js');
+    Model = require('../models/model-users.js');
 
 /**
 * @api {get} /jabeja/api/zone getZones.
@@ -92,4 +92,4 @@ zones.post('/', function(req, res) {
     });
 });
 
-module.export = zones;
+module.exports = zones;

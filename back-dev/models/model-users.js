@@ -6,7 +6,7 @@ var mongoose = require('mongoose'),
  * user model file
  */
 
-var usersSchema = new Schema({
+var user = new Schema({
     email: 'String',
     firstName: 'String',
     middleName: 'String',
@@ -15,4 +15,4 @@ var usersSchema = new Schema({
     userFbId: 'String'
 });
 
-module.exports = mongoose.model('users', usersSchema);
+module.exports = mongoose.model('user', user);
