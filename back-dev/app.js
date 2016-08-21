@@ -1,9 +1,11 @@
 var express = require('express'),
     path = require('path'),
-    favicon = require('serve-favicon'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    mongoose = require('mongoose');
+
+var databaseUrl = "localhost:27017/jabeja";
 
 var trip = require('./controllers/ctrl-trips');
 var user = require('./controllers/ctrl-users');
@@ -11,12 +13,10 @@ var zone = require('./controllers/ctrl-zones');
 
 var app = express();
 
-// view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade');
+// connect to DB
+mongoose.connect(databaseUrl);
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

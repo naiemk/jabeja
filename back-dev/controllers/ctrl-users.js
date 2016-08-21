@@ -32,10 +32,9 @@ var express = require('express'),
   *
   */
 users.get('/', function(req, res) {
-    console.log("HERE @ GET")
     Model.find(function(err, users){
         if(err) {
-            return res.json(500, {
+            return res.status(500).json({
                 message: 'Error getting users.'
             });
         }
@@ -94,17 +93,18 @@ users.post('/', function(req, res) {
         'phone': phone,
         'userFbId': req.body['userFbId']
     });
-    Model.findOne({email: email}, function(err, user){
+
+    Model.findOne({email: email}, function(err, existingUser){
       if(err) {
-          return res.json(500, {
+          return res.status(500).json({
               message: 'Error getting user.'
           });
       }
       // if user doesn't already exist add one
-      if(!user) {
+      if(!existingUser) {
         user.save(function(err, user){
             if(err) {
-                return res.json(500, {
+                return res.status(500).json({
                     message: 'Error saving item.',
                     error: err
                 });
@@ -114,10 +114,11 @@ users.post('/', function(req, res) {
                 email: user.email
             });
         });
+      } else {
+        return res.status(200).json({
+            message: 'user exists.'
+        });
       }
-      return res.json(200, {
-          message: 'user exists.'
-      });
     });
 });
 
@@ -159,12 +160,12 @@ users.get('/:email', function(req, res) {
     var email = req.params.email;
     Model.findOne({email: email}, function(err, user){
           if(err) {
-              return res.json(500, {
+              return res.status(500).json({
                   message: 'Error getting user.'
               });
           }
           if(!user) {
-              return res.json(404, {
+              return res.status(404).json({
                   message: 'No such user.'
               });
           }
@@ -212,36 +213,37 @@ users.get('/:email', function(req, res) {
 */
 users.put('/:email', function(req, res) {
     var email = req.params.email;
-    Model.findOne({email: email}, function(err, user){
+    Model.findOne({email: email}, function(err, existingUser){
         if(err) {
-            return res.json(500, {
+            return res.status(500).json({
                 message: 'Error saving user',
                 error: err
             });
         }
-        if(!user) {
-            return res.json(404, {
+        if(!existingUser) {
+            return res.status(404).json({
                 message: 'No such user'
             });
         }
-        user['email'] = req.body['email'] ? req.body['email'] : user['email'];
-        user['firstName'] = req.body['firstName'] ? req.body['firstName'] : user['firstName'];
-        user['middleName'] = req.body['middleName'] ? req.body['middleName'] : user['middleName'];
-        user['lastName'] = req.body['lastName'] ? req.body['lastName'] : user['lastName'];
-        user['phone'] = req.body['phone'] ? req.body['phone'] : user['phone'];
-        user['userFbId'] = req.body['userFbId'] ? req.body['userFbId'] : user['userFbId'];
-        user.save(function(err, user){
+        existingUser['email'] = req.body['email'] ? req.body['email'] : existingUser['email'];
+        existingUser['firstName'] = req.body['firstName'] ? req.body['firstName'] : existingUser['firstName'];
+        existingUser['middleName'] = req.body['middleName'] ? req.body['middleName'] : existingUser['middleName'];
+        existingUser['lastName'] = req.body['lastName'] ? req.body['lastName'] : existingUser['lastName'];
+        existingUser['phone'] = req.body['phone'] ? req.body['phone'] : existingUser['phone'];
+        existingUser['userFbId'] = req.body['userFbId'] ? req.body['userFbId'] : existingUser['userFbId'];
+        existingUser.save(function(err, updatedUser){
             if(err) {
-                return res.json(500, {
+                return res.status(500).json({
                     message: 'Error getting user.'
                 });
             }
-            if(!user) {
-                return res.json(404, {
+            if(!updatedUser) {
+                return res.status(404).json({
                     message: 'No such user'
                 });
+            } else {
+                return res.json(updatedUser);
             }
-            return res.json(user);
         });
     });
 });
@@ -286,12 +288,12 @@ users.delete('/:email', function(req, res) {
     var email = req.params.email;
     Model.findOne({email: email}, function(err, user){
         if(err) {
-            return res.json(500, {
+            return res.status(500).json({
                 message: 'Error getting user.'
             });
         }
         if(!user) {
-            return res.json(404, {
+            return res.status(4040).json({
                 message: 'No such user'
             });
         }
