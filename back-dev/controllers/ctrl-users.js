@@ -281,9 +281,9 @@ users.put('/:email', function(req, res) {
 *      "message" : "Error getting trips."
 *     }
 *
- * @apiDescription When you call this api, you should also
- * call the delete API for trips with email ID (deleteTrips API).
- */
+* @apiDescription When you call this api, you should also
+* call the delete API for trips with email ID (deleteTrips API).
+*/
 users.delete('/:email', function(req, res) {
     var email = req.params.email;
     Model.findOne({email: email}, function(err, user){

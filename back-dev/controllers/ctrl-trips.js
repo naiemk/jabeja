@@ -37,11 +37,11 @@ var express = require('express'),
 trips.get('/', function(req, res) {
     Model.find(function(err, trips){
       if(err) {
-          return res.json(500, {
+          return res.status(500).json({
               message: 'Error getting trips.'
           });
       }
-      return res.json(trips);
+      return res.status(200).json(trips);
     });
 });
 
@@ -85,7 +85,7 @@ trips.post('/', function(req, res) {
         deliveryType = req.body['deliveryType'].split("_"),
         source = req.body['source'],
         dest = req.body['dest'],
-        travelDate = new Date(req.body['travelDate']);
+        travelDate = new Date(req.body['travelDate']).toISOString();
 
     var trip = new Model({
         'userFbId': req.body['userFbId'],
@@ -106,27 +106,28 @@ trips.post('/', function(req, res) {
         source: source,
         dest: dest,
         travelDate: travelDate
-      }, function(err, trips){
+      }, function(err, existingTrip){
         if(err) {
-            return res.json(500, {
+            return res.status(500).json({
                 message: 'Error getting trip.'
             });
         }
-        if(!trips) {
+        if (existingTrip) {
+          return res.status(200).json({message: 'trip exists.'});
+        } else {
           trip.save(function(err, trip){
-                if(err) {
-                    return res.json(500, {
-                        message: 'Error saving item.',
-                        error: err
-                    });
-                }
-                return res.json({
-                    message: 'saved',
-                    email: trip.email
+            if(err) {
+                return res.status(200).json({
+                    message: 'Error saving item.',
+                    error: err
                 });
+            }
+            return res.status(200).json({
+                message: 'saved',
+                email: trip.email
+            });
           });
         }
-        return res.json(200, {message: 'trip exists.'});
     });
 });
 
@@ -165,31 +166,32 @@ trips.post('/', function(req, res) {
 *
 */
 trips.get('/:email', function(req, res) {
-    var id = req.params.email;
+    var email = req.params.email;
     Model.find({userEmail: email}, function(err, trips){
         if(err) {
-            return res.json(500, {
+            return res.status(500).json({
                 message: 'Error getting trip.'
             });
         }
-        if(!trips) {
-            return res.json(404, {
-                message: 'No such trip.'
-            });
+        if(trips) {
+          return res.status(200).json(trips);
+        } else {
+          return res.status(404).json({
+              message: 'No trip posted for this user.'
+          });
         }
-        return res.json(trips);
     });
 });
 
 /**
-* @api {get} /jabeja/api/trip/:type.:source.:dest.:date searchTrips.
+* @api {get} /jabeja/api/trip/type/:type/source/:srouce/dest/:dest/date/:date searchTrips.
 * @apiName searchTrips.
 * @apiGroup Trip
 *
 * @apiParam {String} type Type of delivery. Type is concatinated string by underline "_" Ex: "document_money"
 * @apiParam {String} source Trip's source location.
 * @apiParam {String} dest Trip's dest location.
-* @apiParam {String} date Trip's date.
+* @apiParam {String} date Trip's date. Date format: YYYY-mm-dd.
 *
 * @apiSuccess {Array} trips  Array of Trip information in json.
 * @apiFailure {Number} 400  No such trip.
@@ -216,31 +218,35 @@ trips.get('/:email', function(req, res) {
 *     {
 *      "message" : "Error getting trips."
 *     }
-*
+* @apiDescription This API is for listing upcomming trips with requested delivery options
+* and delivery date between now and requested travel date.
+* API Example:  jabeja/api/trip/type/money/source/city1/dest/city2/date/2016-08-23
 */
-trips.get('/:type.:srouce.:dest.:date', function(req, res) {
+trips.get('/type/:type/source/:source/dest/:dest/date/:date', function(req, res) {
     var deliveryType = req.params.type.split("_"),
         source = req.params.source,
         dest = req.params.dest,
-        travelDate = new Date(req.params.date);
-
+        travelDate = new Date(req.params.date).toISOString(),
+        today = new Date().toISOString();
+    console.log("today: " + today + ", travelDate: " + travelDate)
     Model.find({
         deliveryType: deliveryType,
         source: source,
         dest: dest,
-        travelDate: travelDate
+        travelDate: {'$gte' : new Date(today), '$lte': new Date(travelDate)}
       }, function(err, trips){
         if(err) {
-            return res.json(500, {
+            return res.status(500).json({
                 message: 'Error getting trip.'
             });
         }
-        if(!trips) {
-            return res.json(404, {
-                message: 'No such trip.'
-            });
+        if(trips) {
+          return res.status(200).json(trips);
+        } else {
+          return res.status(400).json({
+              message: 'No such trip.'
+          });
         }
-        return res.json(trips);
     });
 });
 
@@ -292,7 +298,7 @@ trips.put('/:date.:email.:dest.:source.:type', function(req, res) {
   var deliveryType = req.params.type.split("_"),
       source = req.params.source,
       dest = req.params.dest,
-      travelDate = new Date(req.params.date),
+      travelDate = new Date(req.params.date).toISOString(),
       email = req.params.email;
 
     Model.findOne({
@@ -300,7 +306,7 @@ trips.put('/:date.:email.:dest.:source.:type', function(req, res) {
         deliveryType: deliveryType,
         dest: dest,
         source: source,
-        travelDate: travelDate
+        travelDate: new Date(travelDate)
       }, function(err, trip){
             if(err) {
                 return res.json(500, {
@@ -320,7 +326,7 @@ trips.put('/:date.:email.:dest.:source.:type', function(req, res) {
             trip['deliveryType'] = req.body['deliveryType'] ? req.body['deliveryType'].split("_") : trip['deliveryType'];
             trip['source'] = req.body['source'] ? req.body['source'] : trip['source'];
             trip['dest'] = req.body['dest'] ? req.body['dest'] : trip['dest'];
-            trip['travelDate'] = req.body['travelDate'] ? new Date(req.body['travelDate']) : trip['travelDate'];
+            trip['travelDate'] = req.body['travelDate'] ? new Date(new Date(req.body['travelDate']).toISOString()) : trip['travelDate'];
             trip['comment'] = req.body['comment'] ? req.body['comment'] : trip['comment'];
             trip.save(function(err, trip){
                 if(err) {
