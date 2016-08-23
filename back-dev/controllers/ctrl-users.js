@@ -254,25 +254,15 @@ users.put('/:email', function(req, res) {
 * @apiGroup User
 *
 * @apiParam {String} email User's email.
-*
-* @apiSuccess {String} email  User's email address.
-* @apiSuccess {String} firstName  User's first name.
-* @apiSuccess {String} middleName  User's middle name.
-* @apiSuccess {String} lastName  User's last name.
-* @apiSuccess {String} phone  User's phone.
-* @apiSuccess {String} userFbId  User's facebook id.
+*s
+* @apiFailure {String} 200  success.
 * @apiFailure {Number} 400  No such trip.
 * @apiFailure {Number} 500  Error getting trips.
 *
 * @apiSuccessExample Success-Response:
 *     HTTP/1.1 200 OK
 *     {
-*       "email": "foo@bar.com",
-*       "firstName": "foo",
-*       "middleName": "middlefoo",
-*       "lastName": "bar",
-*       "phone": "123123123123",
-*       "userFbId": "123123123123",
+*       "message": "success"
 *     }
 *
 * @apiFailureExample Failure-Response:
@@ -286,18 +276,19 @@ users.put('/:email', function(req, res) {
 */
 users.delete('/:email', function(req, res) {
     var email = req.params.email;
-    Model.findOne({email: email}, function(err, user){
-        if(err) {
-            return res.status(500).json({
-                message: 'Error getting user.'
-            });
-        }
-        if(!user) {
-            return res.status(4040).json({
-                message: 'No such user'
-            });
-        }
-        return res.json(user);
+    Model.remove({email: email}, function(err, deleteResult){
+      if(err) {
+          return res.status(500).json({
+              message: 'Error getting user.'
+          });
+      }
+      if(deleteResult) {
+        return res.status(200).json({message: 'success'});
+      } else {
+        return res.status(404).json({
+            message: 'No such user'
+        });
+      }
     });
 });
 

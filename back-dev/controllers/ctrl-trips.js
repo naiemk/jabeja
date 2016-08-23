@@ -101,7 +101,7 @@ trips.post('/', function(req, res) {
 
     //check and see if there is a post already
     Model.findOne({
-        email: email,
+        userEmail: email,
         deliveryType: deliveryType,
         source: source,
         dest: dest,
@@ -228,7 +228,7 @@ trips.get('/type/:type/source/:source/dest/:dest/date/:date', function(req, res)
         dest = req.params.dest,
         travelDate = new Date(req.params.date).toISOString(),
         today = new Date().toISOString();
-    console.log("today: " + today + ", travelDate: " + travelDate)
+
     Model.find({
         deliveryType: deliveryType,
         source: source,
@@ -251,7 +251,7 @@ trips.get('/type/:type/source/:source/dest/:dest/date/:date', function(req, res)
 });
 
 /**
-* @api {put} /jabeja/api/trip/:date.:email.:dest.:source.:type updateTrip.
+* @api {put} /jabeja/api/trip/date/:date/email/:email/dest/:dest/source/:source/type/:type updateTrip.
 * @apiName updateTrip
 * @apiGroup Trip
 *
@@ -294,53 +294,57 @@ trips.get('/type/:type/source/:source/dest/:dest/date/:date', function(req, res)
 *     }
 *
 */
-trips.put('/:date.:email.:dest.:source.:type', function(req, res) {
+trips.put('/date/:date/email/:email/dest/:dest/source/:source/type/:type', function(req, res) {
   var deliveryType = req.params.type.split("_"),
       source = req.params.source,
       dest = req.params.dest,
       travelDate = new Date(req.params.date).toISOString(),
       email = req.params.email;
+  console.log(deliveryType + ", " + source + ", " + dest + ", " + travelDate + ", " + email)
 
     Model.findOne({
-        email: email,
+        userEmail: email,
         deliveryType: deliveryType,
         dest: dest,
         source: source,
         travelDate: new Date(travelDate)
       }, function(err, trip){
             if(err) {
-                return res.json(500, {
+                return res.status(500).json({
                     message: 'Error saving trip',
                     error: err
                 });
             }
-            if(!trip) {
-                return res.json(404, {
-                    message: 'No such trip'
-                });
-            }
-            trip['userFbId'] = req.body['userFbId'] ? req.body['userFbId'] : trip['userFbId'];
-            trip['userName'] = req.body['userName'] ? req.body['userName'] : trip['userName'];
-            trip['userEmail'] = req.body['userEmail'] ? req.body['userEmail'] : trip['userEmail'];
-            trip['userPhone'] = req.body['userPhone'] ? req.body['userPhone'] : trip['userPhone'];
-            trip['deliveryType'] = req.body['deliveryType'] ? req.body['deliveryType'].split("_") : trip['deliveryType'];
-            trip['source'] = req.body['source'] ? req.body['source'] : trip['source'];
-            trip['dest'] = req.body['dest'] ? req.body['dest'] : trip['dest'];
-            trip['travelDate'] = req.body['travelDate'] ? new Date(new Date(req.body['travelDate']).toISOString()) : trip['travelDate'];
-            trip['comment'] = req.body['comment'] ? req.body['comment'] : trip['comment'];
-            trip.save(function(err, trip){
-                if(err) {
-                    return res.json(500, {
-                        message: 'Error getting trip.'
-                    });
-                }
-                if(!trip) {
-                    return res.json(404, {
+
+            if (trip) {
+              trip['userFbId'] = req.body['userFbId'] ? req.body['userFbId'] : trip['userFbId'];
+              trip['userName'] = req.body['userName'] ? req.body['userName'] : trip['userName'];
+              trip['userEmail'] = req.body['userEmail'] ? req.body['userEmail'] : trip['userEmail'];
+              trip['userPhone'] = req.body['userPhone'] ? req.body['userPhone'] : trip['userPhone'];
+              trip['deliveryType'] = req.body['deliveryType'] ? req.body['deliveryType'].split("_") : trip['deliveryType'];
+              trip['source'] = req.body['source'] ? req.body['source'] : trip['source'];
+              trip['dest'] = req.body['dest'] ? req.body['dest'] : trip['dest'];
+              trip['travelDate'] = req.body['travelDate'] ? new Date(new Date(req.body['travelDate']).toISOString()) : trip['travelDate'];
+              trip['comment'] = req.body['comment'] ? req.body['comment'] : trip['comment'];
+              trip.save(function(err, updatedTrip){
+                  if(err) {
+                      return res.status(500).json({
+                          message: 'Error getting trip.'
+                      });
+                  }
+                  if (updatedTrip) {
+                    return res.json(updatedTrip);
+                  } else {
+                    return res.status(404).json({
                         message: 'No such trip'
                     });
-                }
-                return res.json(trip);
-            });
+                  }
+              });
+            } else {
+              return res.status(404).json({
+                  message: 'No such trip'
+              });
+            }
     });
 });
 
@@ -355,30 +359,14 @@ trips.put('/:date.:email.:dest.:source.:type', function(req, res) {
 * @apiParam {String} date Trip's date.
 * @apiParam {String} email Traveller's email.
 *
-* @apiSuccess {String} userFbId  Traveller's facebok id.
-* @apiSuccess {String} userName  Traveller's full name.
-* @apiSuccess {String} userEmail  Traveller's email.
-* @apiSuccess {String} userPhone  Traveller's phone.
-* @apiSuccess {String} deliveryType  Traveller's delivery type.
-* @apiSuccess {String} source  Traveller's source location.
-* @apiSuccess {String} dest  Traveller's destination location.
-* @apiSuccess {Date} travelDate  Travel date.
-* @apiSuccess {String} comment  Traveller's comment.
+* @apiSuccess {String} Message  success.
 * @apiFailure {Number} 400  No such trip.
 * @apiFailure {Number} 500  Error getting trips.
 *
 * @apiSuccessExample Success-Response:
 *     HTTP/1.1 200 OK
 *     {
-*       "userFbId" : "12123123123123123",
-*       "userName" : "Foo Foobar",
-*       "userEmail" : "foo@facebook.com",
-*       "userPhone" : "+14259749694",
-*       "deliveryType" : ["document", "money"],
-*       "source" : "Seattle",
-*       "dest" : "Dallas",
-*       "travelDate" : "Wed Aug 17 2016",
-*       "comment" : "blah blah blah!"
+*       "message": "success"
 *     }
 *
 * @apiFailureExample Failure-Response:
@@ -388,30 +376,35 @@ trips.put('/:date.:email.:dest.:source.:type', function(req, res) {
 *     }
 *
 */
-trips.delete('/:date.:email.:dest.:source.:type', function(req, res) {
+trips.delete('/date/:date/email/:email/dest/:dest/source/:source/type/:type', function(req, res) {
   var deliveryType = req.params.type.split("_"),
       source = req.params.source,
       dest = req.params.dest,
-      travelDate = new Date(req.params.date),
+      travelDate = new Date(req.params.date).toISOString(),
       email = req.params.email;
-      Model.findOne({
-          email: email,
+      Model.remove({
+          userEmail: email,
           deliveryType: deliveryType,
           dest: dest,
           source: source,
-          travelDate: travelDate
-        }, function(err, trip){
-            if(err) {
-                return res.json(500, {
-                    message: 'Error getting trip.'
-                });
+          travelDate: new Date(travelDate)
+        }, function(err, deleteResult){
+          if(err) {
+              return res.status(500).json({
+                message: 'Error getting trip.'
+              });
+          }
+          if (deleteResult) {
+            if (deleteResult.result.n) {
+              return res.status(200).json({message: 'success'});
+            } else {
+              return res.status(404).json({message: 'No such trip'});
             }
-            if(!trip) {
-                return res.json(404, {
-                    message: 'No such trip'
-                });
-            }
-            return res.json(trip);
+          } else {
+            return res.status(404).json({
+              message: 'No such trip'
+            });
+          }
     });
 });
 
@@ -422,31 +415,15 @@ trips.delete('/:date.:email.:dest.:source.:type', function(req, res) {
 *
 * @apiParam {String} email Traveller's email.
 *
-* @apiSuccess {String} userFbId  Traveller's facebok id.
-* @apiSuccess {String} userName  Traveller's full name.
-* @apiSuccess {String} userEmail  Traveller's email.
-* @apiSuccess {String} userPhone  Traveller's phone.
-* @apiSuccess {String} deliveryType  Traveller's delivery type.
-* @apiSuccess {String} source  Traveller's source location.
-* @apiSuccess {String} dest  Traveller's destination location.
-* @apiSuccess {Date} travelDate  Travel date.
-* @apiSuccess {String} comment  Traveller's comment.
-* @apiFailure {Number} 400  No such trip.
+* @apiSuccess {String} Message  success.
+* @apiFailure {Number} 400  No trip found.
 * @apiFailure {Number} 500  Error getting trips.
 *
 * @apiSuccessExample Success-Response:
 *     HTTP/1.1 200 OK
-*     [{
-*       "userFbId" : "12123123123123123",
-*       "userName" : "Foo Foobar",
-*       "userEmail" : "foo@facebook.com",
-*       "userPhone" : "+14259749694",
-*       "deliveryType" : ["document", "money"],
-*       "source" : "Seattle",
-*       "dest" : "Dallas",
-*       "travelDate" : "Wed Aug 17 2016",
-*       "comment" : "blah blah blah!"
-*     }]
+*     {
+*       "message": "success"
+*     }
 *
 * @apiFailureExample Failure-Response:
 *     HTTP/1.1 500 Error
@@ -455,20 +432,26 @@ trips.delete('/:date.:email.:dest.:source.:type', function(req, res) {
 *     }
 *
 */
-trips.delete('/:email', function(req, res) {
+trips.delete('/email/:email', function(req, res) {
   var email = req.params.email;
-      Model.find({email: email}, function(err, trip){
-        if(err) {
-            return res.json(500, {
-                message: 'Error getting trip.'
-            });
-        }
-        if(!trip) {
-            return res.json(404, {
-                message: 'No such trip'
-            });
-        }
-        return res.json(trips);
-    });
+  Model.remove({userEmail: email}, function(err, deleteResult){
+    if(err) {
+      return res.status(500).json({
+        message: 'Error getting trip.'
+      });
+    }
+    if (deleteResult) {
+      if (deleteResult.result.n) {
+        return res.status(200).json({message: 'success'});
+      } else {
+        return res.status(404).json({message: 'No trip found'});
+      }
+    } else {
+      return res.status(404).json({
+        message: 'No trip found'
+      });
+    }
+  });
 });
+
 module.exports = trips;
