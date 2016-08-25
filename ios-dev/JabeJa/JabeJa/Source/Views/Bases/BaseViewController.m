@@ -39,7 +39,7 @@
 }
 
 - (NSString*)getTitleString {
-    return @"";
+    return @"OVR getTitleString:";
 }
 
 @end

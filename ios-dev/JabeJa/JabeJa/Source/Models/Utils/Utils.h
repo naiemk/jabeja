@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#define INT(x) [[json objectForKey:x] intValue]
-#define BOOLEAN(x) [[json objectForKey:x] boolValue]
-#define STRING(x) [json objectForKey:x]
+#define INT(x) [[response objectForKey:x] intValue]
+#define BOOLEAN(x) [[response objectForKey:x] boolValue]
+#define STRING(x) [response objectForKey:x]
 
 @interface Utils : NSObject
 

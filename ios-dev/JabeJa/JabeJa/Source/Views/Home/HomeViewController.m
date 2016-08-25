@@ -10,10 +10,12 @@
 #import "PresentViewSegue.h"
 #import "AuthUtils.h"
 #import "SelectTripLocationViewController.h"
+#import "ConfirmTravelingViewController.h"
 
 #define SEGUE_SHOW_LOGIN @"s_ShowLogin"
 #define SEGUE_SHOW_DESTINATION_TRIP @"s_ShowDestinationTrip"
 #define SEGUE_SHOW_SOURCE_TRIP @"s_ShowSourceTrip"
+#define SEGUE_SHOW_CONFIRM_TRAVELING @"s_ShowConfirmTraveling"
 
 @interface HomeViewController ()
 
@@ -124,11 +126,31 @@
 
             [self setButtonsEnablity];
         };
+    } else if ([segue.identifier isEqualToString:SEGUE_SHOW_CONFIRM_TRAVELING]) {
+        ConfirmTravelingViewController* controller = (ConfirmTravelingViewController*)segue.destinationViewController;
+
+        controller.citySource = self.citySource;
+        controller.cityDestination = self.cityDestination;
+        controller.tripDate = self.tripDate.date;
+        controller.acceptBox = self.swBox.on;
+        controller.acceptDocument = self.swDocument.on;
     }
 }
 
+- (IBAction)onDocumentOptionChanged:(id)sender {
+    [self setButtonsEnablity];
+}
+
+- (IBAction)onBoxOptionChanged:(id)sender {
+    [self setButtonsEnablity];
+}
+
 - (void)setButtonsEnablity {
-    BOOL enable = self.citySource != nil && self.cityDestination != nil;
+    BOOL enable = self.citySource != nil && self.cityDestination != nil
+                    && (self.swDocument.on || self.swBox.on);
+
+    enable = YES;
+
     self.cmdTraveling.enabled = enable;
     self.cmdSearchTravelers.enabled = enable;
 

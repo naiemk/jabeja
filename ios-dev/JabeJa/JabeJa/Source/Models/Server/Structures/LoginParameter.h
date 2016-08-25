@@ -17,4 +17,6 @@
 @property (strong, nonatomic) NSString* userEmail;
 @property (strong, nonatomic) NSString* userPhone;
 
+- (NSDictionary*)toDictionary;
+
 @end

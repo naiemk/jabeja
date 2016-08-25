@@ -89,7 +89,7 @@
                                 </constraints>
                                 <state key="normal" title="TravelPage/Traveling"/>
                                 <connections>
-                                    <segue destination="xj0-Zr-kH6" kind="show" id="LYJ-BZ-Ovx"/>
+                                    <segue destination="xj0-Zr-kH6" kind="show" identifier="s_ShowConfirmTraveling" id="LYJ-BZ-Ovx"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="th0-hc-Q01">
@@ -97,6 +97,9 @@
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ykh-cK-G4u">
                                         <rect key="frame" x="263" y="8" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="onBoxOptionChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Hny-8b-BfG"/>
+                                        </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TravelPage/Document" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHV-l9-NGp">
                                         <rect key="frame" x="8" y="13" width="86" height="21"/>
@@ -112,6 +115,9 @@
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IPb-He-PJA">
                                         <rect key="frame" x="102" y="8" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="onDocumentOptionChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Mec-85-D34"/>
+                                        </connections>
                                     </switch>
                                 </subviews>
                                 <constraints>
@@ -165,6 +171,8 @@
                         <outlet property="lblTo" destination="UrI-ku-WG5" id="39G-Y8-igE"/>
                         <outlet property="lblTripDate" destination="D3N-ht-9It" id="pxu-im-Uyk"/>
                         <outlet property="packageTypeContainer" destination="th0-hc-Q01" id="JOb-OD-QIe"/>
+                        <outlet property="swBox" destination="ykh-cK-G4u" id="1m1-hz-sOR"/>
+                        <outlet property="swDocument" destination="IPb-He-PJA" id="DrQ-Nx-XUM"/>
                         <outlet property="tripDate" destination="m5C-vJ-jYw" id="MMC-pC-Is1"/>
                         <outlet property="txtFrom" destination="hNc-3n-c1F" id="9sH-nb-nLv"/>
                         <outlet property="txtTo" destination="fia-SG-LoH" id="sdY-oW-svc"/>
@@ -313,10 +321,10 @@
             </objects>
             <point key="canvasLocation" x="1894" y="1470"/>
         </scene>
-        <!--View Controller-->
+        <!--TripConfirmPage/Title-->
         <scene sceneID="Hhe-QO-4oR">
             <objects>
-                <viewController id="xj0-Zr-kH6" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConfirmTravelingViewController" id="xj0-Zr-kH6" customClass="ConfirmTravelingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yJh-K1-RTX"/>
                         <viewControllerLayoutGuide type="bottom" id="LPg-Lh-KUb"/>
@@ -324,8 +332,29 @@
                     <view key="view" contentMode="scaleToFill" id="8PC-Wj-roK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttl-bf-5fE">
+                                <rect key="frame" x="20" y="72" width="560" height="388"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="388" id="Y6v-5l-pVU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="ttl-bf-5fE" secondAttribute="leading" id="3Fp-9L-7DK"/>
+                            <constraint firstItem="ttl-bf-5fE" firstAttribute="top" secondItem="yJh-K1-RTX" secondAttribute="bottom" constant="8" id="KrN-Un-m1u"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ttl-bf-5fE" secondAttribute="trailing" id="gip-YC-1jb"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="TripConfirmPage/Title" id="iYv-lS-1gU"/>
+                    <connections>
+                        <outlet property="layoutSummaryHeight" destination="Y6v-5l-pVU" id="6hZ-dh-qFC"/>
+                        <outlet property="summaryLabel" destination="ttl-bf-5fE" id="1GS-qF-EGr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EIp-a1-YIW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

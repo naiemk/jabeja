@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblTripDate;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cmdSettings;
 @property (weak, nonatomic) IBOutlet UIView *packageTypeContainer;
+@property (weak, nonatomic) IBOutlet UISwitch *swDocument;
+@property (weak, nonatomic) IBOutlet UISwitch *swBox;
 
 @property (strong, nonatomic) CityInfo *citySource;
 @property (strong, nonatomic) CityInfo *cityDestination;

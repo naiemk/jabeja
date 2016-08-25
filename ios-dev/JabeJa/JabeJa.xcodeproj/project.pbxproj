@@ -10,6 +10,7 @@
 		28228A3C1D64E188003EE7A7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28228A3B1D64E188003EE7A7 /* QuartzCore.framework */; };
 		28228A3F1D64E1E7003EE7A7 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28228A3D1D64E1E7003EE7A7 /* FBSDKCoreKit.framework */; };
 		28228A401D64E1E7003EE7A7 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28228A3E1D64E1E7003EE7A7 /* FBSDKShareKit.framework */; };
+		283CA3291D67726600AA7ED0 /* ConfirmTravelingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 283CA3281D67726600AA7ED0 /* ConfirmTravelingViewController.m */; };
 		28579D341D665AA300AC73D2 /* UITextField+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 28579D331D665AA300AC73D2 /* UITextField+Language.m */; };
 		28579D381D66647000AC73D2 /* SelectTripLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28579D371D66647000AC73D2 /* SelectTripLocationViewController.m */; };
 		28579D3C1D6670BC00AC73D2 /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = 28579D3B1D6670BC00AC73D2 /* Server.m */; };
@@ -43,6 +44,8 @@
 		28E303EB1D64BB6B0009FF10 /* UILabel+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E303EA1D64BB6B0009FF10 /* UILabel+Language.m */; };
 		28E303EE1D64C3E00009FF10 /* UINavigationItem+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E303ED1D64C3E00009FF10 /* UINavigationItem+Language.m */; };
 		28E303F11D64C69E0009FF10 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E303F01D64C69E0009FF10 /* FBSDKLoginKit.framework */; };
+		28E549281D6DE55D00C2AE52 /* GeneralResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E549271D6DE55D00C2AE52 /* GeneralResponse.m */; };
+		317B270D9175F80D9B33D3DD /* libPods-JabeJa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C47A44BF8EAE271B70C530F /* libPods-JabeJa.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,9 +59,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D6F9809AC02C85904FF8DA9 /* Pods-JabeJa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JabeJa.release.xcconfig"; path = "Pods/Target Support Files/Pods-JabeJa/Pods-JabeJa.release.xcconfig"; sourceTree = "<group>"; };
 		28228A3B1D64E188003EE7A7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		28228A3D1D64E1E7003EE7A7 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../../Users/yektaie/Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		28228A3E1D64E1E7003EE7A7 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../../../Users/yektaie/Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		283CA3271D67726600AA7ED0 /* ConfirmTravelingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfirmTravelingViewController.h; path = Source/Views/ConfirmTraveling/ConfirmTravelingViewController.h; sourceTree = "<group>"; };
+		283CA3281D67726600AA7ED0 /* ConfirmTravelingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfirmTravelingViewController.m; path = Source/Views/ConfirmTraveling/ConfirmTravelingViewController.m; sourceTree = "<group>"; };
 		28579D321D665AA300AC73D2 /* UITextField+Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITextField+Language.h"; path = "Source/Views/Bases/Extensions/UITextField+Language.h"; sourceTree = "<group>"; };
 		28579D331D665AA300AC73D2 /* UITextField+Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITextField+Language.m"; path = "Source/Views/Bases/Extensions/UITextField+Language.m"; sourceTree = "<group>"; };
 		28579D361D66647000AC73D2 /* SelectTripLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectTripLocationViewController.h; path = Source/Views/TripLocation/SelectTripLocationViewController.h; sourceTree = "<group>"; };
@@ -121,6 +127,10 @@
 		28E303EC1D64C3E00009FF10 /* UINavigationItem+Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationItem+Language.h"; path = "Source/Views/Bases/Extensions/UINavigationItem+Language.h"; sourceTree = "<group>"; };
 		28E303ED1D64C3E00009FF10 /* UINavigationItem+Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationItem+Language.m"; path = "Source/Views/Bases/Extensions/UINavigationItem+Language.m"; sourceTree = "<group>"; };
 		28E303F01D64C69E0009FF10 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../../Users/yektaie/Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		28E549261D6DE55D00C2AE52 /* GeneralResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GeneralResponse.h; path = Source/Models/Server/Structures/GeneralResponse.h; sourceTree = "<group>"; };
+		28E549271D6DE55D00C2AE52 /* GeneralResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GeneralResponse.m; path = Source/Models/Server/Structures/GeneralResponse.m; sourceTree = "<group>"; };
+		3C47A44BF8EAE271B70C530F /* libPods-JabeJa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JabeJa.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB210FDBF5DAE2BDACA4302B /* Pods-JabeJa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JabeJa.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JabeJa/Pods-JabeJa.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +142,7 @@
 				28228A3C1D64E188003EE7A7 /* QuartzCore.framework in Frameworks */,
 				28228A3F1D64E1E7003EE7A7 /* FBSDKCoreKit.framework in Frameworks */,
 				28E303F11D64C69E0009FF10 /* FBSDKLoginKit.framework in Frameworks */,
+				317B270D9175F80D9B33D3DD /* libPods-JabeJa.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +159,8 @@
 		283CA3251D6770DE00AA7ED0 /* ConfirmTraveling */ = {
 			isa = PBXGroup;
 			children = (
+				283CA3271D67726600AA7ED0 /* ConfirmTravelingViewController.h */,
+				283CA3281D67726600AA7ED0 /* ConfirmTravelingViewController.m */,
 			);
 			name = ConfirmTraveling;
 			sourceTree = "<group>";
@@ -192,6 +205,8 @@
 			children = (
 				28579D421D667EBF00AC73D2 /* Login */,
 				28579D3D1D66734000AC73D2 /* CityInfo */,
+				28E549261D6DE55D00C2AE52 /* GeneralResponse.h */,
+				28E549271D6DE55D00C2AE52 /* GeneralResponse.m */,
 			);
 			name = Structures;
 			sourceTree = "<group>";
@@ -229,6 +244,7 @@
 				28E3038B1D64A7D60009FF10 /* JabeJa */,
 				28E303A51D64A7D60009FF10 /* JabeJaUITests */,
 				28E3038A1D64A7D60009FF10 /* Products */,
+				3D6D8807A94D937F44C0F1B6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -428,8 +444,18 @@
 				28228A3E1D64E1E7003EE7A7 /* FBSDKShareKit.framework */,
 				28228A3B1D64E188003EE7A7 /* QuartzCore.framework */,
 				28E303F01D64C69E0009FF10 /* FBSDKLoginKit.framework */,
+				3C47A44BF8EAE271B70C530F /* libPods-JabeJa.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3D6D8807A94D937F44C0F1B6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DB210FDBF5DAE2BDACA4302B /* Pods-JabeJa.debug.xcconfig */,
+				1D6F9809AC02C85904FF8DA9 /* Pods-JabeJa.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -439,9 +465,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 28E303AB1D64A7D60009FF10 /* Build configuration list for PBXNativeTarget "JabeJa" */;
 			buildPhases = (
+				AAE731237EFA953A3E5AF731 /* [CP] Check Pods Manifest.lock */,
 				28E303851D64A7D60009FF10 /* Sources */,
 				28E303861D64A7D60009FF10 /* Frameworks */,
 				28E303871D64A7D60009FF10 /* Resources */,
+				D554B5245C375570DA84078D /* [CP] Embed Pods Frameworks */,
+				3AB136B35DD6920D4A34A3AD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -533,12 +562,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3AB136B35DD6920D4A34A3AD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JabeJa/Pods-JabeJa-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AAE731237EFA953A3E5AF731 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D554B5245C375570DA84078D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JabeJa/Pods-JabeJa-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		28E303851D64A7D60009FF10 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				283CA3291D67726600AA7ED0 /* ConfirmTravelingViewController.m in Sources */,
 				28E303911D64A7D60009FF10 /* AppDelegate.m in Sources */,
+				28E549281D6DE55D00C2AE52 /* GeneralResponse.m in Sources */,
 				28E303EB1D64BB6B0009FF10 /* UILabel+Language.m in Sources */,
 				28861CF61D6531B3008DD54F /* UIBarButtonItem+Language.m in Sources */,
 				289871731D6642E800F63DF7 /* UIButton+Language.m in Sources */,
@@ -688,6 +767,7 @@
 		};
 		28E303AC1D64A7D60009FF10 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB210FDBF5DAE2BDACA4302B /* Pods-JabeJa.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -706,6 +786,7 @@
 		};
 		28E303AD1D64A7D60009FF10 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D6F9809AC02C85904FF8DA9 /* Pods-JabeJa.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

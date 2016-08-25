@@ -11,6 +11,8 @@
 #import "LoginParameter.h"
 
 #define RESULT_SUCCESS 0
+#define RESULT_ERROR_INTERNAL -1
+#define RESULT_ERROR_CANT_PARSE_RESULT -2
 
 typedef void(^SERVER_CALLBACK)(int resultCode, NSObject* result);
 #define IS_SERVER_CALL_SUCCESSFUL(resultCode) (resultCode == RESULT_SUCCESS)
@@ -21,5 +23,12 @@ typedef void(^SERVER_CALLBACK)(int resultCode, NSObject* result);
 
 - (void)login:(LoginParameter*)param callback:(SERVER_CALLBACK)callback;
 - (void)fetchListOfSupportedCities:(SERVER_CALLBACK)callback;
+
+@end
+
+
+@protocol IResultLoader <NSObject>
+
+- (void)load:(NSDictionary*)response;
 
 @end
