@@ -149,8 +149,6 @@
     BOOL enable = self.citySource != nil && self.cityDestination != nil
                     && (self.swDocument.on || self.swBox.on);
 
-    enable = YES;
-
     self.cmdTraveling.enabled = enable;
     self.cmdSearchTravelers.enabled = enable;
 

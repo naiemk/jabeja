@@ -18,10 +18,11 @@
 
 #define SERVER_PATH @"http://localhost:3000"
 
-#define API_PATH_LOGIN @"/jabeja/api/user"
-#define API_PATH_GET_ZONES @"/jabeja/api/zone"
-#define API_PATH_GET_USER_INFO @"/jabeja/api/user/$email"
-#define API_PATH_UPDATE_USER_INFO @"/jabeja/api/user/$email"
+#define API_PATH_LOGIN                  @"/jabeja/api/user"
+#define API_PATH_GET_ZONES              @"/jabeja/api/zone"
+#define API_PATH_GET_USER_INFO          @"/jabeja/api/user/$email"
+#define API_PATH_UPDATE_USER_INFO       @"/jabeja/api/user/$email"
+#define API_PATH_CONFIRM_TRIP           @"/jabeja/api/trip"
 
 #define API_PATH(x) [NSString stringWithFormat:@"%@%@", SERVER_PATH, x]
 
@@ -56,6 +57,10 @@ static Server* _instance;
     path = [path stringByReplacingOccurrencesOfString:@"$email" withString:email];
 
     [self callServerAPI:path request:nil resultLoader:[[GetUserInfoResult alloc] init] callback:callback method:METHOD_GET];
+}
+
+- (void)confirmTrip:(TravelConfirmationParameter*)param callback:(SERVER_CALLBACK)callback {
+    [self callServerAPI:API_PATH_CONFIRM_TRIP request:[param toDictionary] resultLoader:[[GeneralResponse alloc] init] callback:callback method:METHOD_POST];
 }
 
 - (void)updateUserPhone:(NSString*)email toPhone:(NSString*)phone callback:(SERVER_CALLBACK)callback {
@@ -119,9 +124,9 @@ static Server* _instance;
 
     NSString* jsonRequest = [self toJSON:requestContent];
     NSString* url = API_PATH(path);
-//    NSLog(@"-----------------------------------------------------");
-//    NSLog(@"JSON: %@", jsonRequest);
-//    NSLog(@"-----------------------------------------------------");
+    NSLog(@"-----------------------------------------------------");
+    NSLog(@"JSON: %@", jsonRequest);
+    NSLog(@"-----------------------------------------------------");
 
     NSURL *URL = [NSURL URLWithString:url];
     NSMutableURLRequest *request = [[NSURLRequest requestWithURL:URL] mutableCopy];

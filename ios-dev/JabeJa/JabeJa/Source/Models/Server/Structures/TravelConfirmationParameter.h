@@ -16,5 +16,8 @@
 @property (strong, nonatomic) NSString* source;
 @property (strong, nonatomic) NSString* destination;
 @property (strong, nonatomic) NSDate* travelDate;
+@property (assign, nonatomic) int serviceCharge;
+
+- (NSDictionary*)toDictionary;
 
 @end

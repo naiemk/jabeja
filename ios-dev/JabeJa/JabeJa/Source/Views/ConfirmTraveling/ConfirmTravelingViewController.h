@@ -12,6 +12,7 @@
 @interface ConfirmTravelingViewController : BaseViewController
 
 @property (strong, nonatomic) CityInfo *citySource;
+@property (strong, nonatomic) UIAlertController *messageBox;
 @property (strong, nonatomic) CityInfo *cityDestination;
 @property (strong, nonatomic) NSDate *tripDate;
 @property (assign, nonatomic) BOOL acceptDocument;
@@ -22,5 +23,6 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *layoutSummaryHeight;
 @property (weak, nonatomic) IBOutlet UITextView *summaryLabel;
 @property (weak, nonatomic) IBOutlet UIButton *confirmButton;
+@property (weak, nonatomic) IBOutlet UIButton *confirmButtonWithCharge;
 
 @end

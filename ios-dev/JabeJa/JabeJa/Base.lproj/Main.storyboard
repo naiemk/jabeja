@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="height" constant="16" id="ybF-Vu-34A"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="TravelPage/FromPlaceholder" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hNc-3n-c1F">
@@ -41,7 +41,7 @@
                                     <constraint firstAttribute="height" constant="16" id="egt-Zt-O2s"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="TravelPage/ToPlaceholder" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fia-SG-LoH">
@@ -55,7 +55,7 @@
                                     <constraint firstAttribute="height" constant="19" id="ncV-x6-w7t"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="m5C-vJ-jYw">
@@ -104,13 +104,13 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TravelPage/Document" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHV-l9-NGp">
                                         <rect key="frame" x="8" y="13" width="86" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TravelPage/Box" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46y-8h-Bmj">
                                         <rect key="frame" x="169" y="13" width="86" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IPb-He-PJA">
@@ -346,14 +346,25 @@
                                 <rect key="frame" x="290" y="290" width="20" height="20"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lOM-sQ-dCV">
-                                <rect key="frame" x="197" y="550" width="206" height="30"/>
+                                <rect key="frame" x="197" y="536" width="206" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="E7i-GX-3nj"/>
+                                    <constraint firstAttribute="height" constant="44" id="E7i-GX-3nj"/>
                                     <constraint firstAttribute="width" constant="206" id="nsf-7c-h1v"/>
                                 </constraints>
-                                <state key="normal" title="TripConfirmPage/Confirm"/>
+                                <state key="normal" title="TripConfirmPage/ConfirmForFree"/>
                                 <connections>
                                     <action selector="onConfirm:" destination="xj0-Zr-kH6" eventType="touchUpInside" id="2EY-Cj-jHV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QjU-gm-QhK">
+                                <rect key="frame" x="197" y="484" width="206" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Cn2-jU-rr2"/>
+                                    <constraint firstAttribute="width" constant="206" id="yJ4-L0-Wil"/>
+                                </constraints>
+                                <state key="normal" title="TripConfirmPage/ConfirmWithCharge"/>
+                                <connections>
+                                    <action selector="onConfirmWithCharge:" destination="xj0-Zr-kH6" eventType="touchUpInside" id="o7W-TN-C3j"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -363,14 +374,17 @@
                             <constraint firstAttribute="leadingMargin" secondItem="ttl-bf-5fE" secondAttribute="leading" id="3Fp-9L-7DK"/>
                             <constraint firstItem="ttl-bf-5fE" firstAttribute="top" secondItem="yJh-K1-RTX" secondAttribute="bottom" constant="8" id="KrN-Un-m1u"/>
                             <constraint firstItem="Q6a-wb-aFJ" firstAttribute="centerY" secondItem="8PC-Wj-roK" secondAttribute="centerY" id="Poo-nQ-NnV"/>
+                            <constraint firstItem="lOM-sQ-dCV" firstAttribute="top" secondItem="QjU-gm-QhK" secondAttribute="bottom" constant="8" id="dQe-xj-yvr"/>
                             <constraint firstItem="LPg-Lh-KUb" firstAttribute="top" secondItem="lOM-sQ-dCV" secondAttribute="bottom" constant="20" id="eVc-Hm-Agz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ttl-bf-5fE" secondAttribute="trailing" id="gip-YC-1jb"/>
+                            <constraint firstItem="QjU-gm-QhK" firstAttribute="leading" secondItem="Q6a-wb-aFJ" secondAttribute="trailing" constant="-113" id="l0F-Ky-5Oh"/>
                             <constraint firstItem="lOM-sQ-dCV" firstAttribute="leading" secondItem="Q6a-wb-aFJ" secondAttribute="trailing" constant="-113" id="okE-s5-iOo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="TripConfirmPage/Title" id="iYv-lS-1gU"/>
                     <connections>
                         <outlet property="confirmButton" destination="lOM-sQ-dCV" id="JeV-ZZ-19u"/>
+                        <outlet property="confirmButtonWithCharge" destination="QjU-gm-QhK" id="tbG-d7-d21"/>
                         <outlet property="layoutSummaryHeight" destination="Y6v-5l-pVU" id="6hZ-dh-qFC"/>
                         <outlet property="summaryLabel" destination="ttl-bf-5fE" id="1GS-qF-EGr"/>
                         <outlet property="waitAnimation" destination="Q6a-wb-aFJ" id="wFX-wJ-Lb1"/>
@@ -387,7 +401,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Zxd-ur-qHm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection headerTitle="Settings/MyAccount" id="Zkh-vh-V4o">
                                 <cells>
@@ -423,7 +437,7 @@
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -440,7 +454,7 @@
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>

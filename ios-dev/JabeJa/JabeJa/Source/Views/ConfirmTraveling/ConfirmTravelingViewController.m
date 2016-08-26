@@ -10,6 +10,7 @@
 #import "AuthUtils.h"
 #import "MKInputBoxView.h"
 #import "GetUserInfoResult.h"
+#import "TravelConfirmationParameter.h"
 
 #define MARGIN 20
 
@@ -19,6 +20,7 @@
     [super viewDidLoad];
 
     [self setupButtonView:self.confirmButton];
+    [self setupButtonView:self.confirmButtonWithCharge];
 }
 
 - (NSString*)getTitleString {
@@ -28,6 +30,7 @@
 - (void)showNormalMode {
     self.summaryLabel.hidden = NO;
     self.confirmButton.hidden = NO;
+    self.confirmButtonWithCharge.hidden = NO;
     self.waitAnimation.hidden = YES;
     [self.waitAnimation stopAnimating];
 }
@@ -35,6 +38,7 @@
 - (void)showWaitMode {
     self.summaryLabel.hidden = YES;
     self.confirmButton.hidden = YES;
+    self.confirmButtonWithCharge.hidden = YES;
     self.waitAnimation.hidden = NO;
     [self.waitAnimation startAnimating];
 }
@@ -151,13 +155,80 @@
 }
 
 - (IBAction)onConfirm:(id)sender {
-    
+    [self confirmWithCharge:0];
+}
+
+- (IBAction)onConfirmWithCharge:(id)sender {
+    MKInputBoxView *inputBoxView = [MKInputBoxView boxOfType:NumberInput];
+    [inputBoxView setBlurEffectStyle:UIBlurEffectStyleDark];
+    [inputBoxView setTitle:L(@"TripConfirmPage/ChargeTitle")];
+    [inputBoxView setMessage:L(@"TripConfirmPage/ChargeMessage")];
+    [inputBoxView setSubmitButtonText:L(@"OK")];
+    [inputBoxView setCancelButtonText:L(@"Cancel")];
+
+    [inputBoxView setOnSubmit:^(NSString *v1, NSString *v2) {
+        [self confirmWithCharge:[v1 intValue]];
+    }];
+
+    [inputBoxView setOnCancel:^{
+
+    }];
+
+    [inputBoxView show];
+}
+
+- (void)confirmWithCharge:(int)charge {
+    TravelConfirmationParameter* param = [[TravelConfirmationParameter alloc] init];
+
+    param.userPhone = self.phone;
+    param.hasBox = self.acceptBox;
+    param.hasDocument = self.acceptDocument;
+    param.source = self.citySource.identifier;
+    param.destination = self.cityDestination.identifier;
+    param.travelDate = self.tripDate;
+    param.serviceCharge = charge;
+
+    [self showWaitMode];
+
+    [[Server instance] confirmTrip:param callback:^(int resultCode, NSObject *result) {
+        GeneralResponse* response = (GeneralResponse*)result;
+        NSString* message = @"";
+        NSString* title = @"";
+
+        if ([response getErrorCode] == RESULT_SUCCESS) {
+            title = L(@"TripConfirmPage/ConfirmSuccessTitle");
+            message = L(@"TripConfirmPage/ConfirmSuccessMessage");
+        } else {
+            title = L(@"Error");
+            message = L(@"TripConfirmPage/ConfirmErrorMessage");
+        }
+
+        self.messageBox = [[UIAlertController alloc] init];
+        self.messageBox.title = title;
+        self.messageBox.message = message;
+
+        UIAlertAction* ok = [UIAlertAction
+                             actionWithTitle:L(@"Ok")
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [self showNormalMode];
+                                 if ([response getErrorCode] == RESULT_SUCCESS) {
+                                     [self.navigationController popViewControllerAnimated:YES];
+                                 }
+                                 self.messageBox = nil;
+                             }];
+        [self.messageBox addAction:ok];
+
+    }];
 }
 
 - (void)setupButtonView:(UIButton*)button {
     button.layer.cornerRadius = 7;
     button.layer.borderWidth = 1.0 / [[UIScreen mainScreen] scale];
     button.layer.borderColor = button.tintColor.CGColor;
+    button.titleLabel.numberOfLines = 2;
+    button.titleLabel.textAlignment = NSTextAlignmentCenter;
 }
 
 @end

@@ -60,5 +60,11 @@ TripConfirmPage/Title:Travel Confirmation
 TripConfirmPage/Summary:Thank you for registering your trip with JabeJa.\r\n\r\nHere is the details about your trip that will be shown to other people:\r\n\r\nFrom: <blue>$from<blue>\r\nDestination: <blue>$destination<blue>\r\nDate: <blue>$date<blue>\r\n\r\nYou can bring <blue>$items<blue> with you in your bag(s)\r\n\r\nYour contact info: <blue>$contact<blue>
 TripConfirmPage/PhoneTitle:Phone Number
 TripConfirmPage/PhoneMessage:In order for other people to call you and schedule a meeting with you, please enter you phone number:
-TripConfirmPage/Confirm:Confirm
+TripConfirmPage/ChargeTitle:Service Charge
+TripConfirmPage/ChargeMessage:Please enter the amount you want to charge for this service:
+TripConfirmPage/ConfirmForFree:Confirm\r\nI'll do it for free
+TripConfirmPage/ConfirmWithCharge:Confirm\r\nI'll charge for this service
+TripConfirmPage/ConfirmSuccessTitle:Trip Confirmed
+TripConfirmPage/ConfirmSuccessMessage:Your trip information was been stored in our system. Thank you for your registration.
+TripConfirmPage/ConfirmErrorMessage:Your trip information was not stored in our system. Please try again later.
 

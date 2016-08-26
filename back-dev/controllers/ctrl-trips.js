@@ -81,6 +81,8 @@ trips.get('/', function(req, res) {
 *
 */
 trips.post('/', function(req, res) {
+	consolde.log(req.body);
+
     var phone = req.body['userPhone'] ? req.body['userPhone'] : "",
         comment = req.body['comment'] ? req.body['comment'] : "",
         email = req.body['userEmail'],
