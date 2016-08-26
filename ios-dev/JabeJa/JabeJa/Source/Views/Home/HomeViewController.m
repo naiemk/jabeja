@@ -11,11 +11,13 @@
 #import "AuthUtils.h"
 #import "SelectTripLocationViewController.h"
 #import "ConfirmTravelingViewController.h"
+#import "SearchTravelersViewController.h"
 
 #define SEGUE_SHOW_LOGIN @"s_ShowLogin"
 #define SEGUE_SHOW_DESTINATION_TRIP @"s_ShowDestinationTrip"
 #define SEGUE_SHOW_SOURCE_TRIP @"s_ShowSourceTrip"
 #define SEGUE_SHOW_CONFIRM_TRAVELING @"s_ShowConfirmTraveling"
+#define SEGUE_SHOW_TRAVELERS @"s_ShowTravelers"
 
 @interface HomeViewController ()
 
@@ -128,6 +130,14 @@
         };
     } else if ([segue.identifier isEqualToString:SEGUE_SHOW_CONFIRM_TRAVELING]) {
         ConfirmTravelingViewController* controller = (ConfirmTravelingViewController*)segue.destinationViewController;
+
+        controller.citySource = self.citySource;
+        controller.cityDestination = self.cityDestination;
+        controller.tripDate = self.tripDate.date;
+        controller.acceptBox = self.swBox.on;
+        controller.acceptDocument = self.swDocument.on;
+    } else if ([segue.identifier isEqualToString:SEGUE_SHOW_TRAVELERS]) {
+        SearchTravelersViewController* controller = (SearchTravelersViewController*)segue.destinationViewController;
 
         controller.citySource = self.citySource;
         controller.cityDestination = self.cityDestination;

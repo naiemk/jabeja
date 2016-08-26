@@ -19,6 +19,11 @@
 		28579D451D667ED600AC73D2 /* LoginParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 28579D441D667ED600AC73D2 /* LoginParameter.m */; };
 		2875C41D1D6F8A750034CD9A /* GetZoneResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2875C41C1D6F8A750034CD9A /* GetZoneResult.m */; };
 		2875C4201D6F9BBC0034CD9A /* GetUserInfoResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2875C41F1D6F9BBC0034CD9A /* GetUserInfoResult.m */; };
+		2878CFD21D70C399008D1E13 /* SearchTravelersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2878CFD11D70C399008D1E13 /* SearchTravelersViewController.m */; };
+		2878CFD51D70C747008D1E13 /* SearchTravelersParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2878CFD41D70C747008D1E13 /* SearchTravelersParameter.m */; };
+		2878CFD81D70C9A3008D1E13 /* SearchTripResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2878CFD71D70C9A3008D1E13 /* SearchTripResponse.m */; };
+		2878CFDB1D70D14B008D1E13 /* TripCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2878CFDA1D70D14B008D1E13 /* TripCell.m */; };
+		2878CFDE1D70D21F008D1E13 /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2878CFDD1D70D21F008D1E13 /* BaseCell.m */; };
 		28861CF61D6531B3008DD54F /* UIBarButtonItem+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 28861CF51D6531B3008DD54F /* UIBarButtonItem+Language.m */; };
 		28861CFB1D6532BD008DD54F /* Default.txt in Resources */ = {isa = PBXBuildFile; fileRef = 28861CFA1D6532BD008DD54F /* Default.txt */; };
 		28861D001D653D90008DD54F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28861CFF1D653D90008DD54F /* SettingsViewController.m */; };
@@ -84,6 +89,16 @@
 		2875C41C1D6F8A750034CD9A /* GetZoneResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetZoneResult.m; path = Source/Models/Server/Structures/GetZoneResult.m; sourceTree = "<group>"; };
 		2875C41E1D6F9BBC0034CD9A /* GetUserInfoResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GetUserInfoResult.h; path = Source/Models/Server/Structures/GetUserInfoResult.h; sourceTree = "<group>"; };
 		2875C41F1D6F9BBC0034CD9A /* GetUserInfoResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetUserInfoResult.m; path = Source/Models/Server/Structures/GetUserInfoResult.m; sourceTree = "<group>"; };
+		2878CFD01D70C399008D1E13 /* SearchTravelersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchTravelersViewController.h; path = Source/Views/SearchTravelers/SearchTravelersViewController.h; sourceTree = "<group>"; };
+		2878CFD11D70C399008D1E13 /* SearchTravelersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchTravelersViewController.m; path = Source/Views/SearchTravelers/SearchTravelersViewController.m; sourceTree = "<group>"; };
+		2878CFD31D70C747008D1E13 /* SearchTravelersParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchTravelersParameter.h; path = Source/Models/Server/Structures/SearchTravelersParameter.h; sourceTree = "<group>"; };
+		2878CFD41D70C747008D1E13 /* SearchTravelersParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchTravelersParameter.m; path = Source/Models/Server/Structures/SearchTravelersParameter.m; sourceTree = "<group>"; };
+		2878CFD61D70C9A3008D1E13 /* SearchTripResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchTripResponse.h; path = Source/Models/Server/Structures/SearchTripResponse.h; sourceTree = "<group>"; };
+		2878CFD71D70C9A3008D1E13 /* SearchTripResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchTripResponse.m; path = Source/Models/Server/Structures/SearchTripResponse.m; sourceTree = "<group>"; };
+		2878CFD91D70D14B008D1E13 /* TripCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TripCell.h; path = Source/Views/SearchTravelers/TripCell.h; sourceTree = "<group>"; };
+		2878CFDA1D70D14B008D1E13 /* TripCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TripCell.m; path = Source/Views/SearchTravelers/TripCell.m; sourceTree = "<group>"; };
+		2878CFDC1D70D21F008D1E13 /* BaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseCell.h; path = Source/Views/Bases/BaseCell.h; sourceTree = "<group>"; };
+		2878CFDD1D70D21F008D1E13 /* BaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseCell.m; path = Source/Views/Bases/BaseCell.m; sourceTree = "<group>"; };
 		28861CF41D6531B3008DD54F /* UIBarButtonItem+Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+Language.h"; path = "Source/Views/Bases/Extensions/UIBarButtonItem+Language.h"; sourceTree = "<group>"; };
 		28861CF51D6531B3008DD54F /* UIBarButtonItem+Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+Language.m"; path = "Source/Views/Bases/Extensions/UIBarButtonItem+Language.m"; sourceTree = "<group>"; };
 		28861CFA1D6532BD008DD54F /* Default.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Default.txt; path = Resources/Theme/Default.txt; sourceTree = "<group>"; };
@@ -170,6 +185,10 @@
 			children = (
 				28298EE21D6FAB5200EC88CC /* TravelConfirmationParameter.h */,
 				28298EE31D6FAB5200EC88CC /* TravelConfirmationParameter.m */,
+				2878CFD31D70C747008D1E13 /* SearchTravelersParameter.h */,
+				2878CFD41D70C747008D1E13 /* SearchTravelersParameter.m */,
+				2878CFD61D70C9A3008D1E13 /* SearchTripResponse.h */,
+				2878CFD71D70C9A3008D1E13 /* SearchTripResponse.m */,
 			);
 			name = Travel;
 			sourceTree = "<group>";
@@ -186,6 +205,10 @@
 		283CA3261D6770EF00AA7ED0 /* SearchTravelers */ = {
 			isa = PBXGroup;
 			children = (
+				2878CFD01D70C399008D1E13 /* SearchTravelersViewController.h */,
+				2878CFD11D70C399008D1E13 /* SearchTravelersViewController.m */,
+				2878CFD91D70D14B008D1E13 /* TripCell.h */,
+				2878CFDA1D70D14B008D1E13 /* TripCell.m */,
 			);
 			name = SearchTravelers;
 			sourceTree = "<group>";
@@ -416,6 +439,8 @@
 		28E303D81D64AE4B0009FF10 /* Bases */ = {
 			isa = PBXGroup;
 			children = (
+				2878CFDC1D70D21F008D1E13 /* BaseCell.h */,
+				2878CFDD1D70D21F008D1E13 /* BaseCell.m */,
 				28E303E81D64BB100009FF10 /* Extensions */,
 				28E303DF1D64B3ED0009FF10 /* Segues */,
 				28E303D91D64AE6E0009FF10 /* BaseViewController.h */,
@@ -642,6 +667,7 @@
 				28E303911D64A7D60009FF10 /* AppDelegate.m in Sources */,
 				28E549281D6DE55D00C2AE52 /* GeneralResponse.m in Sources */,
 				28E303EB1D64BB6B0009FF10 /* UILabel+Language.m in Sources */,
+				2878CFDB1D70D14B008D1E13 /* TripCell.m in Sources */,
 				28861CF61D6531B3008DD54F /* UIBarButtonItem+Language.m in Sources */,
 				289871731D6642E800F63DF7 /* UIButton+Language.m in Sources */,
 				28E303DB1D64AE6E0009FF10 /* BaseViewController.m in Sources */,
@@ -654,8 +680,10 @@
 				28E303DE1D64B3B60009FF10 /* SignInViewController.m in Sources */,
 				28861D001D653D90008DD54F /* SettingsViewController.m in Sources */,
 				2875C4201D6F9BBC0034CD9A /* GetUserInfoResult.m in Sources */,
+				2878CFD21D70C399008D1E13 /* SearchTravelersViewController.m in Sources */,
 				28298EE41D6FAB5200EC88CC /* TravelConfirmationParameter.m in Sources */,
 				28579D3C1D6670BC00AC73D2 /* Server.m in Sources */,
+				2878CFDE1D70D21F008D1E13 /* BaseCell.m in Sources */,
 				28E303C51D64AA000009FF10 /* Guid.m in Sources */,
 				28579D451D667ED600AC73D2 /* LoginParameter.m in Sources */,
 				28E303D01D64AAFA0009FF10 /* LanguageStrings.m in Sources */,
@@ -663,8 +691,10 @@
 				28E303B51D64A8D60009FF10 /* HomeViewController.m in Sources */,
 				28E303CC1D64AAD00009FF10 /* Theme.m in Sources */,
 				28E303C81D64AA000009FF10 /* Utils.m in Sources */,
+				2878CFD51D70C747008D1E13 /* SearchTravelersParameter.m in Sources */,
 				28E303E21D64B41B0009FF10 /* PresentViewSegue.m in Sources */,
 				28E303C61D64AA000009FF10 /* NSString+Contains.m in Sources */,
+				2878CFD81D70C9A3008D1E13 /* SearchTripResponse.m in Sources */,
 				2875C41D1D6F8A750034CD9A /* GetZoneResult.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

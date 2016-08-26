@@ -68,3 +68,7 @@ TripConfirmPage/ConfirmSuccessTitle:Trip Confirmed
 TripConfirmPage/ConfirmSuccessMessage:Your trip information was been stored in our system. Thank you for your registration.
 TripConfirmPage/ConfirmErrorMessage:Your trip information was not stored in our system. Please try again later.
 
+// ============================================================
+//    Search Travelers Page
+// ============================================================
+SearchTravelersPage/Title:Travelers List

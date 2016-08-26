@@ -11,6 +11,7 @@
 #import "GetZoneResult.h"
 #import "AFNetworking.h"
 #import "GetUserInfoResult.h"
+#import "SearchTripResponse.h"
 
 #define METHOD_GET @"GET"
 #define METHOD_POST @"POST"
@@ -23,6 +24,7 @@
 #define API_PATH_GET_USER_INFO          @"/jabeja/api/user/$email"
 #define API_PATH_UPDATE_USER_INFO       @"/jabeja/api/user/$email"
 #define API_PATH_CONFIRM_TRIP           @"/jabeja/api/trip"
+#define API_PATH_SEARCH_TRIP            @"/jabeja/api/trip/type/:type/source/:srouce/dest/:dest/date/:date"
 
 #define API_PATH(x) [NSString stringWithFormat:@"%@%@", SERVER_PATH, x]
 
@@ -61,6 +63,16 @@ static Server* _instance;
 
 - (void)confirmTrip:(TravelConfirmationParameter*)param callback:(SERVER_CALLBACK)callback {
     [self callServerAPI:API_PATH_CONFIRM_TRIP request:[param toDictionary] resultLoader:[[GeneralResponse alloc] init] callback:callback method:METHOD_POST];
+}
+
+- (void)searchTrip:(SearchTravelersParameter*)param callback:(SERVER_CALLBACK)callback {
+    NSString* path = API_PATH_SEARCH_TRIP;
+    path = [path stringByReplacingOccurrencesOfString:@":type" withString:[param getDeliveryType]];
+    path = [path stringByReplacingOccurrencesOfString:@":source" withString:param.source];
+    path = [path stringByReplacingOccurrencesOfString:@":dest" withString:param.destination];
+    path = [path stringByReplacingOccurrencesOfString:@":date" withString:[param getDate]];
+
+    [self callServerAPI:path request:nil resultLoader:[[SearchTripResponse alloc] init] callback:callback method:METHOD_GET];
 }
 
 - (void)updateUserPhone:(NSString*)email toPhone:(NSString*)phone callback:(SERVER_CALLBACK)callback {

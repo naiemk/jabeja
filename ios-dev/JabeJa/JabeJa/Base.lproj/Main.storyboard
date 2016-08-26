@@ -75,7 +75,7 @@
                                 </constraints>
                                 <state key="normal" title="TravelPage/SearchTravelers"/>
                                 <connections>
-                                    <segue destination="B6W-EX-8kC" kind="show" id="bjQ-F1-IO4"/>
+                                    <segue destination="B6W-EX-8kC" kind="show" identifier="s_ShowTravelers" id="bjQ-F1-IO4"/>
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="in5-4w-XnF">
@@ -303,10 +303,10 @@
             </objects>
             <point key="canvasLocation" x="937" y="1817"/>
         </scene>
-        <!--View Controller-->
+        <!--SearchTravelersPage/Title-->
         <scene sceneID="rud-aO-78U">
             <objects>
-                <viewController id="B6W-EX-8kC" sceneMemberID="viewController">
+                <viewController id="B6W-EX-8kC" customClass="SearchTravelersViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0YL-Dc-a6g"/>
                         <viewControllerLayoutGuide type="bottom" id="nWa-Lj-0eZ"/>
@@ -314,8 +314,30 @@
                     <view key="view" contentMode="scaleToFill" id="zg0-2i-fGo">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jhu-Sc-KPC">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5Uj-MB-Ckh">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jhu-Sc-KPC" firstAttribute="leading" secondItem="zg0-2i-fGo" secondAttribute="leading" id="3ND-q6-kfV"/>
+                            <constraint firstAttribute="trailing" secondItem="jhu-Sc-KPC" secondAttribute="trailing" id="5qT-sZ-AOv"/>
+                            <constraint firstItem="nWa-Lj-0eZ" firstAttribute="top" secondItem="jhu-Sc-KPC" secondAttribute="bottom" id="ezf-F4-hk6"/>
+                            <constraint firstItem="jhu-Sc-KPC" firstAttribute="top" secondItem="0YL-Dc-a6g" secondAttribute="bottom" constant="-64" id="oQs-qM-Ej4"/>
+                            <constraint firstItem="5Uj-MB-Ckh" firstAttribute="centerY" secondItem="zg0-2i-fGo" secondAttribute="centerY" id="rp9-SI-YVK"/>
+                            <constraint firstItem="5Uj-MB-Ckh" firstAttribute="centerX" secondItem="zg0-2i-fGo" secondAttribute="centerX" id="zEo-34-sSQ"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="SearchTravelersPage/Title" id="w7c-g2-Lim"/>
+                    <connections>
+                        <outlet property="tableView" destination="jhu-Sc-KPC" id="j7C-dE-wyp"/>
+                        <outlet property="waitAnimation" destination="5Uj-MB-Ckh" id="PXL-eK-7OR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jx-I8-ngb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

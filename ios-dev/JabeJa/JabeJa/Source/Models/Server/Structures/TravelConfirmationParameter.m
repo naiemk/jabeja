@@ -54,7 +54,11 @@
 }
 
 - (NSString*)getDate {
-    return @"";
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+
+    return [dateFormat stringFromDate:self.travelDate];
 }
 
 - (NSString*)getDeliveryType {

@@ -10,6 +10,7 @@
 #import "CityInfo.h"
 #import "LoginParameter.h"
 #import "TravelConfirmationParameter.h"
+#import "SearchTravelersParameter.h"
 
 
 #define RESULT_SUCCESS 0
@@ -26,6 +27,7 @@ typedef void(^SERVER_CALLBACK)(int resultCode, NSObject* result);
 - (void)login:(LoginParameter*)param callback:(SERVER_CALLBACK)callback;
 - (void)getUserInfo:(NSString*)email callback:(SERVER_CALLBACK)callback;
 - (void)confirmTrip:(TravelConfirmationParameter*)email callback:(SERVER_CALLBACK)callback;
+- (void)searchTrip:(SearchTravelersParameter*)param callback:(SERVER_CALLBACK)callback;
 - (void)fetchListOfSupportedCities:(SERVER_CALLBACK)callback;
 - (void)updateUserPhone:(NSString*)email toPhone:(NSString*)phone callback:(SERVER_CALLBACK)callback;
 
