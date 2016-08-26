@@ -31,6 +31,7 @@ TravelPage/FromPlaceholder:برای انتخاب اینجا بزنید
 TravelPage/ToPlaceholder:برای انتخاب اینجا بزنید
 TravelPage/Document:مدارک
 TravelPage/Box:بسته
+TravelPage/BoxAndDocument:مدارک و بسته
 
 // ============================================================
 //    Sign In Page

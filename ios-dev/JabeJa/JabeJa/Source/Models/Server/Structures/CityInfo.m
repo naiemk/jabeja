@@ -26,4 +26,8 @@
     return self.countryEnglish;
 }
 
+- (NSString*)description {
+    return [NSString stringWithFormat:@"%@, %@", [self getCityName], [self getCountryName]];
+}
+
 @end

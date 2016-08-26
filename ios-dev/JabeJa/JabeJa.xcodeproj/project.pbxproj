@@ -10,12 +10,15 @@
 		28228A3C1D64E188003EE7A7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28228A3B1D64E188003EE7A7 /* QuartzCore.framework */; };
 		28228A3F1D64E1E7003EE7A7 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28228A3D1D64E1E7003EE7A7 /* FBSDKCoreKit.framework */; };
 		28228A401D64E1E7003EE7A7 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28228A3E1D64E1E7003EE7A7 /* FBSDKShareKit.framework */; };
+		28298EE41D6FAB5200EC88CC /* TravelConfirmationParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 28298EE31D6FAB5200EC88CC /* TravelConfirmationParameter.m */; };
 		283CA3291D67726600AA7ED0 /* ConfirmTravelingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 283CA3281D67726600AA7ED0 /* ConfirmTravelingViewController.m */; };
 		28579D341D665AA300AC73D2 /* UITextField+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 28579D331D665AA300AC73D2 /* UITextField+Language.m */; };
 		28579D381D66647000AC73D2 /* SelectTripLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28579D371D66647000AC73D2 /* SelectTripLocationViewController.m */; };
 		28579D3C1D6670BC00AC73D2 /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = 28579D3B1D6670BC00AC73D2 /* Server.m */; };
 		28579D401D66735D00AC73D2 /* CityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 28579D3F1D66735D00AC73D2 /* CityInfo.m */; };
 		28579D451D667ED600AC73D2 /* LoginParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 28579D441D667ED600AC73D2 /* LoginParameter.m */; };
+		2875C41D1D6F8A750034CD9A /* GetZoneResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2875C41C1D6F8A750034CD9A /* GetZoneResult.m */; };
+		2875C4201D6F9BBC0034CD9A /* GetUserInfoResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2875C41F1D6F9BBC0034CD9A /* GetUserInfoResult.m */; };
 		28861CF61D6531B3008DD54F /* UIBarButtonItem+Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 28861CF51D6531B3008DD54F /* UIBarButtonItem+Language.m */; };
 		28861CFB1D6532BD008DD54F /* Default.txt in Resources */ = {isa = PBXBuildFile; fileRef = 28861CFA1D6532BD008DD54F /* Default.txt */; };
 		28861D001D653D90008DD54F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28861CFF1D653D90008DD54F /* SettingsViewController.m */; };
@@ -63,6 +66,8 @@
 		28228A3B1D64E188003EE7A7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		28228A3D1D64E1E7003EE7A7 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../../Users/yektaie/Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		28228A3E1D64E1E7003EE7A7 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../../../Users/yektaie/Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		28298EE21D6FAB5200EC88CC /* TravelConfirmationParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TravelConfirmationParameter.h; path = Source/Models/Server/Structures/TravelConfirmationParameter.h; sourceTree = "<group>"; };
+		28298EE31D6FAB5200EC88CC /* TravelConfirmationParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TravelConfirmationParameter.m; path = Source/Models/Server/Structures/TravelConfirmationParameter.m; sourceTree = "<group>"; };
 		283CA3271D67726600AA7ED0 /* ConfirmTravelingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfirmTravelingViewController.h; path = Source/Views/ConfirmTraveling/ConfirmTravelingViewController.h; sourceTree = "<group>"; };
 		283CA3281D67726600AA7ED0 /* ConfirmTravelingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfirmTravelingViewController.m; path = Source/Views/ConfirmTraveling/ConfirmTravelingViewController.m; sourceTree = "<group>"; };
 		28579D321D665AA300AC73D2 /* UITextField+Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITextField+Language.h"; path = "Source/Views/Bases/Extensions/UITextField+Language.h"; sourceTree = "<group>"; };
@@ -75,6 +80,10 @@
 		28579D3F1D66735D00AC73D2 /* CityInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityInfo.m; path = Source/Models/Server/Structures/CityInfo.m; sourceTree = "<group>"; };
 		28579D431D667ED600AC73D2 /* LoginParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginParameter.h; path = Source/Models/Server/Structures/LoginParameter.h; sourceTree = "<group>"; };
 		28579D441D667ED600AC73D2 /* LoginParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginParameter.m; path = Source/Models/Server/Structures/LoginParameter.m; sourceTree = "<group>"; };
+		2875C41B1D6F8A750034CD9A /* GetZoneResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GetZoneResult.h; path = Source/Models/Server/Structures/GetZoneResult.h; sourceTree = "<group>"; };
+		2875C41C1D6F8A750034CD9A /* GetZoneResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetZoneResult.m; path = Source/Models/Server/Structures/GetZoneResult.m; sourceTree = "<group>"; };
+		2875C41E1D6F9BBC0034CD9A /* GetUserInfoResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GetUserInfoResult.h; path = Source/Models/Server/Structures/GetUserInfoResult.h; sourceTree = "<group>"; };
+		2875C41F1D6F9BBC0034CD9A /* GetUserInfoResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GetUserInfoResult.m; path = Source/Models/Server/Structures/GetUserInfoResult.m; sourceTree = "<group>"; };
 		28861CF41D6531B3008DD54F /* UIBarButtonItem+Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+Language.h"; path = "Source/Views/Bases/Extensions/UIBarButtonItem+Language.h"; sourceTree = "<group>"; };
 		28861CF51D6531B3008DD54F /* UIBarButtonItem+Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+Language.m"; path = "Source/Views/Bases/Extensions/UIBarButtonItem+Language.m"; sourceTree = "<group>"; };
 		28861CFA1D6532BD008DD54F /* Default.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Default.txt; path = Resources/Theme/Default.txt; sourceTree = "<group>"; };
@@ -156,6 +165,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28298EDE1D6FAB1100EC88CC /* Travel */ = {
+			isa = PBXGroup;
+			children = (
+				28298EE21D6FAB5200EC88CC /* TravelConfirmationParameter.h */,
+				28298EE31D6FAB5200EC88CC /* TravelConfirmationParameter.m */,
+			);
+			name = Travel;
+			sourceTree = "<group>";
+		};
 		283CA3251D6770DE00AA7ED0 /* ConfirmTraveling */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +214,8 @@
 			children = (
 				28579D3E1D66735D00AC73D2 /* CityInfo.h */,
 				28579D3F1D66735D00AC73D2 /* CityInfo.m */,
+				2875C41B1D6F8A750034CD9A /* GetZoneResult.h */,
+				2875C41C1D6F8A750034CD9A /* GetZoneResult.m */,
 			);
 			name = CityInfo;
 			sourceTree = "<group>";
@@ -203,6 +223,7 @@
 		28579D411D667EB400AC73D2 /* Structures */ = {
 			isa = PBXGroup;
 			children = (
+				28298EDE1D6FAB1100EC88CC /* Travel */,
 				28579D421D667EBF00AC73D2 /* Login */,
 				28579D3D1D66734000AC73D2 /* CityInfo */,
 				28E549261D6DE55D00C2AE52 /* GeneralResponse.h */,
@@ -216,6 +237,8 @@
 			children = (
 				28579D431D667ED600AC73D2 /* LoginParameter.h */,
 				28579D441D667ED600AC73D2 /* LoginParameter.m */,
+				2875C41E1D6F9BBC0034CD9A /* GetUserInfoResult.h */,
+				2875C41F1D6F9BBC0034CD9A /* GetUserInfoResult.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -630,6 +653,8 @@
 				28E303C71D64AA000009FF10 /* Settings.m in Sources */,
 				28E303DE1D64B3B60009FF10 /* SignInViewController.m in Sources */,
 				28861D001D653D90008DD54F /* SettingsViewController.m in Sources */,
+				2875C4201D6F9BBC0034CD9A /* GetUserInfoResult.m in Sources */,
+				28298EE41D6FAB5200EC88CC /* TravelConfirmationParameter.m in Sources */,
 				28579D3C1D6670BC00AC73D2 /* Server.m in Sources */,
 				28E303C51D64AA000009FF10 /* Guid.m in Sources */,
 				28579D451D667ED600AC73D2 /* LoginParameter.m in Sources */,
@@ -640,6 +665,7 @@
 				28E303C81D64AA000009FF10 /* Utils.m in Sources */,
 				28E303E21D64B41B0009FF10 /* PresentViewSegue.m in Sources */,
 				28E303C61D64AA000009FF10 /* NSString+Contains.m in Sources */,
+				2875C41D1D6F8A750034CD9A /* GetZoneResult.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -55,6 +55,10 @@ static AuthUtils* _instance;
     }
 }
 
+- (NSString*)getFacebookID {
+    return [FBSDKAccessToken currentAccessToken].tokenString;
+}
+
 - (void)fetchUserInformationsFromFacebook:(AUTH_LOAD_INFO_CALLBACK)callback {
     [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"email, first_name, last_name, middle_name"}]
      startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {

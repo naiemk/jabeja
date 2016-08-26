@@ -30,6 +30,7 @@ typedef enum {
 @property (strong, nonatomic) NSString* userMiddleName;
 
 - (BOOL)isSignedIn;
+- (NSString*)getFacebookID;
 - (void)fetchUserInformations:(AuthType)type withCallback:(AUTH_LOAD_INFO_CALLBACK)callback;
 - (void)signOut;
 

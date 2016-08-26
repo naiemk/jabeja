@@ -31,6 +31,7 @@ TravelPage/FromPlaceholder:Touch To Select
 TravelPage/ToPlaceholder:Touch To Select
 TravelPage/Document:Document
 TravelPage/Box:Box
+TravelPage/BoxAndDocument:Box and Document
 
 // ============================================================
 //    Sign In Page
@@ -56,5 +57,8 @@ TripLocationPage/Title:Select Location
 //    Confirm Travel Page
 // ============================================================
 TripConfirmPage/Title:Travel Confirmation
-TripConfirmPage/Summary:Thank you for registering your trip with JabeJa.\r\n\r\nHere is the details about your trip that will be shown to other people:\r\n\r\nFrom: <blue>$from<blue>\r\nDestination: <blue>$destination<blue>\r\nDate: <blue>$date<blue>\r\n\r\nYou can bring <blue>$items<blue> with you in your bag(s)\r\n\r\nYour contact info: $contact
+TripConfirmPage/Summary:Thank you for registering your trip with JabeJa.\r\n\r\nHere is the details about your trip that will be shown to other people:\r\n\r\nFrom: <blue>$from<blue>\r\nDestination: <blue>$destination<blue>\r\nDate: <blue>$date<blue>\r\n\r\nYou can bring <blue>$items<blue> with you in your bag(s)\r\n\r\nYour contact info: <blue>$contact<blue>
+TripConfirmPage/PhoneTitle:Phone Number
+TripConfirmPage/PhoneMessage:In order for other people to call you and schedule a meeting with you, please enter you phone number:
+TripConfirmPage/Confirm:Confirm
 

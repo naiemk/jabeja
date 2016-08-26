@@ -16,8 +16,11 @@
 @property (strong, nonatomic) NSDate *tripDate;
 @property (assign, nonatomic) BOOL acceptDocument;
 @property (assign, nonatomic) BOOL acceptBox;
+@property (strong, nonatomic) NSString* phone;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *waitAnimation;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *layoutSummaryHeight;
 @property (weak, nonatomic) IBOutlet UITextView *summaryLabel;
+@property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 
 @end

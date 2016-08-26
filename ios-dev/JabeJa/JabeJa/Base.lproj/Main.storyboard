@@ -342,18 +342,38 @@
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Q6a-wb-aFJ">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lOM-sQ-dCV">
+                                <rect key="frame" x="197" y="550" width="206" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="E7i-GX-3nj"/>
+                                    <constraint firstAttribute="width" constant="206" id="nsf-7c-h1v"/>
+                                </constraints>
+                                <state key="normal" title="TripConfirmPage/Confirm"/>
+                                <connections>
+                                    <action selector="onConfirm:" destination="xj0-Zr-kH6" eventType="touchUpInside" id="2EY-Cj-jHV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Q6a-wb-aFJ" firstAttribute="centerX" secondItem="8PC-Wj-roK" secondAttribute="centerX" id="2YL-Tx-X8I"/>
                             <constraint firstAttribute="leadingMargin" secondItem="ttl-bf-5fE" secondAttribute="leading" id="3Fp-9L-7DK"/>
                             <constraint firstItem="ttl-bf-5fE" firstAttribute="top" secondItem="yJh-K1-RTX" secondAttribute="bottom" constant="8" id="KrN-Un-m1u"/>
+                            <constraint firstItem="Q6a-wb-aFJ" firstAttribute="centerY" secondItem="8PC-Wj-roK" secondAttribute="centerY" id="Poo-nQ-NnV"/>
+                            <constraint firstItem="LPg-Lh-KUb" firstAttribute="top" secondItem="lOM-sQ-dCV" secondAttribute="bottom" constant="20" id="eVc-Hm-Agz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ttl-bf-5fE" secondAttribute="trailing" id="gip-YC-1jb"/>
+                            <constraint firstItem="lOM-sQ-dCV" firstAttribute="leading" secondItem="Q6a-wb-aFJ" secondAttribute="trailing" constant="-113" id="okE-s5-iOo"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="TripConfirmPage/Title" id="iYv-lS-1gU"/>
                     <connections>
+                        <outlet property="confirmButton" destination="lOM-sQ-dCV" id="JeV-ZZ-19u"/>
                         <outlet property="layoutSummaryHeight" destination="Y6v-5l-pVU" id="6hZ-dh-qFC"/>
                         <outlet property="summaryLabel" destination="ttl-bf-5fE" id="1GS-qF-EGr"/>
+                        <outlet property="waitAnimation" destination="Q6a-wb-aFJ" id="wFX-wJ-Lb1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EIp-a1-YIW" userLabel="First Responder" sceneMemberID="firstResponder"/>

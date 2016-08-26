@@ -10,6 +10,7 @@
 #import "CityInfo.h"
 #import "LoginParameter.h"
 
+
 #define RESULT_SUCCESS 0
 #define RESULT_ERROR_INTERNAL -1
 #define RESULT_ERROR_CANT_PARSE_RESULT -2
@@ -22,7 +23,9 @@ typedef void(^SERVER_CALLBACK)(int resultCode, NSObject* result);
 + (Server*)instance;
 
 - (void)login:(LoginParameter*)param callback:(SERVER_CALLBACK)callback;
+- (void)getUserInfo:(NSString*)email callback:(SERVER_CALLBACK)callback;
 - (void)fetchListOfSupportedCities:(SERVER_CALLBACK)callback;
+- (void)updateUserPhone:(NSString*)email toPhone:(NSString*)phone callback:(SERVER_CALLBACK)callback;
 
 @end
 

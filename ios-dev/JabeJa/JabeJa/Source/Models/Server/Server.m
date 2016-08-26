@@ -8,16 +8,25 @@
 
 #import "Server.h"
 #import "GeneralResponse.h"
+#import "GetZoneResult.h"
 #import "AFNetworking.h"
+#import "GetUserInfoResult.h"
+
+#define METHOD_GET @"GET"
+#define METHOD_POST @"POST"
+#define METHOD_PUT @"PUT"
 
 #define SERVER_PATH @"http://localhost:3000"
 
 #define API_PATH_LOGIN @"/jabeja/api/user"
+#define API_PATH_GET_ZONES @"/jabeja/api/zone"
+#define API_PATH_GET_USER_INFO @"/jabeja/api/user/$email"
+#define API_PATH_UPDATE_USER_INFO @"/jabeja/api/user/$email"
 
 #define API_PATH(x) [NSString stringWithFormat:@"%@%@", SERVER_PATH, x]
 
 @interface Server() {
-    SERVER_CALLBACK _callback;
+
 }
 
 @end
@@ -35,48 +44,39 @@ static Server* _instance;
 }
 
 - (void)fetchListOfSupportedCities:(SERVER_CALLBACK)callback {
-    _callback = callback;
-    [self performSelectorInBackground:@selector(loadListOfCities) withObject:self];
+    [self callServerAPI:API_PATH_GET_ZONES request:nil resultLoader:[[GetZoneResult alloc] init] callback:callback method:METHOD_GET];
 }
 
 - (void)login:(LoginParameter*)param callback:(SERVER_CALLBACK)callback {
-    [self callServerAPI:API_PATH_LOGIN request:[param toDictionary] resultLoader:[[GeneralResponse alloc] init] callback:callback];
+    [self callServerAPI:API_PATH_LOGIN request:[param toDictionary] resultLoader:[[GeneralResponse alloc] init] callback:callback method:METHOD_POST];
 }
 
-- (void)doLogin {
-    usleep(1000000);
+- (void)getUserInfo:(NSString*)email callback:(SERVER_CALLBACK)callback {
+    NSString* path = API_PATH_GET_USER_INFO;
+    path = [path stringByReplacingOccurrencesOfString:@"$email" withString:email];
 
-    _callback(0, nil);
-    _callback = nil;
+    [self callServerAPI:path request:nil resultLoader:[[GetUserInfoResult alloc] init] callback:callback method:METHOD_GET];
 }
 
-- (void)loadListOfCities {
-    usleep(1000000);
+- (void)updateUserPhone:(NSString*)email toPhone:(NSString*)phone callback:(SERVER_CALLBACK)callback {
+    NSString* path = API_PATH_UPDATE_USER_INFO;
+    path = [path stringByReplacingOccurrencesOfString:@"$email" withString:email];
 
-    NSMutableArray* list = [[NSMutableArray alloc] init];
+    NSDictionary* dictionary = @{
+                                 @"email" : email,
+                                 @"phone" : phone
+                                 };
 
-    [list addObject:[self createCity:@"Seatle" persian:@"سیاتل" country:@"United States" persian:@"آمریکا"]];
-    [list addObject:[self createCity:@"San Francisco" persian:@"سان فرانسیسکو" country:@"United States" persian:@"آمریکا"]];
-    [list addObject:[self createCity:@"Tehran" persian:@"تهران" country:@"Iran" persian:@"ایران"]];
-
-    _callback(0, list);
-    _callback = nil;
-}
-
-- (CityInfo*)createCity:(NSString*)englishTitle persian:(NSString*)persianTitle country:(NSString*)englishCountry persian:(NSString*)persianCountry {
-    CityInfo* result = [[CityInfo alloc] init];
-
-    result.titleEnglish = englishTitle;
-    result.titlePersian = persianTitle;
-    result.countryPersian = persianCountry;
-    result.countryEnglish = englishCountry;
-
-    return result;
+    [self callServerAPI:path request:dictionary resultLoader:[[GeneralResponse alloc] init] callback:callback method:METHOD_PUT];
 }
 
 #pragma mark - Common functions
 
 - (NSString*)toJSON:(NSDictionary*)dic {
+    if (dic == nil) {
+        return @"";
+    }
+
     NSError* error;
     NSString* result = nil;
     NSData* json = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&error];
@@ -114,21 +114,20 @@ static Server* _instance;
     return [result stringByReplacingOccurrencesOfString:@" " withString:@"+"];
 }
 
-- (void)callServerAPI:(NSString*)path request:(NSDictionary*)requestContent resultLoader:(id<IResultLoader>)loader callback:(SERVER_CALLBACK)callback {
+- (void)callServerAPI:(NSString*)path request:(NSDictionary*)requestContent resultLoader:(id<IResultLoader>)loader callback:(SERVER_CALLBACK)callback method:(NSString*)method {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 
     NSString* jsonRequest = [self toJSON:requestContent];
     NSString* url = API_PATH(path);
-    NSLog(@"-----------------------------------------------------");
-    NSLog(@"JSON: %@", jsonRequest);
-    NSLog(@"-----------------------------------------------------");
+//    NSLog(@"-----------------------------------------------------");
+//    NSLog(@"JSON: %@", jsonRequest);
+//    NSLog(@"-----------------------------------------------------");
 
     NSURL *URL = [NSURL URLWithString:url];
     NSMutableURLRequest *request = [[NSURLRequest requestWithURL:URL] mutableCopy];
-    NSDictionary *params = @{@"request": jsonRequest};
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPMethod:@"POST"];
-    [request setHTTPBody:[self httpBodyForParamsDictionary:params]];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:method];
+    [request setHTTPBody:[jsonRequest dataUsingEncoding:NSUTF8StringEncoding]];
 
     AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -173,15 +172,8 @@ static Server* _instance;
         return nil;
     }
 
-    if([object isKindOfClass:[NSDictionary class]])
-    {
-        NSDictionary *results = object;
-        [loader load:results];
-    }
-    else
-    {
-        return nil;
-    }
+    NSDictionary *results = object;
+    [loader load:results];
 
     return (GeneralResponse*)loader;
 }

@@ -8,6 +8,7 @@
 
 #import "SelectTripLocationViewController.h"
 #import "Server.h"
+#import "GetZoneResult.h"
 
 #define CELL_IDENTIFIER @"cell_tableview_list_of_cities"
 
@@ -23,7 +24,7 @@
 
     [self showWaitMode];
     [[Server instance] fetchListOfSupportedCities:^(int resultCode, NSObject *result) {
-        [self onFetchListOfCitiesCompleted:resultCode withResult:(NSArray*)result];
+        [self onFetchListOfCitiesCompleted:resultCode withResult:((GetZoneResult*)result).zones];
     }];
 }
 

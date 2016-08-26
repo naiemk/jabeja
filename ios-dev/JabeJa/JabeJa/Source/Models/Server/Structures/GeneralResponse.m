@@ -11,7 +11,9 @@
 @implementation GeneralResponse
 
 - (void)load:(NSDictionary*)response {
-    self.message = STRING(@"message");
+    if ([response isKindOfClass:[NSDictionary class]]) {
+        self.message = STRING(@"message");
+    }
 }
 
 - (BOOL)requireLogin {
