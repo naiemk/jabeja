@@ -19,11 +19,12 @@ var express = require('express'),
 *         "userName" : "Foo Foobar",
 *         "userEmail" : "foo@facebook.com",
 *         "userPhone" : "+14259749694",
-*         "deliveryType" : ["document", "money"],
+*         "deliveryType" : ["document", "box"],
 *         "source" : "Seattle",
 *         "dest" : "Dallas",
 *         "travelDate" : "Wed Aug 17 2016",
-*         "comment" : "blah blah blah!"
+*         "comment" : "blah blah blah!",
+*         "serviceCharge" : "300"
 *       }
 *     ]
 *
@@ -54,13 +55,14 @@ trips.get('/', function(req, res) {
 * @apiParam {String} userName  Traveller's full name.
 * @apiParam {String} userEmail  Traveller's email.
 * @apiParam {String} userPhone  Traveller's phone.
-* @apiParam {String} deliveryType  Traveller's delivery type. Type is concatinated string by underline "_" Ex: "document_money"
+* @apiParam {String} deliveryType  Traveller's delivery type. Type is concatinated string by underline "_" Ex: "document_box"
 * @apiParam {String} source  Traveller's source location.
 * @apiParam {String} dest  Traveller's destination location.
 * @apiParam {Date} travelDate  Travel date.
 * @apiParam {String} comment  Traveller's comment.
 * @apiSuccess {String} saved Trip saved.
 * @apiSuccess {String} email Traveller's email.
+* @apiSuccess {String} serviceCharge Delivery service charge.
 * @apiFailure {Number} 500  Error saving item.
 *
 * @apiSuccessExample Success-Response:
@@ -85,7 +87,8 @@ trips.post('/', function(req, res) {
         deliveryType = req.body['deliveryType'].split("_"),
         source = req.body['source'],
         dest = req.body['dest'],
-        travelDate = new Date(req.body['travelDate']).toISOString();
+        travelDate = new Date(req.body['travelDate']).toISOString(),
+        serviceCharge = req.body['serviceCharge'] ? Number(req.body['serviceCharge']) : 0;
 
     var trip = new Model({
         'userFbId': req.body['userFbId'],
@@ -96,7 +99,8 @@ trips.post('/', function(req, res) {
         'source': source,
         'dest': dest,
         'travelDate': travelDate,
-        'comment': comment
+        'comment': comment,
+        'serviceCharge': serviceCharge
     });
 
     //check and see if there is a post already
@@ -105,7 +109,8 @@ trips.post('/', function(req, res) {
         deliveryType: deliveryType,
         source: source,
         dest: dest,
-        travelDate: travelDate
+        travelDate: travelDate,
+        serviceCharge: serviceCharge
       }, function(err, existingTrip){
         if(err) {
             return res.status(500).json({
@@ -150,11 +155,12 @@ trips.post('/', function(req, res) {
 *         "userName" : "Foo Foobar",
 *         "userEmail" : "foo@facebook.com",
 *         "userPhone" : "+14259749694",
-*         "deliveryType" : ["document", "money"],
+*         "deliveryType" : ["document", "box"],
 *         "source" : "Seattle",
 *         "dest" : "Dallas",
 *         "travelDate" : "Wed Aug 17 2016",
-*         "comment" : "blah blah blah!"
+*         "comment" : "blah blah blah!",
+*         "serviceCharge" : "300"
 *       }
 *     ]
 *
@@ -188,7 +194,7 @@ trips.get('/:email', function(req, res) {
 * @apiName searchTrips.
 * @apiGroup Trip
 *
-* @apiParam {String} type Type of delivery. Type is concatinated string by underline "_" Ex: "document_money"
+* @apiParam {String} type Type of delivery. Type is concatinated string by underline "_" Ex: "document_box"
 * @apiParam {String} source Trip's source location.
 * @apiParam {String} dest Trip's dest location.
 * @apiParam {String} date Trip's date. Date format: YYYY-mm-dd.
@@ -205,11 +211,12 @@ trips.get('/:email', function(req, res) {
 *         "userName" : "Foo Foobar",
 *         "userEmail" : "foo@facebook.com",
 *         "userPhone" : "+14259749694",
-*         "deliveryType" : ["document", "money"],
+*         "deliveryType" : ["document", "box"],
 *         "source" : "Seattle",
 *         "dest" : "Dallas",
 *         "travelDate" : "Wed Aug 17 2016",
 *         "comment" : "blah blah blah!"
+*         "serviceCharge" : "400"
 *       }
 *     ]
 *
@@ -220,7 +227,7 @@ trips.get('/:email', function(req, res) {
 *     }
 * @apiDescription This API is for listing upcomming trips with requested delivery options
 * and delivery date between now and requested travel date.
-* API Example:  jabeja/api/trip/type/money/source/city1/dest/city2/date/2016-08-23
+* API Example:  jabeja/api/trip/type/doc/source/city1/dest/city2/date/2016-08-23
 */
 trips.get('/type/:type/source/:source/dest/:dest/date/:date', function(req, res) {
     var deliveryType = req.params.type.split("_"),
@@ -251,15 +258,16 @@ trips.get('/type/:type/source/:source/dest/:dest/date/:date', function(req, res)
 });
 
 /**
-* @api {put} /jabeja/api/trip/date/:date/email/:email/dest/:dest/source/:source/type/:type updateTrip.
+* @api {put} /jabeja/api/trip/date/:date/email/:email/dest/:dest/source/:source/type/:type/charge/:serviceCharge updateTrip.
 * @apiName updateTrip
 * @apiGroup Trip
 *
-* @apiParam {String} type Type of delivery. Type is concatinated string by underline "_" Ex: "document_money"
+* @apiParam {String} type Type of delivery. Type is concatinated string by underline "_" Ex: "document_box"
 * @apiParam {String} source Trip's source location.
 * @apiParam {String} dest Trip's dest location.
 * @apiParam {String} date Trip's date.
 * @apiParam {String} email Traveller's email.
+* @apiParam {String} serviceCharge Traveller's delivery service charge
 *
 * @apiSuccess {String} userFbId  Traveller's facebok id.
 * @apiSuccess {String} userName  Traveller's full name.
@@ -270,6 +278,7 @@ trips.get('/type/:type/source/:source/dest/:dest/date/:date', function(req, res)
 * @apiSuccess {String} dest  Traveller's destination location.
 * @apiSuccess {Date} travelDate  Travel date.
 * @apiSuccess {String} comment  Traveller's comment.
+* @apiSuccess {String} serviceCharge  Traveller's delivery service charge
 * @apiFailure {Number} 400  No such trip.
 * @apiFailure {Number} 500  Error getting trips.
 *
@@ -280,11 +289,12 @@ trips.get('/type/:type/source/:source/dest/:dest/date/:date', function(req, res)
 *       "userName" : "Foo Foobar",
 *       "userEmail" : "foo@facebook.com",
 *       "userPhone" : "+14259749694",
-*       "deliveryType" : ["document", "money"],
+*       "deliveryType" : ["document", "box"],
 *       "source" : "Seattle",
 *       "dest" : "Dallas",
 *       "travelDate" : "Wed Aug 17 2016",
-*       "comment" : "blah blah blah!"
+*       "comment" : "blah blah blah!",
+*       "serviceCharge" : "330"
 *     }
 *
 * @apiFailureExample Failure-Response:
@@ -294,13 +304,13 @@ trips.get('/type/:type/source/:source/dest/:dest/date/:date', function(req, res)
 *     }
 *
 */
-trips.put('/date/:date/email/:email/dest/:dest/source/:source/type/:type', function(req, res) {
+trips.put('/date/:date/email/:email/dest/:dest/source/:source/type/:type/charge/:serviceCharge', function(req, res) {
   var deliveryType = req.params.type.split("_"),
       source = req.params.source,
       dest = req.params.dest,
       travelDate = new Date(req.params.date).toISOString(),
-      email = req.params.email;
-  console.log(deliveryType + ", " + source + ", " + dest + ", " + travelDate + ", " + email)
+      email = req.params.email,
+      serviceCharge = Numver(req.params.serviceCharge);
 
     Model.findOne({
         userEmail: email,
@@ -326,6 +336,7 @@ trips.put('/date/:date/email/:email/dest/:dest/source/:source/type/:type', funct
               trip['dest'] = req.body['dest'] ? req.body['dest'] : trip['dest'];
               trip['travelDate'] = req.body['travelDate'] ? new Date(new Date(req.body['travelDate']).toISOString()) : trip['travelDate'];
               trip['comment'] = req.body['comment'] ? req.body['comment'] : trip['comment'];
+              trip['serviceCharge'] = req.body['serviceCharge'] ? Number(req.body['serviceCharge']) : 0;
               trip.save(function(err, updatedTrip){
                   if(err) {
                       return res.status(500).json({
@@ -353,7 +364,7 @@ trips.put('/date/:date/email/:email/dest/:dest/source/:source/type/:type', funct
 * @apiName deleteTrip
 * @apiGroup Trip
 *
-* @apiParam {String} type Type of delivery. Type is concatinated string by underline "_" Ex: "document_money"
+* @apiParam {String} type Type of delivery. Type is concatinated string by underline "_" Ex: "document_box"
 * @apiParam {String} source Trip's source location.
 * @apiParam {String} dest Trip's dest location.
 * @apiParam {String} date Trip's date.

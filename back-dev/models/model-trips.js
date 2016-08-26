@@ -15,7 +15,8 @@ var tripsSchema = new Schema({
     source: 'String',
     dest: 'String',
     travelDate: 'Date',
-    comment: 'String'
+    comment: 'String',
+    serviceCharge: 'Number'
 });
 
 module.exports = mongoose.model('trips', tripsSchema);
