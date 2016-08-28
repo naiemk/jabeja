@@ -198,7 +198,6 @@ trips.get('/:email', function(req, res) {
 * @apiParam {String} source Trip's source location.
 * @apiParam {String} dest Trip's dest location.
 * @apiParam {String} date Trip's date. Date format: YYYY-mm-dd.
-* @apiParam {String} serviceCharge Delivery service charge.
 *
 * @apiSuccess {Array} trips  Array of Trip information in json.
 * @apiFailure {Number} 400  No such trip.
@@ -228,22 +227,20 @@ trips.get('/:email', function(req, res) {
 *     }
 * @apiDescription This API is for listing upcomming trips with requested delivery options
 * and delivery date between now and requested travel date.
-* API Example:  jabeja/api/trip/type/doc/source/city1/dest/city2/date/2016-08-23/charge/20
+* API Example:  jabeja/api/trip/type/doc/source/city1/dest/city2/date/2016-08-23/
 */
-trips.get('/type/:type/source/:source/dest/:dest/date/:date/charge/:serviceCharge', function(req, res) {
+trips.get('/type/:type/source/:source/dest/:dest/date/:date/', function(req, res) {
     var deliveryType = req.params.type.split("_"),
         source = req.params.source,
         dest = req.params.dest,
         travelDate = new Date(req.params.date).toISOString(),
-        today = new Date().toISOString(),
-        serviceCharge = req.params.serviceCharge;
+        today = new Date().toISOString();
 
     Model.find({
         deliveryType: {'$in' : deliveryType},
         source: source,
         dest: dest,
-        travelDate: {'$gte' : new Date(today), '$lte': new Date(travelDate)},
-        serviceCharge: {'$lte' : Number(serviceCharge)}
+        travelDate: {'$gte' : new Date(today), '$lte': new Date(travelDate)}
       }, function(err, trips){
         if(err) {
             return res.status(500).json({
