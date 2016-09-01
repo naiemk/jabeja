@@ -31,7 +31,7 @@ var express = require('express'),
 *
 */
 zones.get('/', function(req, res) {
-    Model.find(function(err, zones) {
+    Model.find({'country_en': {'$ne' : 'Iran'}}, function(err, zones) {
         if(err) {
             return res.status(500).json({
                 message: 'Error getting zones.'

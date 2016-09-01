@@ -1,11 +1,13 @@
+'use strict'
+
 var express = require('express'),
     path = require('path'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
-    mongoose = require('mongoose');
-
-var databaseUrl = "localhost:27017/jabeja";
+    mongoose = require('mongoose'),
+    config = require('./config'),
+    databaseUrl = config.databaseUrl;
 
 var trip = require('./controllers/ctrl-trips');
 var user = require('./controllers/ctrl-users');
