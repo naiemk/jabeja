@@ -233,14 +233,16 @@ trips.get('/type/:type/source/:source/dest/:dest/date/:date/', function(req, res
     var deliveryType = req.params.type.split("_"),
         source = req.params.source,
         dest = req.params.dest,
-        travelDate = new Date(req.params.date).toISOString(),
+        fullTravelDate = new Date(req.params.date),
+        travelDateMonthAndYear = new Date(fullTravelDate.getFullYear(), fullTravelDate.getMonth(), 30).toISOString(),
         today = new Date().toISOString();
+
 
     Model.find({
         deliveryType: {'$in' : deliveryType},
         source: source,
         dest: dest,
-        travelDate: {'$gte' : new Date(today), '$lte': new Date(travelDate)}
+        travelDate: {'$gte' : new Date(today), '$lt': new Date(travelDateMonthAndYear)}
       }, function(err, trips){
         if(err) {
             return res.status(500).json({
