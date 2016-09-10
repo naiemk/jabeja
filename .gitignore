@@ -15,3 +15,6 @@ ios-dev/JabeJa/Pods/
 ios-dev/JabeJa/JabeJa.xcworkspace/xcuserdata/yektaie.xcuserdatad/UserInterfaceState.xcuserstate
 
 ios-dev/JabeJa/JabeJa.xcworkspace/xcuserdata/yektaie.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+
+bower_components
+web-client/app/framework/bower_components
