@@ -7,16 +7,19 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
     config = require('./config'),
-    databaseUrl = config.databaseUrl;
+    databaseUrl = config.databaseUrl,
+    passport = require('passport'),
+    jwt = require('jwt-simple');
 
 var trip = require('./controllers/ctrl-trips');
 var user = require('./controllers/ctrl-users');
 var zone = require('./controllers/ctrl-zones');
-
 var app = express();
 
 // connect to DB
-mongoose.connect(databaseUrl);
+mongoose.connect('mongodb://localhost/jabeja2');
+//setting up the passport config
+require('./config/passport')(passport);
 
 // uncomment after placing your favicon in /public
 app.use(logger('dev'));
@@ -24,6 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use('/jabeja/api/trip', trip);
 app.use('/jabeja/api/user', user);
