@@ -5,11 +5,18 @@ var express = require('express'),
     Model = require('../models/model-users.js'),
     passport = require('passport'),
     jwt = require('jwt-simple'),
-    authConfig = require('../config/auth');
+    authConfig = require('../config/auth'),
+    session = require('express-session'),
+    flash = require('connect-flash');
+
+users.use(session({ secret: authConfig.jwt.secret }));
+users.use(passport.initialize());
+users.use(passport.session());
+users.use(flash());
 
 /**
-* @api {post} /jabeja/api/user signup.
-* @apiName signup.
+* @api {post} /jabeja/api/user User SignUp
+* @apiName signup
 * @apiGroup User
 *
 * @apiParam {String} email  User's email address.
@@ -48,8 +55,8 @@ users.post('/signup', function(req, res) {
 });
 
 /**
-* @api {post} /jabeja/api/user authenticate.
-* @apiName signup.
+* @api {post} /jabeja/api/user Local Authentication
+* @apiName local auth
 * @apiGroup User
 *
 * @apiParam {String} email  User's email address.
@@ -60,7 +67,7 @@ users.post('/signup', function(req, res) {
 * @apiParam {String} phone  User's phone.
 * @apiParam {String} userFbId  User's facebook id.
 */
-users.post('/authenticate', function(req, res) {
+users.post('/auth', function(req, res) {
   Model.findOne({
     email: req.body.email
   }, function(err, user) {
@@ -81,8 +88,39 @@ users.post('/authenticate', function(req, res) {
 });
 
 /**
-* @api {get} /jabeja/api/user getUsers.
-* @apiName getUsers.
+* @api {get} /jabeja/api/user/auth/facebook Facebook Authentication
+* @apiName facebook auth
+* @apiGroup User
+*
+* @apiSuccessExample Success-Response:
+*     HTTP/1.1 200 OK
+*     {
+*        success : true
+*        token : jwt token
+*     }
+*
+* @apiFailureExample Failure-Response:
+*     HTTP/1.1 500 Error
+*     Unauthorized.
+*/
+users.get('/auth/facebook',
+  passport.authenticate('facebook', { scope: 'email' }));
+
+  /**
+  * @api {get} /jabeja/api/user/auth/facebook/callback Facebook Authentication callback
+  * @apiName facebook auth callback
+  * @apiGroup User
+  * @apiDescription This API is not for external usage. It has to be only called from Server.
+  */
+users.get('/auth/facebook/callback', passport.authenticate('facebook'),
+function(req, res) {
+  var token = req.user.jwtToken;
+  res.json({success: true, token: token});
+});
+
+/**
+* @api {get} /jabeja/api/user Get Users
+* @apiName get users
 * @apiGroup User
 * @apiSuccess {Array} users  Array of users' information in json.
 * @apiFailure {Number} 500  Error getting users.
@@ -124,7 +162,7 @@ users.get('/info', passport.authenticate('jwt', {session: false}), function(req,
 });
 
 /**
-* @api {put} /jabeja/api/user/update updateUser.
+* @api {put} /jabeja/api/user/update Update Users.
 * @apiName updateUser.
 * @apiGroup User
 *

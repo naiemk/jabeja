@@ -6,7 +6,6 @@ var mongoose = require('mongoose'),
 /**
  * user model file
  */
-
 var UserSchema = new Schema({
     email: {
       type: String,
@@ -17,11 +16,12 @@ var UserSchema = new Schema({
       type: String,
       required: true
     },
-    firstName: 'String',
-    middleName: 'String',
-    lastName: 'String',
-    phone: 'String',
-    userFbId: 'String'
+    firstName: String,
+    middleName: String,
+    lastName: String,
+    phone: String,
+    facebookId: String,
+    facebookToken: String
 });
 
 UserSchema.pre('save', function(next) {

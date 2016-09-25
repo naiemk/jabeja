@@ -6,11 +6,17 @@ var express = require('express'),
     User = require('../models/model-users.js'),
     passport = require('passport'),
     jwt = require('jwt-simple'),
-    authConfig = require('../config/auth');
+    authConfig = require('../config/auth'),
+    session = require('express-session'),
+    flash = require('connect-flash');
 
+trips.use(session({ secret: authConfig.jwt.secret }));
+trips.use(passport.initialize());
+trips.use(passport.session());
+trips.use(flash());
 /**
-* @api {get} /jabeja/api/trip getTrips.
-* @apiName getTrips
+* @api {get} /jabeja/api/trip Get Trips
+* @apiName get trips
 * @apiGroup Trip
 * @apiSuccess {Array} trips  Array of Trip information in json.
 * @apiFailure {Number} 500  Error getting trips.
@@ -34,6 +40,10 @@ var express = require('express'),
 *
 * @apiFailureExample Failure-Response:
 *     HTTP/1.1 500 Error
+*     Unauthorized.
+*
+* @apiFailureExample Failure-Response:
+*     HTTP/1.1 500 Error
 *     {
 *      "message" : "Error getting trips."
 *     }
@@ -42,12 +52,13 @@ var express = require('express'),
 trips.get('/', passport.authenticate('jwt', {session: false}), function(req, res) {
   var token = getToken(req.headers);
   var decoded = jwt.decode(token, authConfig.jwt.secret);
+
   User.findOne({
     email: decoded.email
   }, function(err, user) {
     if (err) throw err;
     if (!user) {
-      res.send({success: false, msg: 'Authentication failed. User not found.'});
+      return res.status(403).send({success: false, msg: 'Authentication failed. User not found.'});
     } else {
       Model.find(function(err, trips){
         if(err) {
@@ -62,8 +73,8 @@ trips.get('/', passport.authenticate('jwt', {session: false}), function(req, res
 });
 
 /**
-* @api {post} /jabeja/api/trip addTrip.
-* @apiName addTrip
+* @api {post} /jabeja/api/trip Add Trip
+* @apiName add trip
 * @apiGroup Trip
 *
 * @apiParam {String} userFbId  Traveller's facebok id.
@@ -86,6 +97,10 @@ trips.get('/', passport.authenticate('jwt', {session: false}), function(req, res
 *       message: 'saved',
 *       email: "foo@bar.com"
 *     }
+*
+* @apiFailureExample Failure-Response:
+*     HTTP/1.1 500 Error
+*     Unauthorized.
 *
 * @apiFailureExample Failure-Response:
 *     HTTP/1.1 500 Error
@@ -112,7 +127,7 @@ trips.post('/', passport.authenticate('jwt', {session: false}), function(req, re
             dest = req.body['dest'],
             travelDate = new Date(req.body['travelDate']).toISOString(),
             serviceCharge = req.body['serviceCharge'] ? Number(req.body['serviceCharge']) : 0,
-            facebookId = req.body['userFbId'] ? req.body['userFbId'] : "";
+            facebookId = user.facebookId ? user.facebookId : "";
         var trip = new Model({
             'userFbId': facebookId,
             'userName': decoded.firstName + " " + decoded.lastName,
@@ -161,8 +176,8 @@ trips.post('/', passport.authenticate('jwt', {session: false}), function(req, re
 });
 
 /**
-* @api {get} /jabeja/api/trip/:email getTravellersTrips.
-* @apiName getTravellersTrips
+* @api {get} /jabeja/api/trip/:email Get Passenger's Trips
+* @apiName get passenger's trips
 * @apiGroup Trip
 *
 * @apiParam {String} email User's unique email.
@@ -187,6 +202,9 @@ trips.post('/', passport.authenticate('jwt', {session: false}), function(req, re
 *         "serviceCharge" : "300"
 *       }
 *     ]
+* @apiFailureExample Failure-Response:
+*     HTTP/1.1 500 Error
+*     Unauthorized.
 *
 * @apiFailureExample Failure-Response:
 *     HTTP/1.1 500 Error
@@ -224,8 +242,8 @@ trips.get('/:email',  passport.authenticate('jwt', {session: false}), function(r
 });
 
 /**
-* @api {get} /jabeja/api/trip/type/:type/source/:srouce/dest/:dest/date/:date/charge/:serviceCharge searchTrips.
-* @apiName searchTrips.
+* @api {get} /jabeja/api/trip/type/:type/source/:srouce/dest/:dest/date/:date/charge/:serviceCharge Search Trips
+* @apiName search trips
 * @apiGroup Trip
 *
 * @apiParam {String} type Type of delivery. Type is concatinated string by underline "_" Ex: "document_box"
@@ -253,6 +271,9 @@ trips.get('/:email',  passport.authenticate('jwt', {session: false}), function(r
 *         "serviceCharge" : "400"
 *       }
 *     ]
+* @apiFailureExample Failure-Response:
+*     HTTP/1.1 500 Error
+*     Unauthorized.
 *
 * @apiFailureExample Failure-Response:
 *     HTTP/1.1 500 Error
@@ -302,5 +323,18 @@ trips.get('/type/:type/source/:source/dest/:dest/date/:date/', passport.authenti
       }
     });
 });
+
+function getToken(reqHeaders) {
+  if (reqHeaders && reqHeaders.authorization) {
+    var parted = reqHeaders.authorization.split(' ');
+    if (parted.length == 2) {
+      return parted[1];
+    } else {
+      return null;
+    }
+  } else {
+    return null;
+  }
+}
 
 module.exports = trips;
