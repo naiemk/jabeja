@@ -6,7 +6,7 @@ var mongoose = require('mongoose'),
  * trip model file
  */
 
-var tripsSchema = new Schema({
+var TripSchema = new Schema({
     userFbId: 'String',
     userName: 'String',
     userEmail: 'String',
@@ -19,4 +19,4 @@ var tripsSchema = new Schema({
     serviceCharge: 'Number'
 });
 
-module.exports = mongoose.model('trips', tripsSchema);
+module.exports = mongoose.model('trips', TripSchema);

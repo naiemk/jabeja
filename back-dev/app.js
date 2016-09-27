@@ -6,25 +6,37 @@ var express = require('express'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
-    config = require('./config'),
-    databaseUrl = config.databaseUrl;
+    passport = require('passport'),
+    jwt = require('jwt-simple'),
+    router = express.Router(),
+    flash = require('connect-flash'),
+    session = require('express-session'),
+    authConfig = require('./config/auth'),
+    databaseConfig =  require('./config/database');
 
 var trip = require('./controllers/ctrl-trips');
 var user = require('./controllers/ctrl-users');
 var zone = require('./controllers/ctrl-zones');
-
 var app = express();
 
 // connect to DB
-mongoose.connect(databaseUrl);
+mongoose.connect(databaseConfig.devDatabaseUrl);
 
-// uncomment after placing your favicon in /public
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//setting up the passport config
+app.use(session({ secret: authConfig.jwt.secret }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+require('./config/passport')(passport);
+
+//setting up routes
 app.use('/jabeja/api/trip', trip);
 app.use('/jabeja/api/user', user);
 app.use('/jabeja/api/zone', zone);
@@ -36,14 +48,12 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-// error handlers
-
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
+    res.status(500);
+    res.json({
       message: err.message,
       error: err
     });
@@ -53,10 +63,10 @@ if (app.get('env') === 'development') {
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
+  res.status(500);
+  res.json({
     message: err.message,
-    error: {}
+    error: err
   });
 });
 
