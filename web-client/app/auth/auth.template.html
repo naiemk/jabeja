@@ -1,0 +1,33 @@
+<div class="contained" ng-controller="AuthController">
+<header>
+    <div class="header-content">
+        <div class="inner">
+            <form class="form-signin">
+              <h1 class="cursive">JabeJa</h1>
+              <h4>1-2-1 Delivery Service</h4>
+              <hr>
+              <h2 class="form-signin-heading">Please sign in</h2>
+              <label for="inputEmail" class="sr-only">Email address</label>
+              <input type="email" id="inputEmail" class="form-control login" placeholder="Email address" required autofocus>
+              <br/>
+              <label for="inputPassword" class="sr-only">Password</label>
+              <input type="password" id="inputPassword" class="form-control login" placeholder="Password" required>
+              <div class="checkbox">
+                <label>
+                  <!-- <input type="checkbox" value="remember-me"> Remember me -->
+                </label>
+              </div>
+              <button class="btn btn-lg btn-primary btn-block login" type="submit">Sign in</button>
+            </form>
+            <button class="btn btn-lg btn-facebook btn-block login" ng-click="vm.facebookLogin()">Sign in with Facebook</button>
+
+
+
+            <!-- <a href="#video-background" id="toggleVideo" data-toggle="collapse" class="btn btn-primary btn-xl">Toggle Video</a> &nbsp; <a href="#one" class="btn btn-primary btn-xl page-scroll">Get Started</a> -->
+        </div>
+    </div>
+    <video autoplay="" loop="" class="fillWidth fadeIn wow collapse in" data-wow-delay="0.5s" poster="../public/pictures/snapshot.jpg" id="video-background">
+        <source src="../public/media/video/video.mp4" type="video/mp4">Your browser does not support the video tag. I suggest you upgrade your browser.
+    </video>
+</header>
+</div>

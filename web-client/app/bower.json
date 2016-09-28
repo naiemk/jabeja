@@ -1,0 +1,28 @@
+{
+  "name": "jabeja",
+  "homepage": "https://github.com/naiemk/jabeja",
+  "authors": [
+    "M.DIBAY"
+  ],
+  "description": "jabeja fron-end package manager",
+  "main": "",
+  "keywords": [
+    "AngularJS",
+    "ngRoute",
+    "Auth"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#^1.5.8",
+    "angular-route": "^1.5.8",
+    "bootstrap": "latest",
+    "bootstrap-social": "^5.0.0"
+  }
+}

@@ -10,7 +10,6 @@ var express = require('express'),
     jwt = require('jwt-simple'),
     router = express.Router(),
     flash = require('connect-flash'),
-    session = require('express-session'),
     authConfig = require('./config/auth'),
     databaseConfig =  require('./config/database');
 
@@ -22,15 +21,20 @@ var app = express();
 // connect to DB
 mongoose.connect(databaseConfig.devDatabaseUrl);
 
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
+    next();
+});
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../web-client/app')));
 
 //setting up the passport config
-app.use(session({ secret: authConfig.jwt.secret }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -40,6 +44,11 @@ require('./config/passport')(passport);
 app.use('/jabeja/api/trip', trip);
 app.use('/jabeja/api/user', user);
 app.use('/jabeja/api/zone', zone);
+
+
+app.get('/', function(req, res) {
+      res.sendFile('index.html');
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

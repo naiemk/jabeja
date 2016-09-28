@@ -1,5 +1,6 @@
 var JwtStrategy = require('passport-jwt').Strategy,
-    FacebookStrategy = require('passport-facebook').Strategy,
+    ExtractJwt = require('passport-jwt').ExtractJwt,
+    FacebookTokenStrategy = require('passport-facebook-token'),
     User = require('../models/model-users'),
     jwt = require('jwt-simple'),
     config = require('../config/auth');
@@ -17,6 +18,7 @@ module.exports = function(passport) {
 
   var opts = {};
   opts.secretOrKey = config.jwt.secret;
+  opts.jwtFromRequest = ExtractJwt.fromAuthHeader();
 
   passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
     User.findOne({id: jwt_payload.id}, function(err, user) {
@@ -29,13 +31,12 @@ module.exports = function(passport) {
     });
   }));
 
-  passport.use(new FacebookStrategy({
+  passport.use(new FacebookTokenStrategy({
       clientID: config.facebookAuth.clientID,
       clientSecret: config.facebookAuth.clientSecret,
       callbackURL: config.facebookAuth.callbackURL,
       profileFields: ['id', 'email', 'first_name', 'last_name']
-    }, function(token, refreshToken, profile, done) {
-      process.nextTick(function() {
+    }, function(accessToken, refreshToken, profile, done) {
         User.findOne({ 'facebookId': profile.id }, function(err, user) {
           if (err)
             return done(err);
@@ -45,7 +46,7 @@ module.exports = function(passport) {
           } else {
             var newUser = new User();
             newUser.facebookId = profile.id;
-            newUser.facebookToken = token;
+            newUser.facebookToken = accessToken;
             newUser.firstName = profile.name.givenName;
             newUser.lastName = profile.name.familyName;
             newUser.email = (profile.emails[0].value || '').toLowerCase();
@@ -60,6 +61,6 @@ module.exports = function(passport) {
             });
           }
         });
-      });
-  }));
+    }
+  ));
 };

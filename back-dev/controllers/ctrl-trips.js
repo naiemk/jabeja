@@ -7,10 +7,8 @@ var express = require('express'),
     passport = require('passport'),
     jwt = require('jwt-simple'),
     authConfig = require('../config/auth'),
-    session = require('express-session'),
     flash = require('connect-flash');
 
-trips.use(session({ secret: authConfig.jwt.secret }));
 trips.use(passport.initialize());
 trips.use(passport.session());
 trips.use(flash());

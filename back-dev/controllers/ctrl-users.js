@@ -6,10 +6,7 @@ var express = require('express'),
     passport = require('passport'),
     jwt = require('jwt-simple'),
     authConfig = require('../config/auth'),
-    session = require('express-session'),
     flash = require('connect-flash');
-
-users.use(session({ secret: authConfig.jwt.secret }));
 users.use(passport.initialize());
 users.use(passport.session());
 users.use(flash());
@@ -100,23 +97,22 @@ users.post('/auth', function(req, res) {
 *     }
 *
 * @apiFailureExample Failure-Response:
-*     HTTP/1.1 500 Error
-*     Unauthorized.
+*     {
+*        success : false
+*        msg: Unauthorized
+*     }
 */
-users.get('/auth/facebook',
-  passport.authenticate('facebook', { scope: 'email' }));
 
-  /**
-  * @api {get} /jabeja/api/user/auth/facebook/callback Facebook Authentication callback
-  * @apiName facebook auth callback
-  * @apiGroup User
-  * @apiDescription This API is not for external usage. It has to be only called from Server.
-  */
-users.get('/auth/facebook/callback', passport.authenticate('facebook'),
-function(req, res) {
-  var token = req.user.jwtToken;
-  res.json({success: true, token: token});
-});
+users.get('/auth/facebook/token',
+  passport.authenticate('facebook-token', {session: false}),
+  function (req, res) {
+    if (req.user) {
+      res.send({success: true, token: req.user.jwtToken});
+    } else {
+      res.status(401).send({success: false, msg: 'Unauthorized'});
+    }
+  }
+);
 
 /**
 * @api {get} /jabeja/api/user Get Users

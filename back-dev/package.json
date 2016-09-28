@@ -16,10 +16,9 @@
     "mongoose": "~4.1.9",
     "mongoose-scaffold-crud": "0.2.0",
     "passport": "^0.3.0",
-    "passport-facebook": "latest",
-    "passport-jwt": "^1.2.1",
+    "passport-facebook-token": "latest",
+    "passport-jwt": "2.1.0",
     "serve-favicon": "~2.3.0",
-    "connect-flash": "latest",
-    "express-session": "latest"
+    "connect-flash": "latest"
   }
 }
