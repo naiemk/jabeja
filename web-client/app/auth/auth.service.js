@@ -4,32 +4,53 @@
     .module('authApp')
     .factory('authService', authService);
 
-    authService.$inject = ['$http'];
+    authService.$inject = ['$http', 'utilServices', '$window'];
 
-    function authService($http) {
+    function authService($http, utilServices, $window) {
       var service = {
         signUp: signUp,
-        logIn: logIn,
-        facebookLogin: facebookLogin
+        localLogin: localLogin,
+        facebookLogin: facebookLogin,
+        logOut: logOut
       };
       return service;
 
       function facebookLogin(accessToken) {
-        return $http.get('/jabeja/api/user/auth/facebook/token?access_token=' + accessToken)
+        return $http.get('http://localhost:8080/jabeja/api/user/auth/facebook/token?access_token=' + accessToken)
           .then(getAuthToken)
           .catch(checkError)
       }
 
-      function logIn(username, password) {
-
+      function localLogin(username, password) {
+        var req = {
+          method: 'POST',
+          url: 'http://localhost:8080/jabeja/api/user/auth/local',
+          data: {email: username, password: password}
+        }
+        return $http(req)
+          .success(function(data) {
+            getAuthToken(undefined, data);
+          })
+          .error(function handler() {
+            console.log("error happend");
+          })
       }
 
       function signUp(username, password, email, firstName, lastName) {
 
       }
 
-      function getAuthToken(response) {
-        return response.data.token;
+      function getAuthToken(response, data) {
+        var token = (typeof data === "undefined") ?  response.data.token : data.token;
+        if (token.toLowerCase().startsWith("jwt")) {
+          return token.split(" ")[1];
+        }
+        return "unauthorized";
+      }
+
+      function logOut() {
+        utilServices.removeAuthToken();
+        $window.location.href = '#/auth';
       }
 
       function checkError(error) {

@@ -16,7 +16,9 @@ body {
 
 .login {
   width: 40%;
+  padding: 10px;
   margin: auto;
+  margin-bottom: 0.1em;
 }
 
 .view {
@@ -53,7 +55,7 @@ hr.light {
 }
 
 a {
-    color: #9c27b0;
+    color: white;
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
@@ -61,7 +63,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #9c27c1;
+    color: white;
     outline: 0;
 }
 

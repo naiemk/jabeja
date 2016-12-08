@@ -23,6 +23,8 @@
     "angular": "angularjs#^1.5.8",
     "angular-route": "^1.5.8",
     "bootstrap": "latest",
-    "bootstrap-social": "^5.0.0"
+    "bootstrap-social": "^5.0.0",
+    "moment-picker": "latest",
+    "angular-local-storage": "latest"
   }
 }

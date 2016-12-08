@@ -52,7 +52,7 @@ users.post('/signup', function(req, res) {
 });
 
 /**
-* @api {post} /jabeja/api/user Local Authentication
+* @api {post} /jabeja/api/user/auth/local Local Authentication
 * @apiName local auth
 * @apiGroup User
 *
@@ -64,20 +64,20 @@ users.post('/signup', function(req, res) {
 * @apiParam {String} phone  User's phone.
 * @apiParam {String} userFbId  User's facebook id.
 */
-users.post('/auth', function(req, res) {
+users.post('/auth/local', function(req, res) {
   Model.findOne({
     email: req.body.email
   }, function(err, user) {
     if (err) throw err;
     if (!user) {
-      res.send({success: false, msg: 'Authentication failed. User not found.'});
+      res.send({success: false, token: 'Authentication failed. User not found.'});
     } else {
       user.comparePassword(req.body.password, function(error, isMatch) {
         if (isMatch && !error) {
           var token = jwt.encode(user, authConfig.jwt.secret);
           res.json({success: true, token: 'JWT ' + token});
         } else {
-          res.send({success: false, msg: 'Authentication failed. Wrong password.'});
+          res.send({success: false, token: 'Authentication failed. Wrong password.'});
         }
       });
     }

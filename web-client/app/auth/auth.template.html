@@ -2,28 +2,51 @@
 <header>
     <div class="header-content">
         <div class="inner">
-            <form class="form-signin">
+            <div ng-click="vm.closeAlert()" ng-show="vm.authError" class="alert alert-danger fade in">
+                <a class="close" data-dismiss="alert">&times;</a>
+                <strong>Error!</strong> Invalid Username or Password.
+            </div>
+            <div ng-click="vm.closeAlert()" ng-show="vm.userNotFound" class="alert alert-danger fade in">
+                <a class="close" data-dismiss="alert">&times;</a>
+                <strong>Error!</strong> User does not exist.
+            </div>
+            <form ng-hide="vm.signUp" class="form-signin">
               <h1 class="cursive">JabeJa</h1>
               <h4>1-2-1 Delivery Service</h4>
               <hr>
               <h2 class="form-signin-heading">Please sign in</h2>
-              <label for="inputEmail" class="sr-only">Email address</label>
-              <input type="email" id="inputEmail" class="form-control login" placeholder="Email address" required autofocus>
-              <br/>
-              <label for="inputPassword" class="sr-only">Password</label>
-              <input type="password" id="inputPassword" class="form-control login" placeholder="Password" required>
-              <div class="checkbox">
-                <label>
-                  <!-- <input type="checkbox" value="remember-me"> Remember me -->
-                </label>
-              </div>
-              <button class="btn btn-lg btn-primary btn-block login" type="submit">Sign in</button>
+              <input type="email" ng-model="vm.username" class="form-control login" placeholder="Email address" required autofocus>
+              <input type="password" ng-model="vm.password" class="form-control login" placeholder="Password" required>
+              <hr>
+              <a ng-click="vm.createNewUser()">Sign up!</a>
+              <input type="checkbox" ng-model="vm.keepToken">  Keep me login</input>
+              <button class="btn btn-lg btn-primary btn-block login" ng-click="vm.localLogin()">Sign in</button>
+              <button class="btn btn-lg btn-facebook btn-block login" ng-click="vm.facebookLogin()">Sign in with Facebook</button>
             </form>
-            <button class="btn btn-lg btn-facebook btn-block login" ng-click="vm.facebookLogin()">Sign in with Facebook</button>
 
+            <form ng-show="vm.signUp" class="form-signin">
+              <h2 class="form-signin-heading">Sign Up For a Free JabeJa Account</h2>
+              <hr>
+              <input ng-model="vm.firstName" class="form-control login" placeholder="First Name" required autofocus>
+              <input ng-model="vm.lastName" class="form-control login" placeholder="Last Name" required autofocus>
+              <input type="email" ng-model="vm.username" class="form-control login" placeholder="Email address" required autofocus>
+              <input type="password" ng-model="vm.password" class="form-control login" placeholder="Password" required>
+              <h4> Birthday </h4>
 
+              <div class="input-group login"
+                   moment-picker="vm.birthday"
+                   format="YYYY-MM-DD">
+                  <span class="input-group-addon">
+                      <i class="octicon octicon-calendar"></i>
+                  </span>
+                  <input class="form-control"
+                         placeholder="Select a date"
+                         ng-model="vm.birthday"
+                         ng-model-options="{ updateOn: 'blur' }">
+              </div>
+              <button class="btn btn-lg btn-primary btn-block login" ng-click="vm.localLogin()">Sign Up</button>
+            </form>
 
-            <!-- <a href="#video-background" id="toggleVideo" data-toggle="collapse" class="btn btn-primary btn-xl">Toggle Video</a> &nbsp; <a href="#one" class="btn btn-primary btn-xl page-scroll">Get Started</a> -->
         </div>
     </div>
     <video autoplay="" loop="" class="fillWidth fadeIn wow collapse in" data-wow-delay="0.5s" poster="../public/pictures/snapshot.jpg" id="video-background">

@@ -2,20 +2,29 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" media="screen">
-    <link rel="stylesheet" href="bower_components/bootstrap-social/bootstrap-social.css" media="screen">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen">
     <link rel="stylesheet" href="public/style/app.css" media="screen">
+    <link rel="stylesheet" href="bower_components/moment-picker/dist/angular-moment-picker.min.css" media="screen">
     <title></title>
   </head>
   <body ng-app="jabejaApp">
+    <div ng-include="navigator.html"></div>
     <div class="view" ng-view>
     </div>
     <script src="bower_components/angular/angular.js" charset="utf-8"></script>
     <script src="bower_components/angular-route/angular-route.js" charset="utf-8"></script>
+    <script src="bower_components/moment/min/moment.min.js" charset="utf-8"></script>
+    <script src="bower_components/moment-picker/dist/angular-moment-picker.js" charset="utf-8"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
     <script src="app.js" charset="utf-8"></script>
+    <script src="utils/util.module.js" charset="utf-8"></script>
+    <script src="utils/utils.service.js" charset="utf-8"></script>
     <script src="auth/auth.module.js" charset="utf-8"></script>
     <script src="auth/auth.service.js" charset="utf-8"></script>
     <script src="auth/auth.controller.js" charset="utf-8"></script>
+    <script src="trip/trip.module.js" charset="utf-8"></script>
+    <script src="trip/trip.controller.js" charset="utf-8"></script>
     <script src="config/app.config.js" charset="utf-8"></script>
+    <script src="public/js/style.js" charset="utf-8"></script>
   </body>
 </html>

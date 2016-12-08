@@ -1,7 +1,7 @@
 (function(){
   'use strict';
    angular
-    .module('authApp', []);
+    .module('authApp', ['moment-picker']);
 
   window.fbAsyncInit = function() {
    FB.init({
