@@ -47,7 +47,7 @@ app.use('/jabeja/api/zone', zone);
 
 
 app.get('/', function(req, res) {
-      res.sendFile('index.html');
+  res.sendFile('index.html');
 });
 
 // catch 404 and forward to error handler

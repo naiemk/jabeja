@@ -16,7 +16,7 @@
       return service;
 
       function facebookLogin(accessToken) {
-        return $http.get('http://localhost:8080/jabeja/api/user/auth/facebook/token?access_token=' + accessToken)
+        return $http.get('http://localhost:8000/jabeja/api/user/auth/facebook/token?access_token=' + accessToken)
           .then(getAuthToken)
           .catch(checkError)
       }
@@ -24,7 +24,7 @@
       function localLogin(username, password) {
         var req = {
           method: 'POST',
-          url: 'http://localhost:8080/jabeja/api/user/auth/local',
+          url: 'http://localhost:8000/jabeja/api/user/auth/local',
           data: {email: username, password: password}
         }
         return $http(req)
